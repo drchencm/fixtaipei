@@ -328,35 +328,29 @@
         </div>
     </footer>
 
-    <!-- Booking Modal (Notion 表單嵌入版) -->
+    <!-- Booking Modal (Notion 連結引導版) -->
     <div id="bookingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl relative max-h-[90vh] flex flex-col">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative text-center">
             <!-- 關閉按鈕 -->
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold z-10">✕</button>
             
-            <h3 class="text-xl font-bold text-slate-900 mb-1">預約到府電腦維修</h3>
-            <p class="text-slate-500 text-sm mb-4">請填寫以下表單，我們將儘速為您安排工程師。</p>
-            
-            <!-- Notion 表單 內嵌 -->
-            <div class="w-full flex-1 min-h-[500px] overflow-hidden rounded-lg border border-slate-100">
-                <iframe 
-                    src="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" 
-                    width="100%" 
-                    height="500" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    class="w-full h-full rounded-lg">
-                    載入中…
-                </iframe>
+            <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-clipboard-list"></i>
             </div>
+
+            <h3 class="text-xl font-bold text-slate-900 mb-2">預約到府電腦維修</h3>
+            <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                我們將使用 Notion 線上表單為您登記預約需求。點擊下方按鈕即可前往填寫！
+            </p>
             
-            <!-- 備用按鈕：若嵌入載入較慢可直接跳轉 -->
-            <div class="mt-3 text-center">
-                <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="text-xs text-brand-600 hover:underline">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> 表單無法顯示？點此開啟新視窗填寫
-                </a>
-            </div>
+            <!-- 前往 Notion 表單按鈕 -->
+            <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" onclick="closeModal()" class="block w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-brand-500/20 transition mb-3">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> 前往填寫預約表單
+            </a>
+            
+            <button onclick="closeModal()" class="text-xs text-slate-400 hover:text-slate-600">
+                稍後再說，關閉視窗
+            </button>
         </div>
     </div>
 
