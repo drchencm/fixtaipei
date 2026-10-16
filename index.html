@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixTaipei 台北電腦宅修 | 專業到府電腦維修與 IT 顧問服務</title>
+    <meta name="description" content="台北地區專業電腦到府維修服務！Windows/Mac 故障排除、系統重灌、硬體升級、Wi-Fi 網路架設與企業 IT 維護。免出門、先報價後維修，透明安心。">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Font Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 text-2xl font-black text-brand-900 tracking-tight">
+                <i class="fa-solid fa-wrench text-brand-500"></i>
+                Fix<span class="text-brand-500">Taipei</span>
+                <span class="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium ml-1">台北電腦宅修</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                <a href="#advantages" class="hover:text-brand-500 transition">服務優勢</a>
+                <a href="#services" class="hover:text-brand-500 transition">維修項目</a>
+                <a href="#calculator" class="hover:text-brand-500 transition">費用估價</a>
+                <a href="#faq" class="hover:text-brand-500 transition">常見問題</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="https://line.me" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-[#00B900] hover:bg-[#009900] text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
+                    <i class="fa-brands fa-line text-lg"></i>
+                    LINE 諮詢
+                </a>
+                <button onclick="openModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
+                    立即預約
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-brand-50/50 via-white to-slate-50 py-16 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold mb-6">
+                        <i class="fa-solid fa-truck-fast"></i> 台北市／新北市快速到府
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                        電腦故障不必搬！<br>
+                        <span class="text-brand-600">專業工程師直接到府</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        告別大包小包搬主機的狼狽！台北最迅速、透明的 PC/Mac 到府維修與企業 IT 顧問服務。現場檢測，透明報價，修好才收費。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <button onclick="openModal()" class="inline-flex justify-center items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-brand-500/20 transition">
+                            <i class="fa-solid fa-calendar-check"></i> 預約工程師到府
+                        </button>
+                        <a href="tel:0900000000" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3.5 rounded-xl text-lg font-semibold shadow-sm transition">
+                            <i class="fa-solid fa-phone text-brand-500"></i> 電話專線諮詢
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 text-sm text-slate-500 font-medium">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 先報價後維修</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 絕不亂加價</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 完工售後保障</span>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Card -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-slate-100">
+                        <div class="flex items-center justify-between border-b pb-4 mb-6">
+                            <span class="font-bold text-slate-800 text-lg">💡 常見電腦急救案例</span>
+                            <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">現場排除率 95%+</span>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
+                                <div class="bg-red-100 text-red-600 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-desktop"></i></div>
+                                <div>
+                                    <div class="font-bold text-slate-800">開機黑屏／藍屏死機</div>
+                                    <div class="text-sm text-slate-500">記憶體金手指氧化、電源供應器故障排查</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
+                                <div class="bg-amber-100 text-amber-600 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-gauge-high"></i></div>
+                                <div>
+                                    <div class="font-bold text-slate-800">電腦速度極慢／老舊升級</div>
+                                    <div class="text-sm text-slate-500">傳統硬碟換裝 SSD 固態硬碟，效能立刻提升 5 倍</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
+                                <div class="bg-blue-100 text-blue-600 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-wifi"></i></div>
+                                <div>
+                                    <div class="font-bold text-slate-800">居家／辦公室 Wi-Fi 訊號死角</div>
+                                    <div class="text-sm text-slate-500">Mesh Mesh 無縫漫遊網路規劃與網路線抽換</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Advantages -->
+    <section id="advantages" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">為什麼選擇 FixTaipei？</h2>
+                <p class="text-slate-600">我們用最專業技術與透明服務，解決您所有的數位煩惱。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-brand-500 text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-house-laptop"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">免出門，到府服務</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        一通電話或線上預約，工程師配合您的時間上門處理。免去拆裝線路、搬運重量主機的困擾。
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-brand-500 text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">先報價，後維修</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        現場檢測確認故障原因後，說明修復方式與明確費用。經您同意後才開始施工，絕不隨意加價。
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-brand-500 text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">PC / Mac 全對應</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        不管是 Windows 品牌桌機、DIY 組裝機，還是 Apple Mac、NAS 網路儲存設備，皆能提供專業解決方案。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">服務項目</h2>
+                <p class="text-slate-600">從個人電腦維護到企業 IT 支援，全方位滿足您的需求。</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
+                    <div class="text-brand-500 text-3xl mb-4"><i class="fa-solid fa-microchip"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">硬體檢測與更換</h4>
+                    <p class="text-slate-500 text-sm">主機板、顯示卡、電源供應器檢測，SSD/記憶體升級施工。</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
+                    <div class="text-brand-500 text-3xl mb-4"><i class="fa-brands fa-windows"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">系統重灌與優化</h4>
+                    <p class="text-slate-500 text-sm">Windows / macOS 正版系統重灌、病毒清理、開機卡頓加速。</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
+                    <div class="text-brand-500 text-3xl mb-4"><i class="fa-solid fa-network-wired"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">網路與 Mesh 架設</h4>
+                    <p class="text-slate-500 text-sm">居家/店面 Wi-Fi 訊號優化、Mesh 全屋漫遊、網路拉線與路由器設定。</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
+                    <div class="text-brand-500 text-3xl mb-4"><i class="fa-solid fa-building"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-2">企業 IT 與 NAS 備份</h4>
+                    <p class="text-slate-500 text-sm">中小企業定期維護外包、NAS 私有雲建立、自動化備份與資安防護。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fee Estimator Calculator -->
+    <section id="calculator" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brand-900 to-slate-900 text-white rounded-2xl p-8 shadow-xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-2">🧮 線上服務費用估算器</h2>
+                    <p class="text-slate-300 text-sm">預先試算檢測與基本服務費用，費用透明安心。</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">選擇服務類別</label>
+                            <select id="serviceType" onchange="calculateFee()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-3 focus:outline-none focus:border-brand-500">
+                                <option value="500">電腦基本檢測 / 故障排除 (NT$ 500)</option>
+                                <option value="1200">系統重灌 + 驅動完整安裝 (NT$ 1,200)</option>
+                                <option value="1000">硬體更換 / SSD 複製轉移 (NT$ 1,000)</option>
+                                <option value="1500">Wi-Fi 網路架設 / Mesh 設定 (NT$ 1,500)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">到府區域</label>
+                            <select id="location" onchange="calculateFee()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-3 focus:outline-none focus:border-brand-500">
+                                <option value="300">台北市核心區 (車馬費 NT$ 300)</option>
+                                <option value="500">新北市核心區 (車馬費 NT$ 500)</option>
+                                <option value="800">偏遠/山區 (車馬費 NT$ 800)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
+                        <div class="text-slate-400 text-sm mb-1">預估基本費用</div>
+                        <div class="text-4xl font-extrabold text-brand-400 mb-2" id="totalFee">NT$ 800</div>
+                        <div class="text-xs text-slate-400 leading-relaxed mb-4">
+                            * 實際費用依現場硬體損壞狀況與更換零件材料費為準。工程師檢測後會先進行完整報價。
+                        </div>
+                        <button onclick="openModal()" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg transition">
+                            以此試算預約工程師
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq" class="py-16 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">常見問題 FAQ</h2>
+                <p class="text-slate-600">整理顧客常見疑問，為您解答。</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-50">
+                        <span>Q1: 到府檢測後，如果決定不修需要付費嗎？</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-1" class="hidden p-4 border-t border-slate-100 text-slate-600 text-sm leading-relaxed">
+                        工程師到府檢測後會提供詳細報價。若檢測後因零件停產或個人因素評估後決定放棄維修，僅需支付 기본 到府檢測與車馬費用，絕不收取額外施工費。
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-50">
+                        <span>Q2: 維修過程會不會導致電腦裡的照片與資料遺失？</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-2" class="hidden p-4 border-t border-slate-100 text-slate-600 text-sm leading-relaxed">
+                        我們極度重視客戶資料安全！進行任何系統重灌或硬體更換前，工程師皆會先與您確認重要資料並進行備份保護。
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-50">
+                        <span>Q3: 預約到府維修最快多久可以抵達？</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-answer-3" class="hidden p-4 border-t border-slate-100 text-slate-600 text-sm leading-relaxed">
+                        台北市與新北市核心區域，若當日行程允許，最快可在 2 小時內安排工程師出勤；建議提前透過 LINE 線上預約最理想的時間。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <div class="flex items-center gap-2 text-2xl font-black text-white mb-4">
+                    <i class="fa-solid fa-wrench text-brand-500"></i> FixTaipei
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                    台北地區最值得信賴的電腦宅修團隊，提供到府維修、網路架設與企業 IT 維護服務。
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">快速連結</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#advantages" class="hover:text-white transition">服務優勢</a></li>
+                    <li><a href="#services" class="hover:text-white transition">服務項目</a></li>
+                    <li><a href="#calculator" class="hover:text-white transition">費用估價</a></li>
+                    <li><a href="#faq" class="hover:text-white transition">常見問題</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">聯絡我們</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fa-solid fa-globe w-5 text-brand-500"></i> www.fixtaipei.com</li>
+                    <li><i class="fa-solid fa-location-dot w-5 text-brand-500"></i> 台北市全區到府服務</li>
+                    <li><i class="fa-brands fa-line w-5 text-[#00B900]"></i> LINE ID: @fixtaipei</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 pt-8 text-center text-xs">
+            © 2026 FixTaipei 台北電腦宅修. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">預約到府電腦維修</h3>
+            <p class="text-slate-500 text-sm mb-4">請填寫基本資訊，我們將儘快安排專人與您聯繫。</p>
+            
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">您的姓名</label>
+                    <input type="text" required placeholder="例如：陳先生" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">聯絡電話</label>
+                    <input type="tel" required placeholder="例如：0912-345-678" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">故障狀況簡述</label>
+                    <textarea rows="3" placeholder="例如：電腦開機無畫面，或是開機嗶嗶叫..." class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-lg shadow-md transition">
+                    確認送出預約
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // 費用計算腳本
+        function calculateFee() {
+            const service = parseInt(document.getElementById('serviceType').value);
+            const location = parseInt(document.getElementById('location').value);
+            const total = service + location;
+            document.getElementById('totalFee').innerText = 'NT$ ' + total.toLocaleString();
+        }
+
+        // FAQ 折疊展開腳本
+        function toggleFaq(id) {
+            const answer = document.getElementById(`faq-answer-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Modal 控制腳本
+        function openModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('感謝您的預約！專人將於 15 分鐘內透過電話與您確認詳細地址與時間。');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
