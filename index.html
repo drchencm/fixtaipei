@@ -47,6 +47,7 @@
                 <a href="#advantages" class="hover:text-brand-500 transition">服務優勢</a>
                 <a href="#services" class="hover:text-brand-500 transition">維修項目</a>
                 <a href="#calculator" class="hover:text-brand-500 transition">費用估價</a>
+                <a href="#support" class="hover:text-brand-500 transition">客服管道</a>
                 <a href="#faq" class="hover:text-brand-500 transition">常見問題</a>
             </nav>
 
@@ -86,7 +87,6 @@
                         <a href="tel:0905632321" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3.5 rounded-xl text-lg font-semibold shadow-sm transition">
                             <i class="fa-solid fa-phone text-brand-500"></i> 電話專線諮詢
                         </a>
-                        <!-- 新增的線上即時諮詢按鈕 -->
                         <button onclick="$crisp.push(['do', 'chat:open']);" class="inline-flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-emerald-500/20 transition">
                             <i class="fa-solid fa-comments"></i> 線上即時諮詢
                         </button>
@@ -259,8 +259,48 @@
         </div>
     </section>
 
+    <!-- Multi-Channel Support Section -->
+    <section id="support" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">多元客服與社群管道</h2>
+                <p class="text-slate-600">選擇您最習慣的通訊軟體與我們聯繫，隨時為您解答電腦疑難雜症。</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- LINE -->
+                <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-[#00B900] text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-line"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">LINE 官方客服</h4>
+                    <p class="text-slate-500 text-xs">ID: @621bvlyb</p>
+                </a>
+
+                <!-- Facebook -->
+                <a href="#" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-blue-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-facebook"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">Facebook 客服</h4>
+                    <p class="text-slate-500 text-xs">私訊粉專即時回覆</p>
+                </a>
+
+                <!-- Instagram -->
+                <a href="#" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-pink-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">Instagram 客服</h4>
+                    <p class="text-slate-500 text-xs">小盒子隨時在線</p>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="#" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-emerald-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">WhatsApp 客服</h4>
+                    <p class="text-slate-500 text-xs">快速文字對話</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Accordion -->
-    <section id="faq" class="py-16 bg-slate-50">
+    <section id="faq" class="py-16 bg-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">常見問題 FAQ</h2>
@@ -268,32 +308,32 @@
             </div>
 
             <div class="space-y-4">
-                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-50">
+                <div class="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-100">
                         <span>Q1: 到府檢測後，如果決定不修需要付費嗎？</span>
                         <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="faq-answer-1" class="hidden p-4 border-t border-slate-100 text-slate-600 text-sm leading-relaxed">
+                    <div id="faq-answer-1" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
                         工程師到府檢測後會提供詳細報價。若檢測後因零件停產或個人因素評估後決定放棄維修，僅需支付基本到府檢測與車馬費用，絕不收取額外施工費。
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-50">
+                <div class="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-100">
                         <span>Q2: 維修過程會不會導致電腦裡的照片與資料遺失？</span>
                         <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="faq-answer-2" class="hidden p-4 border-t border-slate-100 text-slate-600 text-sm leading-relaxed">
+                    <div id="faq-answer-2" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
                         我們極度重視客戶資料安全！進行任何系統重灌或硬體更換前，工程師皆會先與您確認重要資料並進行備份保護。
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
-                    <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-50">
+                <div class="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-100">
                         <span>Q3: 預約到府維修最快多久可以抵達？</span>
                         <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="faq-answer-3" class="hidden p-4 border-t border-slate-100 text-slate-600 text-sm leading-relaxed">
+                    <div id="faq-answer-3" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
                         台北市與新北市核心區域，若當日行程允許，最快可在 2 小時內安排工程師出勤；建議提前透過 LINE 線上預約最理想的時間。
                     </div>
                 </div>
@@ -318,15 +358,19 @@
                     <li><a href="#advantages" class="hover:text-white transition">服務優勢</a></li>
                     <li><a href="#services" class="hover:text-white transition">服務項目</a></li>
                     <li><a href="#calculator" class="hover:text-white transition">費用估價</a></li>
+                    <li><a href="#support" class="hover:text-white transition">客服管道</a></li>
                     <li><a href="#faq" class="hover:text-white transition">常見問題</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">聯絡我們</h4>
+                <h4 class="text-white font-bold mb-4">多元客服中心</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><i class="fa-solid fa-globe w-5 text-brand-500"></i> www.fixtaipei.com</li>
                     <li><i class="fa-solid fa-location-dot w-5 text-brand-500"></i> 台北市全區到府服務</li>
-                    <li><i class="fa-brands fa-line w-5 text-[#00B900]"></i> LINE ID: @621bvlyb</li>
+                    <li><i class="fa-brands fa-line w-5 text-[#00B900]"></i> LINE 官方帳號: @621bvlyb</li>
+                    <li><i class="fa-brands fa-facebook w-5 text-blue-500"></i> Facebook 客服</li>
+                    <li><i class="fa-brands fa-instagram w-5 text-pink-500"></i> Instagram 客服</li>
+                    <li><i class="fa-brands fa-whatsapp w-5 text-emerald-500"></i> WhatsApp 客服</li>
+                    <li><i class="fa-brands fa-microsoft w-5 text-blue-400"></i> Teams 客服 (企業 IT 專用)</li>
                 </ul>
             </div>
         </div>
