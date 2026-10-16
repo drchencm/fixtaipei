@@ -77,14 +77,21 @@
                     <p class="text-lg text-slate-600 mb-8 leading-relaxed">
                         告別大包小包搬主機的狼狽！台北最迅速、透明的 PC/Mac 到府維修與企業 IT 顧問服務。現場檢測，透明報價，修好才收費。
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    
+                    <!-- 按鈕群組 -->
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
                         <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="inline-flex justify-center items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-brand-500/20 transition">
                             <i class="fa-solid fa-calendar-check"></i> 預約工程師到府
                         </a>
                         <a href="tel:0905632321" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3.5 rounded-xl text-lg font-semibold shadow-sm transition">
                             <i class="fa-solid fa-phone text-brand-500"></i> 電話專線諮詢
                         </a>
+                        <!-- 新增的線上即時諮詢按鈕 -->
+                        <button onclick="$crisp.push(['do', 'chat:open']);" class="inline-flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-emerald-500/20 transition">
+                            <i class="fa-solid fa-comments"></i> 線上即時諮詢
+                        </button>
                     </div>
+
                     <div class="flex items-center gap-6 text-sm text-slate-500 font-medium">
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 先報價後維修</span>
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 絕不亂加價</span>
