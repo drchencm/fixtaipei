@@ -82,7 +82,7 @@
                             <i class="fa-solid fa-calendar-check"></i> 預約工程師到府
                         </button>
                         <a href="tel:0905632321" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3.5 rounded-xl text-lg font-semibold shadow-sm transition">
-                            <i class="fa-solid fa-phone text-brand-500"></i> 0905-632-321
+                            <i class="fa-solid fa-phone text-brand-500"></i> 電話專線諮詢
                         </a>
                     </div>
                     <div class="flex items-center gap-6 text-sm text-slate-500 font-medium">
@@ -367,24 +367,4 @@
         // FAQ 折疊展開腳本
         function toggleFaq(id) {
             const answer = document.getElementById(`faq-answer-${id}`);
-            const icon = document.getElementById(`faq-icon-${id}`);
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                icon.classList.add('rotate-180');
-            } else {
-                answer.classList.add('hidden');
-                icon.classList.remove('rotate-180');
-            }
-        }
-
-        // Modal 控制腳本
-        function openModal() {
-            document.getElementById('bookingModal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('bookingModal').classList.add('hidden');
-        }
-    </script>
-</body>
-</html>
+            const icon = document.getElementById(`faq-
