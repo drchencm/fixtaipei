@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixTaipei 台北電腦宅修 | 電子名片</title>
+    <!-- 引入 Font Awesome 繽紛圖示庫 -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #0fbcf9;
+            --success-color: #059669;
+            --vip-gold: #d97706;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 10px;
+        }
+
+        /* 名片外殼 (手機黃金比例寬度) */
+        .card-container {
+            width: 100%;
+            max-width: 410px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+
+        /* 頂部形象橫幅 */
+        .card-banner {
+            width: 100%;
+            height: 110px;
+            background: linear-gradient(90deg, #1e40af, #2563eb, #3b82f6);
+            position: relative;
+        }
+
+        .card-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, rgba(30, 41, 59, 0.9), transparent);
+        }
+
+        /* 大頭貼 / Logo 區 */
+        .avatar-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: -55px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #1e293b;
+            border: 4px solid #2563eb;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 42px;
+        }
+
+        /* 個人/品牌基本資訊 */
+        .profile-info {
+            text-align: center;
+            padding: 15px 20px 10px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-name span {
+            color: var(--secondary-color);
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .badge.highlight {
+            background: rgba(37, 99, 235, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+
+        /* 核心痛點速寫 */
+        .intro-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            margin: 0 20px 20px;
+            padding: 12px 15px;
+            border-radius: 16px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #cbd5e1;
+            text-align: center;
+        }
+
+        /* 主要行動呼籲 (雙大按鈕) */
+        .primary-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0 20px 20px;
+        }
+
+        .btn-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 10px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-action i {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .btn-line { background: #06c755; }
+        .btn-line:hover { background: #05b04b; transform: translateY(-2px); }
+        .btn-phone { background: var(--primary-color); }
+        .btn-phone:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+        /* 分組標題 */
+        .section-title {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* 數位名片連結清單 */
+        .links-list {
+            padding: 0 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 14px 18px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateX(4px);
+        }
+
+        .link-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            margin-right: 14px;
+            color: #ffffff;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .link-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .arrow-icon {
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+
+        /* 專屬主題Icon顏色 */
+        .bg-web { background: #3b82f6; }
+        .bg-calc { background: #8b5cf6; }
+        .bg-vip { background: #f59e0b; }
+        .bg-fb { background: #1877f2; }
+        .bg-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .bg-wa { background: #25d366; }
+
+        /* 頁尾版權 */
+        .card-footer {
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.25);
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- 頂部高質感背景 -->
+        <div class="card-banner"></div>
+
+        <!-- 品牌/大頭照頭像 -->
+        <div class="avatar-wrapper">
+            <div class="avatar">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
+        </div>
+
+        <!-- 基本資料區 -->
+        <div class="profile-info">
+            <h1 class="brand-name">FixTaipei <span>台北電腦宅修</span></h1>
+            <p class="tagline">專業到府電腦維修與中小企業 IT 顧問服務</p>
+            
+            <div class="badge-container">
+                <span class="badge highlight"><i class="fa-solid fa-location-dot"></i> 雙北快速到府</span>
+                <span class="badge">現場排除率 95%+</span>
+                <span class="badge">先報價後維修</span>
+            </div>
+        </div>
+
+        <!-- 核心痛點簡短簡介 -->
+        <div class="intro-box">
+            💡 <strong>電腦故障不必搬！</strong><br>
+            告別大包小包搬主機的狼狽，現場透明報價，提供 PC / Mac 全方位急救與 Wi-Fi 訊號優化。
+        </div>
+
+        <!-- 核心行動呼籲按鈕 (LINE & 電話) -->
+        <div class="primary-actions">
+            <a href="https://line.me" class="btn-action btn-line" target="_blank">
+                <i class="fa-brands fa-line"></i>
+                <span>LINE 即時諮詢</span>
+            </a>
+            <a href="tel:0905632321" class="btn-action btn-phone">
+                <i class="fa-solid fa-phone"></i>
+                <span>電話專線諮詢</span>
+            </a>
+        </div>
+
+        <!-- 服務連結區段 -->
+        <div class="section-title">服務與維修試算</div>
+        <div class="links-list">
+            <!-- 官方網站 -->
+            <a href="https://fixtaipei.com" class="link-item" target="_blank">
+                <div class="link-icon bg-web">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-name">官方網站</div>
+                    <div class="link-desc">查看全方位維修項目與完整企業外包合約</div>
+                </div>
