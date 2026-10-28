@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FixTaipei 台北電腦宅修 | 電子名片</title>
-    <!-- 引入 Font Awesome 繽紛圖示庫 -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- 引入正確的 Font Awesome 繽紛圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #2563eb;
@@ -85,11 +85,16 @@
             background: #1e293b;
             border: 4px solid #2563eb;
             box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #ffffff;
-            font-size: 42px;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* 個人/品牌基本資訊 */
@@ -292,7 +297,7 @@
         <!-- 品牌/大頭照頭像 -->
         <div class="avatar-wrapper">
             <div class="avatar">
-                <i class="fa-solid fa-laptop-code"></i>
+                <img src="AP1GczN1RmceFybU7n7hxPi3-rvSrknhcldUsGT9Ns4m9ZFbhkAa936ahpZneaAbgzxo6Edu42DxaUETY0CKdPGV6S51VpeXg8ABcOYcVjMglxHtwFXi1ZdUHK55xFaI2rTIVB61mP3LZc0-7JEh1MBXNJn-9dTd27hdmwdgVuufB3MK7gX4ocOhiw_OB4orWtCMsCw1jRe7Uc0f3DPvxi6TpQIrH5Yx-b4tMR5jTTplvRnx74_JIm3PB3AGNtyQt5P6v0VI34JB54vYsPgkZOpHRzwzoMCnyRDDw60tSW54Kg7P97zIamvo7NnU8oJA5-_QosNSw0ahRSWsgEamL0ysDbxZYlPQBLQyMedUXp3RHTQIjkvxNTbwAZ2OSmppunn3ww6DBmCRUdcPF0xPWNM9O-Lf1YpL3V_5XRXlGRe_Fck4itH7d4y0NQGMa9VNZjISJagdmOkKpAHziOnqiGONwK7DK5Qt8hf9uxHzY18svYOiflkS9U4E92-eXYDIaht7K_sY6pkC0eaK7kFK5lRxHG2F-uscOg57r9fesHxRPROJqASQdokTQTNgeIGwNU9dax7SZ1zJBqU6a1cMdBIr6bIPM9EW-Kaq3-Dk4ZQ3U_6JtS0hDYv8zSTgrt8nUa8lQBpJthURUbYPLeB9cZqWnwYvOdjxRkuM_q4GhbrlWnq-vMr31JcNsqZnRfn2wAG4_GSE7B3ld9xX61KOpAAfEn8oqiacbssGNFVhol3oKPYzZPe2mj5YyHVItPwgpqOqojctlqbI1FNHFdk5134bsrN2HjpXl6GT2GQJ72qIscGVf2q8Yl4vWTVUl2wEfk3KMyfOTI7VbMyHMSIuL8uCKW_B-AsgtxmBexYJKwmcsyAq5YtxS5jO3nmi8gDSWsyTMllPDR2UJ141GIl-8l7geFMYfJknK6xx68VVeDNlPupJ8vp5ROOiyTxDGQhkBkOfZE9XGA=w313-h313-s-no" alt="FixTaipei 台北電腦宅修大頭照">
             </div>
         </div>
 
@@ -338,3 +343,15 @@
                     <div class="link-name">官方網站</div>
                     <div class="link-desc">查看全方位維修項目與完整企業外包合約</div>
                 </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+        </div>
+
+        <!-- 頁尾版權 -->
+        <div class="card-footer">
+            © FixTaipei 台北電腦宅修 All Rights Reserved.
+        </div>
+    </div>
+
+</body>
+</html>
