@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FixTaipei 台北電腦宅修 | 電子名片</title>
-    <!-- 引入 Font Awesome 繽紛圖示庫 -->
+    <!-- 引入正校 Font Awesome 圖示庫 -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
@@ -82,14 +82,19 @@
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            background: #1e293b;
+            background: #ffffff; /* 使用白色背景襯托彩色 Logo */
             border: 4px solid #2563eb;
             box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            overflow: hidden; /* 確保內嵌圖片完美切圓 */
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #ffffff;
-            font-size: 42px;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 自動縮放填滿圓框 */
         }
 
         /* 個人/品牌基本資訊 */
@@ -289,10 +294,10 @@
         <!-- 頂部高質感背景 -->
         <div class="card-banner"></div>
 
-        <!-- 品牌/大頭照頭像 -->
+        <!-- 品牌/大頭照頭像 (已成功串接雲端網址) -->
         <div class="avatar-wrapper">
             <div class="avatar">
-                <i class="fa-solid fa-laptop-code"></i>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNXAEhHdcwVZLvN8PdUt0eiHWQBA78jpxND7QRQl6krMepK9O38XJPfl6PBN3bclMog277EgvxRjUvMrpkt8CiZGOtk07UGWIiR8S2ZuUeK5mQltbNdrjFVmpIx13cdoLtqFj6DChmhDZr0LY0btHbS89oBJuT5vWITctEG6saHON5LNatw_UQO3zEIXN1zLMaq_VANnBKdW3QoOpzAJtyDZGockJu_RRiCTTHWSp9xadhEz6AjAB4CL6iYOzckY-2lZegbpO6bsp10IMq9VCuwo0QTxNfZ2yy0c6N8ovBd8q527IJ7TeBoIk7mxqyzqxVfOCArS_8e2iz08XrIM_cA4_cmYx7HSohAE6g_qJ1QaCNV-JEbK1Cqt9kc2tgYjTmIBqU9bdX4_Jd2_QmXyDaagfO0GLjNLc7d1Fx7mOMlUp6265YmGirAqLq5mQPvVkkNcuviGlIWZcFFogwZ1DR5BsjhCsZU9ogFqmStfVG4rzGeAJrM5tJU9lEtj2eVYvDslqEH9Tzg6v49kw5ZJFod2Y8zt4vfSBpg7mlFHk0Z2qgeylGTbQFUE6-phMSSpZCjUgRDJWCNWikcJrnJnKObcjP-G7gUP8XNVUtPZsRnpnzmgf74CxI7opFStQGDUMkJeagz0dpa6MbGImTWJYqKAKjbb99trs93Ot70LMIGfB_lBMQWhFTgzyQM8w1VPX-QZneLMyIu1Bz-ix8Q6SpN5--IwNdPTQJ-J31vTBC0vh7_qHJ0K9dshLhjDXxCf_ec_2Xvm_I2CcF0fQsFspbRZKKXLZJzrvWOv1ffG-Ui49idCG_tao5X3kxXRYPpLBbDccx3MlnR_AIdZRmvGbHDV8xwi8aF8YbqQNuxdxsL1bMuaLaznmTSlp3UwUy880xQndF4ELT1trbmcieaL4YOF2SMmWVcerzv1Vvw8heztW0KPc2vMbDA6Jb5BPnC8NN88Q=w313-h313-s-no?authuser=0" alt="FixTaipei Logo">
             </div>
         </div>
 
@@ -308,33 +313,3 @@
             </div>
         </div>
 
-        <!-- 核心痛點簡短簡介 -->
-        <div class="intro-box">
-            💡 <strong>電腦故障不必搬！</strong><br>
-            告別大包小包搬主機的狼狽，現場透明報價，提供 PC / Mac 全方位急救與 Wi-Fi 訊號優化。
-        </div>
-
-        <!-- 核心行動呼籲按鈕 (LINE & 電話) -->
-        <div class="primary-actions">
-            <a href="https://line.me" class="btn-action btn-line" target="_blank">
-                <i class="fa-brands fa-line"></i>
-                <span>LINE 即時諮詢</span>
-            </a>
-            <a href="tel:0905632321" class="btn-action btn-phone">
-                <i class="fa-solid fa-phone"></i>
-                <span>電話專線諮詢</span>
-            </a>
-        </div>
-
-        <!-- 服務連結區段 -->
-        <div class="section-title">服務與維修試算</div>
-        <div class="links-list">
-            <!-- 官方網站 -->
-            <a href="https://fixtaipei.com" class="link-item" target="_blank">
-                <div class="link-icon bg-web">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-                <div class="link-content">
-                    <div class="link-name">官方網站</div>
-                    <div class="link-desc">查看全方位維修項目與完整企業外包合約</div>
-                </div>
