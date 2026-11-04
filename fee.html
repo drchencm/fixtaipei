@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北電腦宅修 - 到府服務費用試算器</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                            dark: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        /* Custom scrollbar for modern feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-wrench text-white text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white leading-tight">台北電腦宅修</h1>
+                    <p class="text-xs text-slate-400">專業到府維修與技術支援</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#calculator" class="hidden sm:inline-flex items-center text-xs text-brand-500 hover:text-brand-100 transition-colors">
+                    <i class="fa-solid fa-calculator mr-1"></i> 費用試算
+                </a>
+                <a href="#notice" class="hidden sm:inline-flex items-center text-xs text-slate-400 hover:text-slate-200 transition-colors">
+                    <i class="fa-solid fa-circle-info mr-1"></i> 服務須知
+                </a>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span> 線上估價中
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- Hero Title Banner -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 mb-3">
+                透明化到府維修費用試算
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                勾選您所需的維修服務或檢測項目，系統將自動估算總金額。您可以直接匯出明細並透過 LINE 傳送給工程師進行諮詢。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" id="calculator">
+            
+            <!-- Left Column: Service Selection Form (8 Cols) -->
+            <div class="lg:col-span-7 xl:col-span-8 space-y-6">
+
+                <!-- Section 1: Location & Transport Fee (Variable Item 13) -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">1. 到府服務區域與車馬費</h3>
+                            <p class="text-xs text-slate-400">選擇您的所在區域，系統會自動帶入估算車馬費，亦可手動微調</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Area Dropdown -->
+                        <div>
+                            <label for="district-select" class="block text-xs font-medium text-slate-300 mb-1.5">選擇服務區域 (台北市 / 新北市)</label>
+                            <select id="district-select" onchange="handleDistrictChange()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none">
+                                <option value="300" selected>台北市 - 市中心 (中正/大安/信義/中山/松山/大同) - $300</option>
+                                <option value="400">台北市 - 次外圍 (內湖/南港/士林/文山) - $400</option>
+                                <option value="500">台北市 - 蛋白區 (北投) - $500</option>
+                                <option value="400">新北市 - 近鄰區 (板橋/三重/永和/中和/新莊) - $400</option>
+                                <option value="600">新北市 - 中距離 (新店/蘆洲/汐止/土城) - $600</option>
+                                <option value="800">新北市 - 遠距離 (樹林/鶯歌/三峽/泰山/五股/淡水) - $800</option>
+                                <option value="custom">手動輸入車馬費金額...</option>
+                            </select>
+                        </div>
+
+                        <!-- Travel Fee Amount Input -->
+                        <div>
+                            <label for="travel-fee-input" class="block text-xs font-medium text-slate-300 mb-1.5">到府車馬費 (NT$)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-sm">$</span>
+                                <input type="number" id="travel-fee-input" value="300" min="0" step="50" oninput="calculateTotal()" class="w-full bg-slate-800 border border-slate-700 rounded-xl pl-8 pr-3.5 py-2.5 text-sm text-white font-semibold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Standard Fixed Price Services (Items 1 - 12) -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 flex items-center justify-center">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">2. 標準維修與技術服務項目</h3>
+                                <p class="text-xs text-slate-400">點擊勾選您需要的服務（可多選）</p>
+                            </div>
+                        </div>
+                        <button onclick="clearAllSelections()" class="text-xs text-slate-400 hover:text-rose-400 transition-colors">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> 重置勾選
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="service-list">
+                        <!-- Standard services generated dynamically via JS for clean architecture -->
+                    </div>
+                </div>
+
+                <!-- Section 3: Data Recovery (Variable Item 14) -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">3. 特殊救援項目 (視難度估價)</h3>
+                            <p class="text-xs text-slate-400">硬碟或儲存裝置數據資料救援</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-start space-x-3">
+                            <input type="checkbox" id="item-data-recovery-check" onchange="calculateTotal()" class="mt-1 w-4 h-4 rounded text-brand-600 bg-slate-700 border-slate-600 focus:ring-brand-500">
+                            <div>
+                                <label for="item-data-recovery-check" class="text-sm font-medium text-white cursor-pointer hover:text-brand-400 transition-colors">
+                                    硬碟資料救援
+                                </label>
+                                <p class="text-xs text-slate-400 mt-0.5">邏輯損壞/誤刪除/硬體故障救援（現場檢測後確認最終報價）</p>
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-36 flex-shrink-0">
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-xs">估價 NT$</span>
+                                <input type="number" id="item-data-recovery-price" placeholder="0" min="0" step="500" oninput="calculateTotal()" class="w-full bg-slate-800 border border-slate-700 rounded-lg pl-16 pr-3 py-1.5 text-sm text-right text-amber-400 font-semibold focus:ring-2 focus:ring-amber-500 outline-none">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Summary & Invoice Details (4 Cols) -->
+            <div class="lg:col-span-5 xl:col-span-4">
+                <div class="sticky top-20 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-6">
+                    
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                        <h3 class="text-lg font-bold text-white flex items-center">
+                            <i class="fa-solid fa-receipt text-brand-500 mr-2"></i> 試算預估明細
+                        </h3>
+                        <span id="item-count-badge" class="px-2 py-0.5 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-400 border border-brand-500/30">
+                            已選 1 項
+                        </span>
+                    </div>
+
+                    <!-- Items List inside Calculation -->
+                    <div id="selected-summary-list" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+                        <!-- Dynamic items will be appended here -->
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-4 space-y-3">
+                        <div class="flex justify-between items-center text-sm text-slate-400">
+                            <span>項目小計</span>
+                            <span id="subtotal-amount" class="font-medium text-slate-200">NT$ 0</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-slate-400">
+                            <span>到府車馬費</span>
+                            <span id="summary-travel-fee" class="font-medium text-slate-200">NT$ 300</span>
+                        </div>
+                        <div class="border-t border-slate-800/80 pt-3 flex justify-between items-baseline">
+                            <span class="text-base font-bold text-white">估算總金額</span>
+                            <div class="text-right">
+                                <span id="total-amount" class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-cyan-300">
+                                    NT$ 300
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2.5 pt-2">
+                        <button onclick="copyDetailedQuote()" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 transition-all flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-copy"></i>
+                            <span>複製報價明細 (LINE/文字)</span>
+                        </button>
+                        <a id="line-share-btn" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-brands fa-line text-lg"></i>
+                            <span>傳送明細至 LINE 客服</span>
+                        </a>
+                    </div>
+
+                    <!-- Toast Notification -->
+                    <div id="toast-message" class="hidden text-center text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 py-2 rounded-lg transition-all">
+                        <i class="fa-solid fa-circle-check mr-1"></i> 明細已成功複製到剪貼簿！
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 4: Notice & Terms -->
+        <section id="notice" class="mt-12 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 sm:p-8">
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400 mr-2.5"></i> 到府服務須知與收費說明
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <div class="space-y-2">
+                    <h4 class="font-semibold text-slate-200 text-sm">【檢測與退修規範】</h4>
+                    <p>• 若工程师到府進行檢測後，客戶因個人因素不進行後續維修，仍需支付「到府檢測費（NT$800）」與該區「車馬費」。</p>
+                    <p>• 變數金額項目（如重度硬碟資料救援、極端特殊零件維修）將由現場工程師檢測後提供正式評估報價，經客戶同意後方進行作業。</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-semibold text-slate-200 text-sm">【保固與責任聲明】</h4>
+                    <p>• 系統重灌與軟體安裝不包含軟體版權授權，客戶需自行提供正版序號。</p>
+                    <p>• 維修或救援前請客戶盡可能自行備份重要資料。維修過程中若因不可抗力故障致資料遺失，本公司概不負責。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+            <p>© 2026 台北電腦宅修 到府服務團隊. All rights reserved.</p>
+            <p class="mt-1">本線上試算器結果僅供參考，實際費用以工程師現場評估報價單為準。</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 12 Standard fixed-price service items
+        const standardServices = [
+            { id: 'srv-1', name: '代購零件服務費', price: 200, desc: '協助選購與代購硬體零件' },
+            { id: 'srv-2', name: '作業系統重灌 (含驅動)', price: 1500, desc: 'Windows/Mac 系統安裝與驅動設定' },
+            { id: 'srv-3', name: '內部清潔保養', price: 1000, desc: '主機深層除塵、散熱膏重塗' },
+            { id: 'srv-4', name: '內部風扇清潔', price: 500, desc: '風扇葉片除塵與潤滑' },
+            { id: 'srv-5', name: '到府檢測費', price: 800, desc: '工程師親自到府硬體故障排除與診斷' },
+            { id: 'srv-6', name: '基本檢測費', price: 500, desc: '店面/遠端基礎問題診斷' },
+            { id: 'srv-7', name: '專業技術服務費', price: 1000, desc: '複雜軟硬體設定、網路除錯' },
+            { id: 'srv-8', name: '更換固態硬碟 (SSD) (含系統轉移/重灌)', price: 2000, desc: '高速 SSD 換裝與資料系統無縫轉移' },
+            { id: 'srv-9', name: '系統重灌與優化', price: 1200, desc: '系統重裝、垃圾清理與開機加速' },
+            { id: 'srv-10', name: '維修費', price: 1000, desc: '標準硬體更換與維修工資' },
+            { id: 'srv-11', name: '軟體安裝服務費', price: 500, desc: '常用軟體與周邊驅動程式安裝' },
+            { id: 'srv-12', name: '遠端技術支援', price: 1000, desc: '線上遠端連線問題排除 (以次計費)' }
+        ];
+
+        // Render standard services into DOM
+        function renderServices() {
+            const container = document.getElementById('service-list');
+            container.innerHTML = standardServices.map(item => `
+                <div class="bg-slate-800/50 border border-slate-700/50 hover:border-brand-500/50 rounded-xl p-3.5 transition-all flex items-start space-x-3 cursor-pointer group">
+                    <input type="checkbox" id="${item.id}" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()" class="mt-1 w-4 h-4 rounded text-brand-600 bg-slate-700 border-slate-600 focus:ring-brand-500 cursor-pointer">
+                    <label for="${item.id}" class="flex-1 cursor-pointer select-none">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-slate-200 group-hover:text-brand-300 transition-colors">${item.name}</span>
+                            <span class="text-xs font-bold text-brand-400 ml-2">NT$ ${item.price.toLocaleString()}</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-0.5">${item.desc}</p>
+                    </label>
+                </div>
+            `).join('');
+        }
+
+        // Handle district change
+        function handleDistrictChange() {
+            const select = document.getElementById('district-select');
+            const input = document.getElementById('travel-fee-input');
+            
+            if (select.value !== 'custom') {
+                input.value = select.value;
+            }
+            calculateTotal();
+        }
+
+        // Main Calculation Engine
+        function calculateTotal() {
+            let subtotal = 0;
+            const selectedItems = [];
+
+            // 1. Fixed price services
+            standardServices.forEach(item => {
+                const checkbox = document.getElementById(item.id);
+                if (checkbox && checkbox.checked) {
+                    subtotal += item.price;
+                    selectedItems.push({ name: item.name, price: item.price });
+                }
+            });
+
+            // 2. Data recovery (Variable item)
+            const recoveryCheck = document.getElementById('item-data-recovery-check');
+            const recoveryPriceInput = document.getElementById('item-data-recovery-price');
+            let recoveryPrice = parseInt(recoveryPriceInput.value) || 0;
+
+            if (recoveryCheck.checked) {
+                if (recoveryPrice > 0) {
+                    subtotal += recoveryPrice;
+                    selectedItems.push({ name: `硬碟資料救援 (預估)`, price: recoveryPrice });
+                } else {
+                    selectedItems.push({ name: `硬碟資料救援 (待現場評估)`, price: 0 });
+                }
+            }
+
+            // 3. Travel fee (Variable item)
+            const travelFeeInput = document.getElementById('travel-fee-input');
+            let travelFee = parseInt(travelFeeInput.value) || 0;
+
+            const grandTotal = subtotal + travelFee;
+
+            // Update UI elements
+            document.getElementById('subtotal-amount').innerText = `NT$ ${subtotal.toLocaleString()}`;
+            document.getElementById('summary-travel-fee').innerText = `NT$ ${travelFee.toLocaleString()}`;
+            document.getElementById('total-amount').innerText = `NT$ ${grandTotal.toLocaleString()}`;
+            document.getElementById('item-count-badge').innerText = `已選 ${selectedItems.length} 項服務`;
+
+            // Update Dynamic Summary List Widget
+            const summaryContainer = document.getElementById('selected-summary-list');
+            if (selectedItems.length === 0) {
+                summaryContainer.innerHTML = `<p class="text-xs text-slate-500 py-4 text-center">尚未選擇任何維修服務項目</p>`;
+            } else {
+                summaryContainer.innerHTML = selectedItems.map(item => `
+                    <div class="flex justify-between items-center text-xs py-1.5 border-b border-slate-800/50">
+                        <span class="text-slate-300 truncate max-w-[180px]">${item.name}</span>
+                        <span class="font-semibold text-slate-200">NT$ ${item.price.toLocaleString()}</span>
+                    </div>
+                `).join('');
+            }
+
+            // Update LINE share link
+            updateLineShareLink(selectedItems, travelFee, grandTotal);
+        }
+
+        // Generate LINE share url
+        function updateLineShareLink(selectedItems, travelFee, grandTotal) {
+            let message = `【台北電腦宅修 - 線上預約估價單】\n`;
+            message += `------------------------\n`;
+            if (selectedItems.length > 0) {
+                selectedItems.forEach(i => {
+                    message += `• ${i.name}: NT$ ${i.price.toLocaleString()}\n`;
+                });
+            } else {
+                message += `• 未勾選特定服務項目\n`;
+            }
+            message += `• 到府車馬費: NT$ ${travelFee.toLocaleString()}\n`;
+            message += `------------------------\n`;
+            message += `預估總金額：NT$ ${grandTotal.toLocaleString()}\n\n`;
+            message += `請工程師與我聯繫安排時間，謝謝！`;
+
+            const encodedMessage = encodeURIComponent(message);
+            document.getElementById('line-share-btn').href = `https://line.me/R/msg/text/?${encodedMessage}`;
+        }
+
+        // Copy detailed quotation to clipboard
+        function copyDetailedQuote() {
+            let subtotal = 0;
+            const selectedItems = [];
+
+            standardServices.forEach(item => {
+                const checkbox = document.getElementById(item.id);
+                if (checkbox && checkbox.checked) {
+                    subtotal += item.price;
+                    selectedItems.push({ name: item.name, price: item.price });
+                }
+            });
+
+            const recoveryCheck = document.getElementById('item-data-recovery-check');
+            const recoveryPriceInput = document.getElementById('item-data-recovery-price');
+            let recoveryPrice = parseInt(recoveryPriceInput.value) || 0;
+
+            if (recoveryCheck.checked) {
+                subtotal += recoveryPrice;
+                selectedItems.push({ name: `硬碟資料救援 (預估)`, price: recoveryPrice });
+            }
+
+            const travelFee = parseInt(document.getElementById('travel-fee-input').value) || 0;
+            const grandTotal = subtotal + travelFee;
+
+            let text = `【台北電腦宅修 - 線上到府試算明細】\n`;
+            text += `========================\n`;
+            if (selectedItems.length > 0) {
+                selectedItems.forEach(i => {
+                    text += `• ${i.name} : NT$ ${i.price.toLocaleString()}\n`;
+                });
+            } else {
+                text += `(未勾選具體項目)\n`;
+            }
+            text += `• 到府車馬費 : NT$ ${travelFee.toLocaleString()}\n`;
+            text += `========================\n`;
+            text += `服務小計：NT$ ${subtotal.toLocaleString()}\n`;
+            text += `估算總金額：NT$ ${grandTotal.toLocaleString()}\n\n`;
+            text += `* 備註：此金額為線上預約試算，實際費用依現場工程師檢測後最終報價為準。`;
+
+            // Clipboard fallback logic
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Show Toast
+            const toast = document.getElementById('toast-message');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Reset all selections
+        function clearAllSelections() {
+            standardServices.forEach(item => {
+                const checkbox = document.getElementById(item.id);
+                if (checkbox) checkbox.checked = false;
+            });
+
+            document.getElementById('item-data-recovery-check').checked = false;
+            document.getElementById('item-data-recovery-price').value = '';
+            
+            // Default select district
+            document.getElementById('district-select').selectedIndex = 0;
+            document.getElementById('travel-fee-input').value = 300;
+
+            calculateTotal();
+        }
+
+        // On Load initialization
+        window.onload = function() {
+            renderServices();
+            calculateTotal();
+        };
+    </script>
+</body>
+</html>
