@@ -223,9 +223,8 @@
                         <div class="border-t border-slate-800/80 pt-3 flex justify-between items-baseline">
                             <span class="text-base font-bold text-white">估算總金額</span>
                             <div class="text-right">
-                                <span id="total-amount" class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-cyan-300">
-                                    NT$ 300
-                                </span>
+                                <span class="text-xl font-bold text-slate-300">NT$ </span>
+                                <span id="total-amount-number" class="text-3xl font-black text-red-500 tracking-tight">300</span>
                             </div>
                         </div>
                     </div>
@@ -364,7 +363,7 @@
             // Update UI elements
             document.getElementById('subtotal-amount').innerText = `NT$ ${subtotal.toLocaleString()}`;
             document.getElementById('summary-travel-fee').innerText = `NT$ ${travelFee.toLocaleString()}`;
-            document.getElementById('total-amount').innerText = `NT$ ${grandTotal.toLocaleString()}`;
+            document.getElementById('total-amount-number').innerText = grandTotal.toLocaleString();
             document.getElementById('item-count-badge').innerText = `已選 ${selectedItems.length} 項服務`;
 
             // Update Dynamic Summary List Widget
