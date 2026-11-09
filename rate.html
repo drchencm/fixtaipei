@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台北電腦宅修 - 服務評價與快捷導流</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #0A84FF;
+      --primary-hover: #0066CC;
+      --bg-gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --card-hover-bg: rgba(255, 255, 255, 0.12);
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --accent-gold: #F59E0B;
+      --fb-blue: #1877F2;
+      --line-green: #06C755;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Profile Header */
+    .profile-card {
+      text-align: center;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge-verified {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: var(--primary);
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      border: 2px solid #0F172A;
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+
+    .profile-tagline {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      font-weight: 400;
+    }
+
+    /* Rating Widget Card */
+    .rating-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .rating-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .rating-subtitle {
+      font-size: 0.825rem;
+      color: var(--text-sub);
+      margin-bottom: 1rem;
+    }
+
+    .stars-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .star-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0 2px;
+    }
+
+    .star-btn:hover,
+    .star-btn.active {
+      color: var(--accent-gold);
+      transform: scale(1.15);
+    }
+
+    .rating-status-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      min-height: 1.25rem;
+    }
+
+    /* Low-Rating Private Feedback Form */
+    .feedback-form-container {
+      display: none;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--card-border);
+      text-align: left;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .feedback-label {
+      font-size: 0.85rem;
+      color: #CBD5E1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .feedback-textarea {
+      width: 100%;
+      height: 90px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: white;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      resize: none;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 0.75rem;
+    }
+
+    .feedback-textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .submit-feedback-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--line-green);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .submit-feedback-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Links Section */
+    .links-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card:hover {
+      background: var(--card-hover-bg);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .icon-google { background: rgba(245, 158, 11, 0.15); color: #F59E0B; }
+    .icon-line { background: rgba(6, 199, 85, 0.15); color: #06C755; }
+    .icon-fb { background: rgba(24
