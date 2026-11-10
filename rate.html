@@ -4,21 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>台北電腦宅修 - 服務評價與快捷導流</title>
-  <!-- Google Fonts & Font Awesome Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     :root {
       --primary: #0A84FF;
-      --primary-hover: #0066CC;
       --bg-gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
       --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --card-hover-bg: rgba(255, 255, 255, 0.12);
-      --text-main: #F8FAFC;
+      --card-border: rgba(255, 255, 255, 0.12);
+      --card-hover-bg: rgba(255, 255, 255, 0.15);
+      --text-main: #FFFFFF;
       --text-sub: #94A3B8;
       --accent-gold: #F59E0B;
       --fb-blue: #1877F2;
@@ -32,9 +26,10 @@
     }
 
     body {
-      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #0F172A;
       background: var(--bg-gradient);
-      color: var(--text-main);
+      color: #FFFFFF;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -58,55 +53,22 @@
       width: 100%;
     }
 
-    .avatar-wrapper {
-      position: relative;
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 1.25rem;
-    }
-
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    }
-
-    .badge-verified {
-      position: absolute;
-      bottom: 2px;
-      right: 2px;
-      background: var(--primary);
-      color: white;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      border: 2px solid #0F172A;
-    }
-
     .profile-name {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.5px;
-      margin-bottom: 0.35rem;
     }
 
     .profile-tagline {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      font-weight: 400;
+      font-size: 0.95rem;
+      color: #94A3B8;
     }
 
     /* Rating Widget Card */
     .rating-card {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(12px);
+      background: rgba(30, 41, 59, 0.85);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 1.5rem;
@@ -117,14 +79,15 @@
     }
 
     .rating-title {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 700;
+      color: #FFFFFF;
       margin-bottom: 0.25rem;
     }
 
     .rating-subtitle {
-      font-size: 0.825rem;
-      color: var(--text-sub);
+      font-size: 0.85rem;
+      color: #94A3B8;
       margin-bottom: 1rem;
     }
 
@@ -138,11 +101,12 @@
     .star-btn {
       background: none;
       border: none;
-      color: rgba(255, 255, 255, 0.2);
-      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 2.2rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      padding: 0 2px;
+      padding: 0 4px;
+      line-height: 1;
     }
 
     .star-btn:hover,
@@ -152,9 +116,9 @@
     }
 
     .rating-status-text {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      color: var(--text-sub);
+      color: #CBD5E1;
       min-height: 1.25rem;
     }
 
@@ -165,7 +129,6 @@
       padding-top: 1.25rem;
       border-top: 1px solid var(--card-border);
       text-align: left;
-      animation: fadeIn 0.3s ease;
     }
 
     .feedback-label {
@@ -178,10 +141,10 @@
     .feedback-textarea {
       width: 100%;
       height: 90px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
-      color: white;
+      color: #FFFFFF;
       padding: 0.75rem;
       font-size: 0.9rem;
       resize: none;
@@ -208,11 +171,6 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      transition: opacity 0.2s;
-    }
-
-    .submit-feedback-btn:hover {
-      opacity: 0.9;
     }
 
     /* Links Section */
@@ -227,22 +185,18 @@
       display: flex;
       align-items: center;
       padding: 1rem 1.25rem;
-      background: var(--card-bg);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
       border-radius: 16px;
-      color: var(--text-main);
+      color: #FFFFFF;
       text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      transition: all 0.2s ease;
     }
 
     .link-card:hover {
-      background: var(--card-hover-bg);
-      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     }
 
     .link-icon {
@@ -257,6 +211,267 @@
       flex-shrink: 0;
     }
 
-    .icon-google { background: rgba(245, 158, 11, 0.15); color: #F59E0B; }
-    .icon-line { background: rgba(6, 199, 85, 0.15); color: #06C755; }
-    .icon-fb { background: rgba(24
+    .icon-google { background: rgba(245, 158, 11, 0.2); color: #F59E0B; }
+    .icon-line { background: rgba(6, 199, 85, 0.2); color: #06C755; }
+    .icon-fb { background: rgba(24, 119, 242, 0.2); color: #1877F2; }
+    .icon-calc { background: rgba(10, 132, 255, 0.2); color: #0A84FF; }
+    .icon-web { background: rgba(168, 85, 247, 0.2); color: #A855F7; }
+
+    .link-content {
+      flex-grow: 1;
+    }
+
+    .link-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #FFFFFF;
+    }
+
+    .link-desc {
+      font-size: 0.8rem;
+      color: #94A3B8;
+    }
+
+    .link-arrow {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    /* Highlighted Card Style */
+    .link-card.highlight {
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(30, 41, 59, 0.8) 100%);
+    }
+
+    /* Modal Popup */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-box {
+      background: #1E293B;
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-icon {
+      font-size: 3rem;
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-text {
+      font-size: 0.9rem;
+      color: #94A3B8;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .modal-btn {
+      display: block;
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--accent-gold);
+      color: #0F172A;
+      font-weight: 700;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      color: #94A3B8;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="profile-card">
+      <h1 class="profile-name">台北電腦宅修</h1>
+      <p class="profile-tagline">專業到府檢測維修 ‧ 系統重灌與優化 ‧ 硬體升級</p>
+    </header>
+
+    <!-- Rating Card -->
+    <section class="rating-card">
+      <div class="rating-title">服務體驗滿意度評價</div>
+      <div class="rating-subtitle">您的寶貴意見是我們不斷進步的動力</div>
+      
+      <div class="stars-container">
+        <button class="star-btn" onclick="rateService(1)">★</button>
+        <button class="star-btn" onclick="rateService(2)">★</button>
+        <button class="star-btn" onclick="rateService(3)">★</button>
+        <button class="star-btn" onclick="rateService(4)">★</button>
+        <button class="star-btn" onclick="rateService(5)">★</button>
+      </div>
+      <div class="rating-status-text" id="rating-text">請點擊星號進行評分</div>
+
+      <!-- Feedback for Low Rating -->
+      <div class="feedback-form-container" id="low-rating-form">
+        <span class="feedback-label">很抱歉沒能讓您完全滿意！請告訴我們哪裡可以改善：</span>
+        <textarea class="feedback-textarea" id="feedback-content" placeholder="請填寫您的建議或不滿意之處..."></textarea>
+        <button class="submit-feedback-btn" onclick="sendPrivateFeedback()">
+          💬 送出建議至 LINE 客服 (@621bvlyb)
+        </button>
+      </div>
+    </section>
+
+    <!-- Link List -->
+    <main class="links-section">
+
+      <a href="https://g.page/r/CVJtf8uM3sK7EBM/review" target="_blank" class="link-card highlight" id="google-review-btn">
+        <div class="link-icon icon-google">★</div>
+        <div class="link-content">
+          <div class="link-title">Google 五星好評商家</div>
+          <div class="link-desc">查看顧客真實評價與留下您的寶貴心聲</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="link-card">
+        <div class="link-icon icon-line">💬</div>
+        <div class="link-content">
+          <div class="link-title">LINE 官方客服預約 (@621bvlyb)</div>
+          <div class="link-desc">專人即時諮詢 ‧ 現場線上報修與排程</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <a href="https://www.facebook.com/fixtaipei" target="_blank" class="link-card">
+        <div class="link-icon icon-fb">fb</div>
+        <div class="link-content">
+          <div class="link-title">Facebook 粉絲專頁</div>
+          <div class="link-desc">按讚追蹤最新電腦維修案例與科技小知識</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <a href="https://www.fixtaipei.com/#calculator" target="_blank" class="link-card">
+        <div class="link-icon icon-calc">🧮</div>
+        <div class="link-content">
+          <div class="link-title">到府服務費用線上試算器</div>
+          <div class="link-desc">透明公開價格 ‧ 依項目車馬費即時估價</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <a href="https://www.fixtaipei.com" target="_blank" class="link-card">
+        <div class="link-icon icon-web">🌐</div>
+        <div class="link-content">
+          <div class="link-title">台北電腦宅修 官方網站</div>
+          <div class="link-desc">了解詳細服務範圍、成功案例與服務條款</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+    </main>
+
+    <footer>
+      © <script>document.write(new Date().getFullYear())</script> 台北電腦宅修 版權所有
+    </footer>
+
+  </div>
+
+  <!-- High Rating Modal -->
+  <div class="modal-overlay" id="high-rating-modal">
+    <div class="modal-box">
+      <div class="modal-icon">❤️</div>
+      <div class="modal-title">感謝您的熱情支持！</div>
+      <div class="modal-text">很高興這次的服務能讓您滿意！誠摯邀請您前往我們的 Google 商家頁面留下五星評價，您的肯定對我們是最大的鼓勵！</div>
+      <a href="https://g.page/r/CVJtf8uM3sK7EBM/review" target="_blank" class="modal-btn" onclick="closeModal()">
+        前往 Google 留下五星好評
+      </a>
+      <button class="modal-close-btn" onclick="closeModal()">稍微再說</button>
+    </div>
+  </div>
+
+  <script>
+    let currentRating = 0;
+
+    function rateService(stars) {
+      currentRating = stars;
+      const starBtns = document.querySelectorAll('.star-btn');
+      const ratingText = document.getElementById('rating-text');
+      const lowForm = document.getElementById('low-rating-form');
+
+      starBtns.forEach((btn, index) => {
+        if (index < stars) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      if (stars >= 4) {
+        ratingText.textContent = stars === 5 ? "非常滿意！感謝您的最高評價 🌟" : "相當滿意！感謝您的支持 👍";
+        ratingText.style.color = "#F59E0B";
+        lowForm.style.display = "none";
+        
+        setTimeout(() => {
+          document.getElementById('high-rating-modal').style.display = 'flex';
+        }, 200);
+
+      } else {
+        const labels = ["非常不滿意", "不滿意", "普通/有待改善"];
+        ratingText.textContent = `評分：${stars} 星 (${labels[stars-1]}) - 請告訴我們如何改善`;
+        ratingText.style.color = "#CBD5E1";
+        lowForm.style.display = "block";
+      }
+    }
+
+    function sendPrivateFeedback() {
+      const content = document.getElementById('feedback-content').value.trim();
+      if (!content) {
+        alert("請輸入您的寶貴建議內容，謝謝！");
+        return;
+      }
+
+      const message = `【台北電腦宅修 - 顧客改善建議】\n評分：${currentRating} 星\n意見內容：${content}`;
+      const lineUrl = `https://line.me/R/oaMessage/@621bvlyb/?${encodeURIComponent(message)}`;
+      
+      window.open(lineUrl, '_blank');
+    }
+
+    function closeModal() {
+      document.getElementById('high-rating-modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
