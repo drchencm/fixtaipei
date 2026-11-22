@@ -65,25 +65,28 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- 1. STICKY NAVBAR                                                      -->
+  <!-- 1. STICKY TOP NAVIGATION BAR WITH BILINGUAL SWITCHER                  -->
   <!-- ===================================================================== -->
-  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 text-white shadow-lg">
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-20">
-        
+      <div class="flex items-center justify-between h-16 sm:h-20">
         <!-- Brand Logo -->
-        <a href="#" class="flex items-center gap-3 group shrink-0">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform">
             <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
           </div>
-          <div class="leading-tight">
-            <span class="block text-lg sm:text-xl font-extrabold tracking-tight text-white">FixTaipei</span>
-            <span class="block text-xs font-medium text-cyan-300" data-i18n="brandSub">台北電腦宅修</span>
+          <div>
+            <span class="block text-lg sm:text-xl font-extrabold tracking-tight leading-none">
+              Fix<span class="text-cyan-400">Taipei</span>
+            </span>
+            <span class="block text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5" data-i18n="brandSub">
+              台北電腦宅修
+            </span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden xl:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
           <a href="#why-us" class="hover:text-cyan-400 transition-colors" data-i18n="navWhy">服務優勢</a>
           <a href="#services" class="hover:text-cyan-400 transition-colors" data-i18n="navServices">維修項目</a>
           <a href="#membership" class="hover:text-cyan-400 transition-colors" data-i18n="navMembership">會員權益</a>
@@ -92,81 +95,86 @@
           <a href="#faq" class="hover:text-cyan-400 transition-colors" data-i18n="navFaq">常見問題</a>
         </nav>
 
-        <!-- Right Controls: Language Toggle Pill + LINE + Book Now -->
+        <!-- Right Controls: Language Switcher + CTA + Mobile Menu Button -->
         <div class="flex items-center gap-2 sm:gap-3">
-          
-          <!-- Prominent Bilingual Language Toggle Pill -->
-          <div class="relative inline-flex items-center bg-slate-800/95 p-1 rounded-full border border-slate-700 shadow-inner" role="group" aria-label="Language Switcher">
-            <button id="lang-zh" type="button" onclick="setLanguage('zh')" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold transition-all duration-200 bg-blue-600 text-white shadow">
+          <!-- Language Toggle Pill -->
+          <div role="group" aria-label="Language Switcher" class="inline-flex items-center p-1 rounded-full bg-slate-800/90 border border-slate-700">
+            <button id="lang-zh" type="button" onclick="setLanguage('zh')"
+                    class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold transition-all duration-200 bg-blue-600 text-white shadow">
               繁中
             </button>
-            <button id="lang-en" type="button" onclick="setLanguage('en')" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold transition-all duration-200 text-slate-300 hover:text-white">
+            <button id="lang-en" type="button" onclick="setLanguage('en')"
+                    class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold transition-all duration-200 text-slate-300 hover:text-white">
               EN
             </button>
           </div>
 
-          <!-- LINE Consultation Button (Hidden on very small screens, shown sm+) -->
+          <!-- LINE Quick Consult (Desktop) -->
           <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-             class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white text-xs sm:text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5">
+             class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#06C755]/15 text-[#25D366] border border-[#06C755]/40 hover:bg-[#06C755] hover:text-white text-xs sm:text-sm font-semibold transition-all">
             <i data-lucide="message-circle" class="w-4 h-4"></i>
             <span data-i18n="navLine">LINE 諮詢</span>
           </a>
 
-          <!-- Primary CTA: Book Now -->
+          <!-- Book Now CTA -->
           <button type="button" onclick="openBookingModal()"
-                  class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-600/30 transition-all hover:-translate-y-0.5">
+                  class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-600/25 transition-all">
             <i data-lucide="calendar-check" class="w-4 h-4"></i>
             <span data-i18n="navBook">立即預約</span>
           </button>
 
-          <!-- Mobile Hamburger Button -->
+          <!-- Mobile Hamburger Toggle -->
           <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu"
-                  class="xl:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
-            <i data-lucide="menu" class="w-6 h-6"></i>
+                  class="lg:hidden p-2.5 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 focus:outline-none">
+            <i data-lucide="menu" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden xl:hidden bg-slate-900 border-t border-slate-800 px-4 pt-3 pb-5 space-y-2">
-      <a href="#why-us" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400" data-i18n="navWhy">服務優勢</a>
-      <a href="#services" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400" data-i18n="navServices">維修項目</a>
-      <a href="#membership" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400" data-i18n="navMembership">會員權益</a>
-      <a href="#enterprise" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400" data-i18n="navEnterprise">企業方案</a>
-      <a href="#calculator" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400" data-i18n="navCalculator">費用估算</a>
-      <a href="#faq" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400" data-i18n="navFaq">常見問題</a>
-      <div class="pt-2 border-t border-slate-800 flex gap-2">
+    <!-- Mobile Dropdown Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-brand-dark border-t border-slate-800 px-4 pt-3 pb-6 space-y-2">
+      <a href="#why-us" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 font-medium" data-i18n="navWhy">服務優勢</a>
+      <a href="#services" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 font-medium" data-i18n="navServices">維修項目</a>
+      <a href="#membership" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 font-medium" data-i18n="navMembership">會員權益</a>
+      <a href="#enterprise" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 font-medium" data-i18n="navEnterprise">企業方案</a>
+      <a href="#calculator" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 font-medium" data-i18n="navCalculator">費用估算</a>
+      <a href="#faq" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 font-medium" data-i18n="navFaq">常見問題</a>
+      <div class="pt-3 grid grid-cols-2 gap-2.5">
         <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-           class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#06C755] text-white text-sm font-bold">
+           class="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-[#06C755] text-white font-bold text-sm">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span data-i18n="navLine">LINE 諮詢 (@621bvlyb)</span>
+          <span data-i18n="navLine">LINE 諮詢</span>
         </a>
+        <button type="button" onclick="closeMobileMenu(); openBookingModal()"
+                class="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-blue-600 text-white font-bold text-sm">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i>
+          <span data-i18n="navBook">立即預約</span>
+        </button>
       </div>
     </div>
   </header>
 
   <!-- ===================================================================== -->
-  <!-- 2. HERO SECTION & EMERGENCY RESCUE CASES                              -->
+  <!-- 2. HERO SECTION & INTERACTIVE EMERGENCY PC RESCUE CARD                -->
   <!-- ===================================================================== -->
   <section class="relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand-navy to-slate-900 text-white hero-grid-bg">
-    <!-- Ambient Decorative Glows -->
     <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
     <div class="pointer-events-none absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
-        <!-- Left Column: Value Proposition & CTAs -->
+        <!-- Left Column: Core Headline & CTAs -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/15 border border-cyan-400/30 text-cyan-300 text-xs sm:text-sm font-semibold">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-xs sm:text-sm font-semibold">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
             <span data-i18n="heroBadge">台北市／新北市快速到府</span>
           </div>
 
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-            <span data-i18n="heroTitle1">電腦故障不必搬！</span><br />
-            <span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 bg-clip-text text-transparent" data-i18n="heroTitle2">
+          <h1 class="text-3xl sm:text-5xl lg:text-[3.35rem] font-extrabold tracking-tight leading-[1.15]">
+            <span class="block text-white" data-i18n="heroTitle1">電腦故障不必搬！</span>
+            <span class="block mt-1.5 bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 bg-clip-text text-transparent" data-i18n="heroTitle2">
               專業工程師直接到府
             </span>
           </h1>
@@ -175,132 +183,123 @@
             無論是居家桌機當機、筆電系統重灌、全屋 Wi-Fi 死角優化，或中小型企業 IT 設備維護，FixTaipei 提供透明報價、現場快速完修，省去您拔線搬運與苦等送修的寶貴時間。
           </p>
 
-          <!-- Action Buttons -->
+          <!-- Primary & Secondary Action Buttons -->
           <div class="flex flex-col sm:flex-row flex-wrap gap-3.5 pt-2">
             <button type="button" onclick="openBookingModal()"
-                    class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-base shadow-lg shadow-blue-600/30 transition-all hover:-translate-y-0.5">
+                    class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-base shadow-xl shadow-blue-600/30 transition-all hover:-translate-y-0.5">
               <i data-lucide="wrench" class="w-5 h-5"></i>
               <span data-i18n="heroCtaBook">預約工程師到府</span>
             </button>
 
             <a href="tel:0905632321"
-               class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold text-base backdrop-blur-sm transition-all hover:-translate-y-0.5">
-              <i data-lucide="phone-call" class="w-5 h-5 text-amber-400"></i>
+               class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-base backdrop-blur-sm transition-all">
+              <i data-lucide="phone-call" class="w-5 h-5 text-cyan-400"></i>
               <span data-i18n="heroCtaPhone">電話專線 0905-632-321</span>
             </a>
 
             <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-[#06C755]/20 hover:bg-[#06C755]/30 border border-[#06C755]/50 text-emerald-300 font-bold text-base transition-all hover:-translate-y-0.5">
-              <i data-lucide="message-circle" class="w-5 h-5 text-[#06C755]"></i>
+               class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-base shadow-lg shadow-[#06C755]/25 transition-all">
+              <i data-lucide="message-square" class="w-5 h-5"></i>
               <span data-i18n="heroCtaLine">LINE 線上諮詢</span>
             </a>
           </div>
 
-          <!-- Trust Badges -->
-          <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-700/70 max-w-xl">
-            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-medium">
-              <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0">
-                <i data-lucide="file-check-2" class="w-4 h-4"></i>
-              </div>
+          <!-- Trust Pills -->
+          <div class="pt-4 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-sm text-slate-300 font-medium">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
               <span data-i18n="trust1">先報價後維修</span>
             </div>
-            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-medium">
-              <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0">
-                <i data-lucide="shield-check" class="w-4 h-4"></i>
-              </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="badge-check" class="w-4 h-4 text-cyan-400"></i>
               <span data-i18n="trust2">絕不亂加價</span>
             </div>
-            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-medium">
-              <div class="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center shrink-0">
-                <i data-lucide="award" class="w-4 h-4"></i>
-              </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
               <span data-i18n="trust3">會員獨享保固</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Interactive Emergency Rescue Card -->
+        <!-- Right Column: Emergency Rescue Cases Card -->
         <div class="lg:col-span-5">
-          <div class="bg-slate-900/90 border border-slate-700/80 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-md">
-            <div class="flex items-center justify-between gap-2 pb-4 border-b border-slate-800">
+          <div class="rounded-3xl bg-slate-900/85 border border-slate-700/80 p-6 sm:p-7 shadow-2xl backdrop-blur-md">
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
               <div class="flex items-center gap-2.5">
                 <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
                   <i data-lucide="zap" class="w-5 h-5"></i>
                 </div>
                 <div>
-                  <h2 class="text-base sm:text-lg font-bold text-white" data-i18n="emergencyTitle">常見電腦急救案例</h2>
+                  <h2 class="font-bold text-white text-base sm:text-lg" data-i18n="emergencyTitle">常見電腦急救案例</h2>
                   <p class="text-xs text-cyan-400 font-semibold" data-i18n="emergencyRate">現場排除率 95%+</p>
                 </div>
               </div>
-              <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold border border-emerald-500/30" data-i18n="emergencyBadge">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 text-xs font-bold border border-emerald-500/30" data-i18n="emergencyBadge">
                 當日速達
               </span>
             </div>
 
-            <!-- Interactive Case Items -->
-            <div class="mt-5 space-y-3.5" id="emergency-cases">
+            <div class="space-y-3.5">
               <!-- Case 1 -->
-              <div onclick="selectEmergencyCase(0)" class="emergency-card cursor-pointer group p-4 rounded-2xl bg-slate-800/70 hover:bg-slate-800 border border-cyan-500/40 transition-all">
+              <div onclick="selectEmergencyCase(0)" class="group cursor-pointer p-4 rounded-2xl bg-slate-800/70 hover:bg-slate-800 border border-slate-700/70 hover:border-cyan-500/50 transition-all">
                 <div class="flex items-start justify-between gap-3">
                   <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
-                      <i data-lucide="monitor-x" class="w-5 h-5"></i>
+                    <div class="mt-0.5 w-8 h-8 rounded-lg bg-rose-500/15 text-rose-400 flex items-center justify-center shrink-0">
+                      <i data-lucide="monitor-off" class="w-4 h-4"></i>
                     </div>
                     <div>
                       <h3 class="font-bold text-white text-sm sm:text-base group-hover:text-cyan-300 transition-colors" data-i18n="case1Title">
                         開機黑屏／藍屏死機
                       </h3>
-                      <p class="text-xs sm:text-sm text-slate-300 mt-1" data-i18n="case1Desc">
+                      <p class="text-xs text-slate-400 mt-1 leading-relaxed" data-i18n="case1Desc">
                         記憶體氧化、電源供應器異常、系統檔損毀現場交叉檢測修復。
                       </p>
                     </div>
                   </div>
-                  <span class="text-xs font-semibold text-cyan-400 shrink-0" data-i18n="caseAction">點我預約 →</span>
+                  <span class="text-xs font-semibold text-cyan-400 shrink-0 mt-1" data-i18n="caseAction">點我預約 →</span>
                 </div>
               </div>
 
               <!-- Case 2 -->
-              <div onclick="selectEmergencyCase(1)" class="emergency-card cursor-pointer group p-4 rounded-2xl bg-slate-800/70 hover:bg-slate-800 border border-slate-700 hover:border-cyan-500/40 transition-all">
+              <div onclick="selectEmergencyCase(1)" class="group cursor-pointer p-4 rounded-2xl bg-slate-800/70 hover:bg-slate-800 border border-slate-700/70 hover:border-cyan-500/50 transition-all">
                 <div class="flex items-start justify-between gap-3">
                   <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                      <i data-lucide="gauge" class="w-5 h-5"></i>
+                    <div class="mt-0.5 w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0">
+                      <i data-lucide="gauge" class="w-4 h-4"></i>
                     </div>
                     <div>
-                      <div class="flex flex-wrap items-center gap-2">
+                      <div class="flex items-center gap-2 flex-wrap">
                         <h3 class="font-bold text-white text-sm sm:text-base group-hover:text-cyan-300 transition-colors" data-i18n="case2Title">
                           電腦速度極慢／老舊升級
                         </h3>
-                        <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 text-[11px] font-bold" data-i18n="case2Tag">
-                          提速 5 倍
-                        </span>
+                        <span class="px-2 py-0.5 rounded-md bg-blue-600/30 text-cyan-300 text-[11px] font-bold" data-i18n="case2Tag">提速 5 倍</span>
                       </div>
-                      <p class="text-xs sm:text-sm text-slate-300 mt-1" data-i18n="case2Desc">
+                      <p class="text-xs text-slate-400 mt-1 leading-relaxed" data-i18n="case2Desc">
                         NVMe SSD 固態硬碟無痛資料轉移與記憶體擴充，舊機瞬間復活。
                       </p>
                     </div>
                   </div>
-                  <span class="text-xs font-semibold text-cyan-400 shrink-0" data-i18n="caseAction">點我預約 →</span>
+                  <span class="text-xs font-semibold text-cyan-400 shrink-0 mt-1" data-i18n="caseAction">點我預約 →</span>
                 </div>
               </div>
 
               <!-- Case 3 -->
-              <div onclick="selectEmergencyCase(2)" class="emergency-card cursor-pointer group p-4 rounded-2xl bg-slate-800/70 hover:bg-slate-800 border border-slate-700 hover:border-cyan-500/40 transition-all">
+              <div onclick="selectEmergencyCase(2)" class="group cursor-pointer p-4 rounded-2xl bg-slate-800/70 hover:bg-slate-800 border border-slate-700/70 hover:border-cyan-500/50 transition-all">
                 <div class="flex items-start justify-between gap-3">
                   <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
-                      <i data-lucide="wifi" class="w-5 h-5"></i>
+                    <div class="mt-0.5 w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                      <i data-lucide="wifi" class="w-4 h-4"></i>
                     </div>
                     <div>
                       <h3 class="font-bold text-white text-sm sm:text-base group-hover:text-cyan-300 transition-colors" data-i18n="case3Title">
                         居家／辦公室 Wi-Fi 訊號死角
                       </h3>
-                      <p class="text-xs sm:text-sm text-slate-300 mt-1" data-i18n="case3Desc">
+                      <p class="text-xs text-slate-400 mt-1 leading-relaxed" data-i18n="case3Desc">
                         全屋 Mesh 網狀路由器規劃、網路線壓接與跨樓層無縫漫遊設定。
                       </p>
                     </div>
                   </div>
-                  <span class="text-xs font-semibold text-cyan-400 shrink-0" data-i18n="caseAction">點我預約 →</span>
+                  <span class="text-xs font-semibold text-cyan-400 shrink-0 mt-1" data-i18n="caseAction">點我預約 →</span>
                 </div>
               </div>
             </div>
@@ -317,15 +316,15 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 3. WHY CHOOSE FIXTAIPEI (服務優勢)                                    -->
+  <!-- 3. WHY CHOOSE FIXTAIPEI (3 VALUE PROPOSITION CARDS)                   -->
   <!-- ===================================================================== -->
-  <section id="why-us" class="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+  <section id="why-us" class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
         <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="whyBadge">
           WHY CHOOSE FIXTAIPEI
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="whyHeading">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="whyHeading">
           為什麼雙北家庭與企業都信賴 FixTaipei？
         </h2>
         <p class="mt-3 text-slate-600 text-sm sm:text-base" data-i18n="whySub">
@@ -335,9 +334,9 @@
 
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
         <!-- Card 1 -->
-        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1 transition-all">
+        <div class="rounded-3xl bg-slate-50 border border-slate-200/80 p-7 sm:p-8 hover:shadow-xl hover:border-blue-200 transition-all">
           <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-600/20 mb-6">
-            <i data-lucide="home" class="w-7 h-7"></i>
+            <i data-lucide="truck" class="w-7 h-7"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="why1Title">免出門到府服務</h3>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="why1Desc">
@@ -346,9 +345,9 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-cyan-300 hover:shadow-xl hover:-translate-y-1 transition-all">
-          <div class="w-14 h-14 rounded-2xl bg-cyan-600 text-white flex items-center justify-center shadow-lg shadow-cyan-600/20 mb-6">
-            <i data-lucide="receipt" class="w-7 h-7"></i>
+        <div class="rounded-3xl bg-slate-50 border border-slate-200/80 p-7 sm:p-8 hover:shadow-xl hover:border-blue-200 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500 text-white flex items-center justify-center shadow-lg shadow-cyan-500/20 mb-6">
+            <i data-lucide="file-check-2" class="w-7 h-7"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="why2Title">先報價後維修</h3>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="why2Desc">
@@ -357,8 +356,8 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-amber-300 hover:shadow-xl hover:-translate-y-1 transition-all">
-          <div class="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-500/20 mb-6">
+        <div class="rounded-3xl bg-slate-50 border border-slate-200/80 p-7 sm:p-8 hover:shadow-xl hover:border-blue-200 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-600/20 mb-6">
             <i data-lucide="laptop" class="w-7 h-7"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="why3Title">PC / Mac 全對應</h3>
@@ -371,29 +370,27 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 4. SERVICES (服務項目)                                                -->
+  <!-- 4. SERVICES GRID (4 CORE REPAIR & IT SERVICES)                        -->
   <!-- ===================================================================== -->
-  <section id="services" class="py-16 sm:py-20 bg-slate-50">
+  <section id="services" class="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <span class="inline-block px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="srvBadge">
-            OUR SERVICES
-          </span>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="srvHeading">
-            全方位電腦與網路維修項目
-          </h2>
-        </div>
-        <p class="text-slate-600 text-sm sm:text-base max-w-md" data-i18n="srvSub">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <span class="inline-block px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="srvBadge">
+          OUR SERVICES
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="srvHeading">
+          全方位電腦與網路維修項目
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base" data-i18n="srvSub">
           從個人日常電腦急救到公司行號網路架構，提供標準化 SOP 施工與售後保固。
         </p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Service 1 -->
-        <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+        <div class="rounded-3xl bg-white p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors flex items-center justify-center mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
               <i data-lucide="cpu" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="srv1Title">硬體檢測與更換</h3>
@@ -405,15 +402,15 @@
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i><span data-i18n="srv1Item2">內部除塵與散熱膏重塗</span></li>
             </ul>
           </div>
-          <button onclick="openBookingWithService('hardware')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-700 hover:text-white font-semibold text-xs transition-colors" data-i18n="srvBookBtn">
+          <button type="button" onclick="openBookingWithService('hardware')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-700 hover:text-white text-xs font-bold transition-colors" data-i18n="srvBookBtn">
             預約此服務
           </button>
         </div>
 
         <!-- Service 2 -->
-        <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+        <div class="rounded-3xl bg-white p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-colors flex items-center justify-center mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-5">
               <i data-lucide="hard-drive-download" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="srv2Title">系統重灌與優化</h3>
@@ -425,15 +422,15 @@
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-600"></i><span data-i18n="srv2Item2">開機加速與常用環境設定</span></li>
             </ul>
           </div>
-          <button onclick="openBookingWithService('os')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-cyan-600 text-slate-700 hover:text-white font-semibold text-xs transition-colors" data-i18n="srvBookBtn">
+          <button type="button" onclick="openBookingWithService('os')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-700 hover:text-white text-xs font-bold transition-colors" data-i18n="srvBookBtn">
             預約此服務
           </button>
         </div>
 
         <!-- Service 3 -->
-        <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+        <div class="rounded-3xl bg-white p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors flex items-center justify-center mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-5">
               <i data-lucide="router" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="srv3Title">網路與 Mesh 架設</h3>
@@ -445,15 +442,15 @@
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-600"></i><span data-i18n="srv3Item2">印表機與智慧家電連線整合</span></li>
             </ul>
           </div>
-          <button onclick="openBookingWithService('wifi')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-indigo-600 text-slate-700 hover:text-white font-semibold text-xs transition-colors" data-i18n="srvBookBtn">
+          <button type="button" onclick="openBookingWithService('wifi')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-700 hover:text-white text-xs font-bold transition-colors" data-i18n="srvBookBtn">
             預約此服務
           </button>
         </div>
 
         <!-- Service 4 -->
-        <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+        <div class="rounded-3xl bg-white p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors flex items-center justify-center mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5">
               <i data-lucide="server" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="srv4Title">企業 IT 與 NAS 備份</h3>
@@ -461,11 +458,11 @@
               Synology / QNAP 私有雲架設、跨部門權限控管、勒索病毒異地備份策略與辦公室定期巡檢維護。
             </p>
             <ul class="space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i><span data-i18n="srv4Item1">RAID 陣列與自動快照備份</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i><span data-i18n="srv4Item2">公司 VPN 遠端辦公安全連線</span></li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i><span data-i18n="srv4Item1">RAID 陣列與自動快照備份</span></li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i><span data-i18n="srv4Item2">公司 VPN 遠端辦公安全連線</span></li>
             </ul>
           </div>
-          <button onclick="openBookingWithService('enterprise')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-amber-500 text-slate-700 hover:text-white font-semibold text-xs transition-colors" data-i18n="srvBookBtn">
+          <button type="button" onclick="openBookingWithService('enterprise')" class="mt-6 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-700 hover:text-white text-xs font-bold transition-colors" data-i18n="srvBookBtn">
             預約此服務
           </button>
         </div>
@@ -474,15 +471,15 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 5. PRIVILEGE PROGRAM / MEMBERSHIP (FixTaipei 會員尊榮權益)            -->
+  <!-- 5. MEMBERSHIP PRIVILEGE PROGRAM (3 TIERS WITH VIP HIGHLIGHT)          -->
   <!-- ===================================================================== -->
-  <section id="membership" class="py-16 sm:py-20 bg-white border-t border-slate-200/80">
+  <section id="membership" class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
         <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="memBadge">
           PRIVILEGE PROGRAM
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="memHeading">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="memHeading">
           FixTaipei 會員尊榮權益
         </h2>
         <p class="mt-3 text-slate-600 text-sm sm:text-base" data-i18n="memSub">
@@ -491,16 +488,15 @@
       </div>
 
       <div class="grid lg:grid-cols-3 gap-8 items-stretch">
-        
         <!-- Tier 1: Basic Member -->
-        <div class="rounded-3xl p-7 sm:p-8 bg-slate-50 border border-slate-200 flex flex-col justify-between">
+        <div class="rounded-3xl bg-slate-50 border border-slate-200 p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold" data-i18n="mem1Tag">入門首選</span>
               <i data-lucide="user-check" class="w-6 h-6 text-slate-500"></i>
             </div>
             <h3 class="text-xl font-extrabold text-slate-900" data-i18n="mem1Title">Basic Member 一般會員</h3>
-            <div class="mt-4 flex items-baseline gap-1">
+            <div class="mt-3 flex items-baseline gap-2">
               <span class="text-3xl font-extrabold text-slate-900" data-i18n="mem1Price">免費加入</span>
               <span class="text-xs text-slate-500" data-i18n="mem1Cond">(加入官方 LINE 帳號)</span>
             </div>
@@ -523,24 +519,24 @@
             </ul>
           </div>
           <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-             class="mt-8 w-full py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm text-center transition-colors" data-i18n="mem1Cta">
+             class="mt-8 block text-center py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-colors" data-i18n="mem1Cta">
             免費加入 LINE 會員
           </a>
         </div>
 
-        <!-- Tier 2: VIP Platinum (Highlighted) -->
-        <div class="relative rounded-3xl p-7 sm:p-8 bg-gradient-to-b from-brand-dark to-brand-navy text-white border-2 border-cyan-400 shadow-2xl shadow-blue-900/20 flex flex-col justify-between lg:-translate-y-2">
-          <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-xs font-extrabold shadow-md" data-i18n="mem2Badge">
+        <!-- Tier 2: VIP Platinum (HIGHLIGHTED POPULAR) -->
+        <div class="relative rounded-3xl bg-gradient-to-b from-brand-dark via-brand-navy to-slate-900 text-white border-2 border-amber-400 p-7 sm:p-8 shadow-2xl shadow-blue-900/25 flex flex-col justify-between lg:-translate-y-3">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-xs font-extrabold tracking-wide shadow-md whitespace-nowrap" data-i18n="mem2Badge">
             熱門首選 / Most Popular
           </div>
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold border border-cyan-400/30" data-i18n="mem2Tag">尊榮禮遇</span>
+            <div class="flex items-center justify-between mb-4 mt-1">
+              <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold" data-i18n="mem2Tag">尊榮禮遇</span>
               <i data-lucide="crown" class="w-6 h-6 text-amber-400"></i>
             </div>
             <h3 class="text-xl font-extrabold text-white" data-i18n="mem2Title">VIP Platinum 尊榮會員</h3>
-            <div class="mt-4 flex items-baseline gap-1.5">
-              <span class="text-3xl font-extrabold text-cyan-300">NT$ 3,000+</span>
+            <div class="mt-3 flex items-baseline gap-2 flex-wrap">
+              <span class="text-2xl sm:text-3xl font-extrabold text-amber-300">NT$ 3,000+</span>
               <span class="text-xs text-slate-300" data-i18n="mem2Cond">(單次或累積消費滿額自動升級)</span>
             </div>
             <p class="mt-3 text-sm text-slate-300" data-i18n="mem2Desc">
@@ -548,39 +544,39 @@
             </p>
             <ul class="mt-6 space-y-3 text-sm text-slate-100 border-t border-slate-700/80 pt-6">
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 shrink-0"></i>
-                <span class="font-semibold text-amber-300" data-i18n="mem2F1">到府車馬費永久 8 折優惠 (20% OFF)</span>
+                <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0"></i>
+                <span data-i18n="mem2F1">到府車馬費永久 8 折優惠 (20% OFF)</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+                <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0"></i>
                 <span data-i18n="mem2F2">緊急叫修 2 小時內優先派工調度</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+                <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0"></i>
                 <span data-i18n="mem2F3">維修保固期倍增至 60 天</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+                <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0"></i>
                 <span data-i18n="mem2F4">每年享 1 次免費遠端系統健檢與清理</span>
               </li>
             </ul>
           </div>
           <button type="button" onclick="openBookingModal('vip')"
-                  class="mt-8 w-full py-3.5 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-extrabold text-sm shadow-lg transition-all" data-i18n="mem2Cta">
+                  class="mt-8 w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all" data-i18n="mem2Cta">
             立即預約升級 VIP
           </button>
         </div>
 
         <!-- Tier 3: Corporate VIP -->
-        <div class="rounded-3xl p-7 sm:p-8 bg-slate-50 border border-slate-200 flex flex-col justify-between">
+        <div class="rounded-3xl bg-slate-50 border border-slate-200 p-7 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold" data-i18n="mem3Tag">企業專屬</span>
               <i data-lucide="building-2" class="w-6 h-6 text-blue-600"></i>
             </div>
             <h3 class="text-xl font-extrabold text-slate-900" data-i18n="mem3Title">Corporate VIP 企業簽約客戶</h3>
-            <div class="mt-4 flex items-baseline gap-1.5">
-              <span class="text-3xl font-extrabold text-slate-900" data-i18n="mem3Price">客製合約</span>
+            <div class="mt-3 flex items-baseline gap-2 flex-wrap">
+              <span class="text-2xl sm:text-3xl font-extrabold text-blue-700" data-i18n="mem3Price">客製合約</span>
               <span class="text-xs text-slate-500" data-i18n="mem3Cond">(適用公司行號 / 診所 / 工作室)</span>
             </div>
             <p class="mt-3 text-sm text-slate-600" data-i18n="mem3Desc">
@@ -606,25 +602,24 @@
             </ul>
           </div>
           <a href="#enterprise"
-             class="mt-8 w-full py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm text-center transition-colors" data-i18n="mem3Cta">
+             class="mt-8 block text-center py-3.5 px-5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-colors" data-i18n="mem3Cta">
             查看企業維護方案
           </a>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 6. ENTERPRISE IT SOLUTIONS (企業 IT 外包與年度維護合約)               -->
+  <!-- 6. ENTERPRISE IT SOLUTIONS (3 OUTSOURCING PLANS)                      -->
   <!-- ===================================================================== -->
-  <section id="enterprise" class="py-16 sm:py-20 bg-slate-900 text-white">
+  <section id="enterprise" class="py-16 sm:py-24 bg-slate-900 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
         <span class="inline-block px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="entBadge">
           ENTERPRISE IT OUTSOURCING
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white" data-i18n="entHeading">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight" data-i18n="entHeading">
           企業 IT 外包與年度維護合約
         </h2>
         <p class="mt-3 text-slate-300 text-sm sm:text-base" data-i18n="entSub">
@@ -632,14 +627,13 @@
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-8">
-        
-        <!-- Enterprise Plan 1 -->
-        <div class="rounded-3xl p-7 bg-slate-800/80 border border-slate-700 flex flex-col justify-between">
+      <div class="grid lg:grid-cols-3 gap-7 items-stretch">
+        <!-- Plan 1 -->
+        <div class="rounded-3xl bg-slate-800/80 border border-slate-700 p-7 sm:p-8 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-bold text-cyan-300 mb-2">
+            <div class="flex items-center justify-between text-xs font-bold text-cyan-400 mb-3">
               <span data-i18n="ent1Scale">1–5 台電腦規模</span>
-              <span class="px-2.5 py-0.5 rounded-md bg-slate-700 text-slate-200" data-i18n="ent1Validity">效期 1 年</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-700 text-slate-200" data-i18n="ent1Validity">效期 1 年</span>
             </div>
             <h3 class="text-xl font-bold text-white" data-i18n="ent1Title">微型企業／預付工時卡</h3>
             <div class="mt-4 flex items-baseline gap-1.5">
@@ -649,54 +643,54 @@
             <p class="mt-3 text-sm text-slate-300" data-i18n="ent1Desc">
               彈性扣抵遠端與到府工時，免綁定月費，適合新創團隊與小型工作室。
             </p>
-            <ul class="mt-6 space-y-2.5 text-sm text-slate-300 border-t border-slate-700 pt-5">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span data-i18n="ent1F1">遠端連線以 0.5 小時為單位精準計費</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span data-i18n="ent1F2">免收額外雙北基本出勤車馬費</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span data-i18n="ent1F3">含新進員工電腦環境建置與交接</span></li>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300 border-t border-slate-700 pt-6">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i><span data-i18n="ent1F1">遠端連線以 0.5 小時為單位精準計費</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i><span data-i18n="ent1F2">免收額外雙北基本出勤車馬費</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i><span data-i18n="ent1F3">含新進員工電腦環境建置與交接</span></li>
             </ul>
           </div>
           <button type="button" onclick="openBookingWithService('ent_prepaid')"
-                  class="mt-7 w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold text-sm transition-colors" data-i18n="entCta">
+                  class="mt-8 w-full py-3 rounded-2xl bg-slate-700 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold text-sm transition-colors" data-i18n="entCta">
             洽詢此企業方案
           </button>
         </div>
 
-        <!-- Enterprise Plan 2 (Highlighted) -->
-        <div class="relative rounded-3xl p-7 bg-gradient-to-b from-blue-900/90 to-slate-800 border-2 border-amber-400 shadow-2xl flex flex-col justify-between">
-          <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-amber-400 text-slate-950 text-xs font-extrabold shadow" data-i18n="ent2Badge">
+        <!-- Plan 2 (Recommended) -->
+        <div class="relative rounded-3xl bg-gradient-to-b from-blue-900/60 to-slate-800 border-2 border-cyan-400 p-7 sm:p-8 shadow-2xl flex flex-col justify-between">
+          <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-cyan-400 text-slate-950 text-xs font-extrabold" data-i18n="ent2Badge">
             最推薦方案 / Best Value
           </div>
           <div>
-            <div class="flex items-center justify-between text-xs font-bold text-amber-300 mb-2">
+            <div class="flex items-center justify-between text-xs font-bold text-cyan-300 mb-3">
               <span data-i18n="ent2Scale">6–12 台電腦規模</span>
-              <span class="px-2.5 py-0.5 rounded-md bg-amber-400/20 text-amber-300" data-i18n="ent2Discount">年繳享 9 折</span>
+              <span class="px-2.5 py-1 rounded-md bg-cyan-500/20 text-cyan-200" data-i18n="ent2Discount">年繳享 9 折</span>
             </div>
             <h3 class="text-xl font-bold text-white" data-i18n="ent2Title">標準企業包月合約</h3>
             <div class="mt-4 flex items-baseline gap-1.5">
-              <span class="text-3xl font-extrabold text-white">NT$ 6,000</span>
+              <span class="text-3xl font-extrabold text-cyan-300">NT$ 6,000</span>
               <span class="text-sm text-slate-300" data-i18n="ent2Unit">/ 月</span>
             </div>
             <p class="mt-3 text-sm text-slate-200" data-i18n="ent2Desc">
               含每月定期現場巡檢與不限次數遠端支援，全面守護中小企業日常營運。
             </p>
-            <ul class="mt-6 space-y-2.5 text-sm text-slate-100 border-t border-slate-700 pt-5">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i><span data-i18n="ent2F1">每月 1 次工程師到場全面巡檢保養</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i><span data-i18n="ent2F2">上班時段無限次遠端即時故障排除</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i><span data-i18n="ent2F3">辦公室 Wi-Fi、印表機與 NAS 備份監控</span></li>
+            <ul class="mt-6 space-y-3 text-sm text-slate-200 border-t border-slate-700 pt-6">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mt-1 shrink-0"></i><span data-i18n="ent2F1">每月 1 次工程師到場全面巡檢保養</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mt-1 shrink-0"></i><span data-i18n="ent2F2">上班時段無限次遠端即時故障排除</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mt-1 shrink-0"></i><span data-i18n="ent2F3">辦公室 Wi-Fi、印表機與 NAS 備份監控</span></li>
             </ul>
           </div>
           <button type="button" onclick="openBookingWithService('ent_standard')"
-                  class="mt-7 w-full py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-sm shadow-lg transition-colors" data-i18n="entCta">
+                  class="mt-8 w-full py-3.5 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-extrabold text-sm shadow-lg transition-all" data-i18n="entCta">
             洽詢此企業方案
           </button>
         </div>
 
-        <!-- Enterprise Plan 3 -->
-        <div class="rounded-3xl p-7 bg-slate-800/80 border border-slate-700 flex flex-col justify-between">
+        <!-- Plan 3 -->
+        <div class="rounded-3xl bg-slate-800/80 border border-slate-700 p-7 sm:p-8 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-bold text-cyan-300 mb-2">
+            <div class="flex items-center justify-between text-xs font-bold text-cyan-400 mb-3">
               <span data-i18n="ent3Scale">13–25 台電腦規模</span>
-              <span class="px-2.5 py-0.5 rounded-md bg-slate-700 text-slate-200" data-i18n="ent3Sla">客製 SLA</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-700 text-slate-200" data-i18n="ent3Sla">客製 SLA</span>
             </div>
             <h3 class="text-xl font-bold text-white" data-i18n="ent3Title">進階企業 / 多據點維護</h3>
             <div class="mt-4 flex items-baseline gap-1.5">
@@ -706,46 +700,35 @@
             <p class="mt-3 text-sm text-slate-300" data-i18n="ent3Desc">
               適合連鎖門市、診所與跨部門企業，提供備用機支援與資安架構規劃。
             </p>
-            <ul class="mt-6 space-y-2.5 text-sm text-slate-300 border-t border-slate-700 pt-5">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span data-i18n="ent3F1">簽訂客製化 SLA 到場回應時效保證</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span data-i18n="ent3F2">重要主機送修期間提供免費備用機</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span data-i18n="ent3F3">防火牆、VLAN 網段隔離與異地備援</span></li>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300 border-t border-slate-700 pt-6">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i><span data-i18n="ent3F1">簽訂客製化 SLA 到場回應時效保證</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i><span data-i18n="ent3F2">重要主機送修期間提供免費備用機</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i><span data-i18n="ent3F3">防火牆、VLAN 網段隔離與異地備援</span></li>
             </ul>
           </div>
           <button type="button" onclick="openBookingWithService('ent_advanced')"
-                  class="mt-7 w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold text-sm transition-colors" data-i18n="entCta">
+                  class="mt-8 w-full py-3 rounded-2xl bg-slate-700 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold text-sm transition-colors" data-i18n="entCta">
             洽詢此企業方案
           </button>
         </div>
-
       </div>
 
-      <!-- Enterprise Footnote & Direct Hotline -->
-      <div class="mt-10 p-5 rounded-2xl bg-slate-800/60 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-        <div class="flex items-center gap-3 text-slate-300">
-          <i data-lucide="info" class="w-5 h-5 text-cyan-400 shrink-0"></i>
-          <span data-i18n="entNote">
-            以上方案皆可開立三聯式統一發票；超過 25 台設備或需機房建置，歡迎預約免費現場環境評估。
-          </span>
-        </div>
-        <a href="tel:0905632321" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500/30 font-bold shrink-0 transition-colors">
-          <i data-lucide="phone" class="w-4 h-4"></i>
-          <span>0905-632-321</span>
-        </a>
-      </div>
+      <p class="mt-8 text-center text-xs sm:text-sm text-slate-400" data-i18n="entNote">
+        以上方案皆可開立三聯式統一發票；超過 25 台設備或需機房建置，歡迎預約免費現場環境評估。
+      </p>
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 7. INTERACTIVE FEE CALCULATOR (個人／會員到府服務試算器)              -->
+  <!-- 7. LIVE INTERACTIVE FEE CALCULATOR                                    -->
   <!-- ===================================================================== -->
-  <section id="calculator" class="py-16 sm:py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+  <section id="calculator" class="py-16 sm:py-24 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="calcBadge">
           TRANSPARENT PRICING CALCULATOR
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="calcHeading">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="calcHeading">
           個人／會員到府服務試算器
         </h2>
         <p class="mt-3 text-slate-600 text-sm sm:text-base" data-i18n="calcSub">
@@ -753,19 +736,17 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-3xl shadow-xl border border-slate-200/90 overflow-hidden grid lg:grid-cols-12">
-        
-        <!-- Left Controls (7 cols) -->
-        <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 space-y-7">
-          
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden grid lg:grid-cols-12">
+        <!-- Left Inputs -->
+        <div class="lg:col-span-7 p-6 sm:p-9 space-y-6">
           <!-- Step 1: Service Category -->
           <div>
-            <label for="calc-service" class="block text-sm font-bold text-slate-800 mb-2.5 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+            <label for="calc-service" class="block text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center">1</span>
               <span data-i18n="calcStep1">選擇服務項目</span>
             </label>
             <select id="calc-service" onchange="updateCalculator()"
-                    class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-sm sm:text-base font-semibold text-slate-800 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+                    class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-sm sm:text-base font-medium text-slate-800 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20">
               <option value="500" data-key="basic">基本檢測 / 故障排除 — NT$ 500</option>
               <option value="1200" data-key="os">系統重灌 + 驅動安裝 — NT$ 1,200</option>
               <option value="1000" data-key="ssd">硬體更換 / SSD 複製轉移 — NT$ 1,000</option>
@@ -773,24 +754,24 @@
             </select>
           </div>
 
-          <!-- Step 2: Location Selector -->
+          <!-- Step 2: Location Travel Fee -->
           <div>
-            <label for="calc-location" class="block text-sm font-bold text-slate-800 mb-2.5 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">2</span>
+            <label for="calc-location" class="block text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center">2</span>
               <span data-i18n="calcStep2">選擇到府地區（車馬費）</span>
             </label>
             <select id="calc-location" onchange="updateCalculator()"
-                    class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-sm sm:text-base font-semibold text-slate-800 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+                    class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3.5 text-sm sm:text-base font-medium text-slate-800 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20">
               <option value="300" data-key="taipei">台北市核心區（大安/信義/中山/松山/中正/內湖等）— NT$ 300</option>
               <option value="500" data-key="newtaipei">新北市核心區（板橋/中和/永和/新店/三重/新莊/汐止等）— NT$ 500</option>
               <option value="800" data-key="remote">偏遠／山區（陽明山/淡水/林口/三峽/深坑/石碇等）— NT$ 800</option>
             </select>
           </div>
 
-          <!-- Step 3: Membership Tier Toggle -->
+          <!-- Step 3: Membership Tier -->
           <div>
             <span class="block text-sm font-bold text-slate-800 mb-2.5 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">3</span>
+              <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center">3</span>
               <span data-i18n="calcStep3">選擇會員身份</span>
             </span>
             <div class="grid sm:grid-cols-2 gap-3">
@@ -798,167 +779,159 @@
                 <input type="radio" name="calc-member" value="regular" checked onchange="updateCalculator()" class="peer sr-only" />
                 <div class="p-4 rounded-2xl border-2 border-slate-200 peer-checked:border-blue-600 peer-checked:bg-blue-50/60 transition-all">
                   <div class="font-bold text-sm text-slate-900" data-i18n="calcMemRegular">非會員 / 一般顧客</div>
-                  <div class="text-xs text-slate-500 mt-1" data-i18n="calcMemRegularSub">標準車馬費（無折扣）</div>
+                  <div class="text-xs text-slate-500 mt-0.5" data-i18n="calcMemRegularSub">標準車馬費（無折扣）</div>
                 </div>
               </label>
 
               <label class="cursor-pointer">
                 <input type="radio" name="calc-member" value="vip" onchange="updateCalculator()" class="peer sr-only" />
                 <div class="p-4 rounded-2xl border-2 border-slate-200 peer-checked:border-amber-500 peer-checked:bg-amber-50/70 transition-all">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-sm text-slate-900" data-i18n="calcMemVip">VIP 尊榮會員</span>
-                    <span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 text-[10px] font-extrabold">20% OFF</span>
+                  <div class="flex items-center gap-1.5 font-bold text-sm text-slate-900">
+                    <i data-lucide="crown" class="w-4 h-4 text-amber-500"></i>
+                    <span data-i18n="calcMemVip">VIP 尊榮會員</span>
                   </div>
-                  <div class="text-xs text-amber-800 font-medium mt-1" data-i18n="calcMemVipSub">享到府車馬費 8 折優惠</div>
+                  <div class="text-xs text-amber-700 font-semibold mt-0.5" data-i18n="calcMemVipSub">享到府車馬費 8 折優惠</div>
                 </div>
               </label>
             </div>
           </div>
-
         </div>
 
-        <!-- Right Breakdown Panel (5 cols) -->
-        <div class="lg:col-span-5 bg-gradient-to-br from-brand-dark via-brand-navy to-slate-900 text-white p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+        <!-- Right Live Breakdown Panel -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-brand-dark to-brand-navy text-white p-6 sm:p-9 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-4 border-b border-slate-700/80">
-              <h3 class="text-lg font-bold text-white" data-i18n="calcSummaryTitle">預估費用明細</h3>
-              <span class="px-2.5 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold" data-i18n="calcSummaryBadge">即時試算</span>
+              <span class="text-sm font-bold text-cyan-300" data-i18n="calcSummaryTitle">預估費用明細</span>
+              <span class="px-2.5 py-0.5 rounded-md bg-white/10 text-xs text-slate-300" data-i18n="calcSummaryBadge">即時試算</span>
             </div>
 
-            <div class="mt-6 space-y-4 text-sm">
+            <div class="mt-6 space-y-3.5 text-sm">
               <div class="flex items-center justify-between text-slate-300">
-                <span id="breakdown-service-label" data-i18n="calcLineService">服務工資（基本檢測）</span>
-                <span id="breakdown-service-val" class="font-bold text-white">NT$ 500</span>
+                <span id="breakdown-service-label">服務工資（基本檢測）</span>
+                <span id="breakdown-service-val" class="font-semibold text-white">NT$ 500</span>
               </div>
-
               <div class="flex items-center justify-between text-slate-300">
-                <span id="breakdown-travel-label" data-i18n="calcLineTravel">到府車馬費</span>
-                <span id="breakdown-travel-val" class="font-bold text-white">NT$ 300</span>
+                <span data-i18n="calcLineTravel">到府車馬費</span>
+                <span id="breakdown-travel-val" class="font-semibold text-white">NT$ 300</span>
               </div>
-
               <div class="flex items-center justify-between text-emerald-400">
                 <span data-i18n="calcLineDiscount">VIP 會員車馬費折扣 (8折)</span>
-                <span id="breakdown-discount-val" class="font-bold">- NT$ 0</span>
+                <span id="breakdown-discount-val" class="font-semibold">- NT$ 0</span>
               </div>
             </div>
 
-            <div class="mt-6 pt-6 border-t border-slate-700/80">
-              <div class="flex items-baseline justify-between">
-                <span class="text-sm font-medium text-slate-300" data-i18n="calcTotalLabel">預估總金額</span>
-                <div class="text-right">
-                  <span id="calc-total-display" class="text-3xl sm:text-4xl font-extrabold text-cyan-300">NT$ 800</span>
-                </div>
-              </div>
-              <p class="mt-2 text-xs text-slate-400 leading-relaxed" data-i18n="calcDisclaimer">
-                * 若現場經檢測決定進行重灌或硬體升級，基本檢測費可全額折抵工資。實際報價以工程師現場確認為準。
-              </p>
+            <div class="mt-6 pt-5 border-t border-slate-700/80 flex items-baseline justify-between">
+              <span class="text-sm font-semibold text-slate-300" data-i18n="calcTotalLabel">預估總金額</span>
+              <span id="calc-total-display" class="text-3xl sm:text-4xl font-extrabold text-cyan-300">NT$ 800</span>
             </div>
+
+            <p class="mt-4 text-xs text-slate-400 leading-relaxed" data-i18n="calcDisclaimer">
+              * 若現場經檢測決定進行重灌或硬體升級，基本檢測費可全額折抵工資。實際報價以工程師現場確認為準。
+            </p>
           </div>
 
           <button type="button" onclick="bookFromCalculator()"
-                  class="mt-8 w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-extrabold text-sm sm:text-base shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5">
+                  class="mt-8 w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 transition-all">
             <i data-lucide="calendar-plus" class="w-5 h-5"></i>
             <span data-i18n="calcBookBtn">以此試算預約工程師</span>
           </button>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 8. MULTI-CHANNEL SUPPORT (多元客服與社群管道)                         -->
+  <!-- 8. MULTI-CHANNEL CUSTOMER SUPPORT                                     -->
   <!-- ===================================================================== -->
-  <section class="py-16 sm:py-20 bg-white border-t border-slate-200/80">
+  <section class="py-14 sm:py-20 bg-white border-t border-slate-200/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-2xl mx-auto mb-10">
         <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="chBadge">
           MULTI-CHANNEL SUPPORT
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="chHeading">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="chHeading">
           多元客服與社群管道
         </h2>
-        <p class="mt-3 text-slate-600 text-sm sm:text-base" data-i18n="chSub">
+        <p class="mt-2 text-slate-600 text-sm sm:text-base" data-i18n="chSub">
           拍照傳送電腦錯誤畫面給我們，工程師線上為您快速初步判斷並安排最快到府時段。
         </p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
         <!-- LINE -->
         <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-           class="group p-6 rounded-3xl bg-slate-50 hover:bg-[#06C755] border border-slate-200 hover:border-[#06C755] transition-all text-center shadow-sm hover:shadow-lg hover:-translate-y-1">
-          <div class="w-12 h-12 mx-auto rounded-2xl bg-[#06C755]/15 group-hover:bg-white/20 text-[#06C755] group-hover:text-white flex items-center justify-center mb-3 transition-colors">
+           class="group rounded-2xl border border-slate-200 hover:border-[#06C755] bg-slate-50 hover:bg-[#06C755]/5 p-5 text-center transition-all">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-[#06C755] text-white flex items-center justify-center shadow-md mb-3 group-hover:scale-105 transition-transform">
             <i data-lucide="message-circle" class="w-6 h-6"></i>
           </div>
-          <div class="font-extrabold text-slate-900 group-hover:text-white text-base">LINE 官方帳號</div>
-          <div class="text-xs font-semibold text-slate-500 group-hover:text-white/90 mt-1">@621bvlyb</div>
+          <div class="font-bold text-slate-900 text-sm">LINE 官方客服</div>
+          <div class="text-xs text-[#06C755] font-bold mt-1">@621bvlyb</div>
         </a>
 
         <!-- Phone -->
         <a href="tel:0905632321"
-           class="group p-6 rounded-3xl bg-slate-50 hover:bg-blue-600 border border-slate-200 hover:border-blue-600 transition-all text-center shadow-sm hover:shadow-lg hover:-translate-y-1">
-          <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-100 group-hover:bg-white/20 text-blue-600 group-hover:text-white flex items-center justify-center mb-3 transition-colors">
-            <i data-lucide="phone-call" class="w-6 h-6"></i>
+           class="group rounded-2xl border border-slate-200 hover:border-blue-600 bg-slate-50 hover:bg-blue-50/60 p-5 text-center transition-all">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md mb-3 group-hover:scale-105 transition-transform">
+            <i data-lucide="phone" class="w-6 h-6"></i>
           </div>
-          <div class="font-extrabold text-slate-900 group-hover:text-white text-base" data-i18n="chPhoneTitle">急修專線</div>
-          <div class="text-xs font-semibold text-slate-500 group-hover:text-white/90 mt-1">0905-632-321</div>
+          <div class="font-bold text-slate-900 text-sm" data-i18n="chPhoneTitle">急修專線</div>
+          <div class="text-xs text-blue-600 font-bold mt-1">0905-632-321</div>
         </a>
 
         <!-- Facebook -->
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
-           class="group p-6 rounded-3xl bg-slate-50 hover:bg-[#1877F2] border border-slate-200 hover:border-[#1877F2] transition-all text-center shadow-sm hover:shadow-lg hover:-translate-y-1">
-          <div class="w-12 h-12 mx-auto rounded-2xl bg-sky-100 group-hover:bg-white/20 text-[#1877F2] group-hover:text-white flex items-center justify-center mb-3 transition-colors">
-            <i data-lucide="facebook" class="w-6 h-6"></i>
+           class="group rounded-2xl border border-slate-200 hover:border-[#1877F2] bg-slate-50 hover:bg-blue-50/40 p-5 text-center transition-all">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-[#1877F2] text-white flex items-center justify-center shadow-md mb-3 group-hover:scale-105 transition-transform">
+            <i data-lucide="thumbs-up" class="w-6 h-6"></i>
           </div>
-          <div class="font-extrabold text-slate-900 group-hover:text-white text-base">Facebook</div>
-          <div class="text-xs font-semibold text-slate-500 group-hover:text-white/90 mt-1">FixTaipei 粉絲專頁</div>
+          <div class="font-bold text-slate-900 text-sm">Facebook</div>
+          <div class="text-xs text-slate-500 mt-1">FixTaipei 粉絲專頁</div>
         </a>
 
         <!-- Instagram -->
         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
-           class="group p-6 rounded-3xl bg-slate-50 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 border border-slate-200 hover:border-pink-500 transition-all text-center shadow-sm hover:shadow-lg hover:-translate-y-1">
-          <div class="w-12 h-12 mx-auto rounded-2xl bg-pink-100 group-hover:bg-white/20 text-pink-600 group-hover:text-white flex items-center justify-center mb-3 transition-colors">
-            <i data-lucide="instagram" class="w-6 h-6"></i>
+           class="group rounded-2xl border border-slate-200 hover:border-pink-500 bg-slate-50 hover:bg-pink-50/40 p-5 text-center transition-all">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white flex items-center justify-center shadow-md mb-3 group-hover:scale-105 transition-transform">
+            <i data-lucide="camera" class="w-6 h-6"></i>
           </div>
-          <div class="font-extrabold text-slate-900 group-hover:text-white text-base">Instagram</div>
-          <div class="text-xs font-semibold text-slate-500 group-hover:text-white/90 mt-1">@fixtaipei</div>
+          <div class="font-bold text-slate-900 text-sm">Instagram</div>
+          <div class="text-xs text-slate-500 mt-1">@fixtaipei</div>
         </a>
 
         <!-- WhatsApp -->
         <a href="https://wa.me/886905632321" target="_blank" rel="noopener noreferrer"
-           class="col-span-2 sm:col-span-1 group p-6 rounded-3xl bg-slate-50 hover:bg-[#25D366] border border-slate-200 hover:border-[#25D366] transition-all text-center shadow-sm hover:shadow-lg hover:-translate-y-1">
-          <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-100 group-hover:bg-white/20 text-[#25D366] group-hover:text-white flex items-center justify-center mb-3 transition-colors">
-            <i data-lucide="smartphone" class="w-6 h-6"></i>
+           class="col-span-2 lg:col-span-1 group rounded-2xl border border-slate-200 hover:border-emerald-600 bg-slate-50 hover:bg-emerald-50/40 p-5 text-center transition-all">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md mb-3 group-hover:scale-105 transition-transform">
+            <i data-lucide="globe" class="w-6 h-6"></i>
           </div>
-          <div class="font-extrabold text-slate-900 group-hover:text-white text-base">WhatsApp</div>
-          <div class="text-xs font-semibold text-slate-500 group-hover:text-white/90 mt-1" data-i18n="chWaSub">英文／國際客戶專線</div>
+          <div class="font-bold text-slate-900 text-sm">WhatsApp</div>
+          <div class="text-xs text-emerald-700 font-medium mt-1" data-i18n="chWaSub">英文／國際客戶專線</div>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 9. FAQ ACCORDION (常見問題 FAQ)                                       -->
+  <!-- 9. INTERACTIVE FAQ ACCORDION                                          -->
   <!-- ===================================================================== -->
-  <section id="faq" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/80">
+  <section id="faq" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/70">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <span class="inline-block px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold tracking-wider uppercase mb-3" data-i18n="faqBadge">
           FREQUENTLY ASKED QUESTIONS
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900" data-i18n="faqHeading">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900" data-i18n="faqHeading">
           常見問題 FAQ
         </h2>
       </div>
 
       <div class="space-y-4">
-        <!-- Q1 -->
-        <div class="accordion-item active bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
-          <button type="button" onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-slate-50/80 transition-colors">
-            <span class="font-bold text-slate-900 text-base sm:text-lg" data-i18n="faq1Q">
-              Q1：工程師到府後如果無法現場修好，費用怎麼計算？
-            </span>
-            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-500 transition-transform duration-300 shrink-0"></i>
+        <!-- FAQ 1 -->
+        <div class="accordion-item active rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleAccordion(this)"
+                  class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 text-base sm:text-lg hover:bg-slate-50 transition-colors">
+            <span data-i18n="faq1Q">Q1：工程師到府後如果無法現場修好，費用怎麼計算？</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-blue-600 shrink-0 transition-transform duration-300"></i>
           </button>
           <div class="accordion-content px-6">
             <p class="pb-5 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-4" data-i18n="faq1A">
@@ -967,13 +940,12 @@
           </div>
         </div>
 
-        <!-- Q2 -->
-        <div class="accordion-item bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
-          <button type="button" onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-slate-50/80 transition-colors">
-            <span class="font-bold text-slate-900 text-base sm:text-lg" data-i18n="faq2Q">
-              Q2：系統重灌或更換 SSD 硬碟時，我原本的檔案與照片會不見嗎？
-            </span>
-            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-500 transition-transform duration-300 shrink-0"></i>
+        <!-- FAQ 2 -->
+        <div class="accordion-item rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleAccordion(this)"
+                  class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 text-base sm:text-lg hover:bg-slate-50 transition-colors">
+            <span data-i18n="faq2Q">Q2：系統重灌或更換 SSD 硬碟時，我原本的檔案與照片會不見嗎？</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-blue-600 shrink-0 transition-transform duration-300"></i>
           </button>
           <div class="accordion-content px-6">
             <p class="pb-5 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-4" data-i18n="faq2A">
@@ -982,13 +954,12 @@
           </div>
         </div>
 
-        <!-- Q3 -->
-        <div class="accordion-item bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
-          <button type="button" onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-slate-50/80 transition-colors">
-            <span class="font-bold text-slate-900 text-base sm:text-lg" data-i18n="faq3Q">
-              Q3：服務範圍涵蓋哪些地區？假日或晚上也能預約到府嗎？
-            </span>
-            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-slate-500 transition-transform duration-300 shrink-0"></i>
+        <!-- FAQ 3 -->
+        <div class="accordion-item rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleAccordion(this)"
+                  class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 text-base sm:text-lg hover:bg-slate-50 transition-colors">
+            <span data-i18n="faq3Q">Q3：服務範圍涵蓋哪些地區？假日或晚上也能預約到府嗎？</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-blue-600 shrink-0 transition-transform duration-300"></i>
           </button>
           <div class="accordion-content px-6">
             <p class="pb-5 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-4" data-i18n="faq3A">
@@ -1001,68 +972,41 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 11. FOOTER                                                            -->
+  <!-- FOOTER                                                                -->
   <!-- ===================================================================== -->
-  <footer class="bg-brand-dark text-slate-300 border-t border-slate-800">
+  <footer class="bg-brand-dark text-slate-400 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div class="grid md:grid-cols-12 gap-10 pb-10 border-b border-slate-800">
-        
-        <!-- Brand Summary (5 cols) -->
+      <div class="grid md:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
         <div class="md:col-span-5 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
-              <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center">
+              <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
             </div>
-            <div>
-              <span class="block text-xl font-extrabold text-white">FixTaipei</span>
-              <span class="block text-xs text-cyan-400 font-semibold" data-i18n="brandSub">台北電腦宅修</span>
-            </div>
+            <span class="text-xl font-extrabold text-white">Fix<span class="text-cyan-400">Taipei</span></span>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed max-w-sm" data-i18n="footerDesc">
+          <p class="text-sm leading-relaxed max-w-md" data-i18n="footerDesc">
             專注大台北地區到府電腦維修、系統優化、Mesh 網路規劃與企業 IT 年度維護合約。透明報價、快速抵達、值得信賴的隨身技術團隊。
           </p>
-          <div class="flex items-center gap-2 text-xs text-slate-400">
-            <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i>
-            <span data-i18n="footerHours">服務時間：週一至週日 09:00 – 21:00（全年無休）</span>
+          <div class="text-xs text-slate-500" data-i18n="footerHours">
+            服務時間：週一至週日 09:00 – 21:00（全年無休）
           </div>
         </div>
 
-        <!-- Quick Links (3 cols) -->
-        <div class="md:col-span-3 space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider" data-i18n="footerLinksTitle">快速導覽</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="#why-us" class="hover:text-cyan-400 transition-colors" data-i18n="navWhy">服務優勢</a></li>
-            <li><a href="#services" class="hover:text-cyan-400 transition-colors" data-i18n="navServices">維修項目</a></li>
-            <li><a href="#membership" class="hover:text-cyan-400 transition-colors" data-i18n="navMembership">會員權益</a></li>
-            <li><a href="#enterprise" class="hover:text-cyan-400 transition-colors" data-i18n="navEnterprise">企業方案</a></li>
-            <li><a href="#calculator" class="hover:text-cyan-400 transition-colors" data-i18n="navCalculator">費用估算</a></li>
-            <li><a href="#faq" class="hover:text-cyan-400 transition-colors" data-i18n="navFaq">常見問題</a></li>
-          </ul>
+        <div class="md:col-span-3 space-y-2.5 text-sm">
+          <div class="font-bold text-white mb-3" data-i18n="footerLinksTitle">快速導覽</div>
+          <a href="#why-us" class="block hover:text-cyan-400 transition-colors" data-i18n="navWhy">服務優勢</a>
+          <a href="#services" class="block hover:text-cyan-400 transition-colors" data-i18n="navServices">維修項目</a>
+          <a href="#membership" class="block hover:text-cyan-400 transition-colors" data-i18n="navMembership">會員權益</a>
+          <a href="#enterprise" class="block hover:text-cyan-400 transition-colors" data-i18n="navEnterprise">企業方案</a>
+          <a href="#calculator" class="block hover:text-cyan-400 transition-colors" data-i18n="navCalculator">費用估算</a>
         </div>
 
-        <!-- Multi-Channel Contact Info (4 cols) -->
-        <div class="md:col-span-4 space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider" data-i18n="footerContactTitle">聯絡與官方社群</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>
-              <a href="tel:0905632321" class="hover:text-white font-semibold">0905-632-321</a>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="message-circle" class="w-4 h-4 text-[#06C755]"></i>
-              <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer" class="hover:text-white">LINE ID: @621bvlyb</a>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="video" class="w-4 h-4 text-indigo-400"></i>
-              <span>Microsoft Teams: FixTaipei Support</span>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <i data-lucide="share-2" class="w-4 h-4 text-cyan-400"></i>
-              <span>FB / IG / WhatsApp: @fixtaipei</span>
-            </li>
-          </ul>
+        <div class="md:col-span-4 space-y-2.5 text-sm">
+          <div class="font-bold text-white mb-3" data-i18n="footerContactTitle">聯絡與官方社群</div>
+          <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-cyan-400"></i> 0905-632-321</p>
+          <p class="flex items-center gap-2"><i data-lucide="message-circle" class="w-4 h-4 text-[#06C755]"></i> LINE Official: @621bvlyb</p>
+          <p class="flex items-center gap-2"><i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i> <a href="https://fix.fixtaipei.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 underline">fix.fixtaipei.com</a></p>
         </div>
-
       </div>
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
@@ -1073,7 +1017,7 @@
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- 10. INTERACTIVE BOOKING MODAL                                         -->
+  <!-- 10. INTERACTIVE BOOKING MODAL (NOTION FORM BRIDGE: fix.fixtaipei.com) -->
   <!-- ===================================================================== -->
   <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm">
     <div class="relative w-full max-w-lg rounded-3xl bg-white shadow-2xl border border-slate-200 overflow-hidden animate-[fadeIn_0.2s_ease-out]">
@@ -1082,11 +1026,11 @@
       <div class="bg-gradient-to-r from-brand-dark to-brand-navy px-6 py-5 text-white flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center">
-            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+            <i data-lucide="clipboard-check" class="w-5 h-5"></i>
           </div>
           <div>
             <h3 class="text-lg font-extrabold" data-i18n="modalTitle">線上預約工程師到府</h3>
-            <p class="text-xs text-cyan-300" data-i18n="modalSub">提交後我們將於 15 分鐘內透過電話或 LINE 與您確認</p>
+            <p class="text-xs text-cyan-300" data-i18n="modalSub">一鍵複製試算明細，前往 Notion 官方預約表單送出</p>
           </div>
         </div>
         <button type="button" onclick="closeBookingModal()" aria-label="Close Modal"
@@ -1095,88 +1039,112 @@
         </button>
       </div>
 
-      <!-- Form State -->
-      <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-6 space-y-4 max-h-[82vh] overflow-y-auto">
+      <!-- Notion Booking Bridge Form -->
+      <form id="booking-form" onsubmit="handleNotionRedirect(event)" class="p-6 space-y-4 max-h-[84vh] overflow-y-auto">
         
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label for="book-name" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalNameLabel">聯絡人姓名 / 稱呼 *</label>
-            <input id="book-name" type="text" required placeholder="例如：陳先生 / Mr. Chen"
-                   class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
-          </div>
-          <div>
-            <label for="book-contact" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalContactLabel">聯絡電話 或 LINE ID *</label>
-            <input id="book-contact" type="text" required placeholder="09xx-xxx-xxx / LINE ID"
-                   class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
-          </div>
+        <!-- Guide Banner -->
+        <div class="p-3.5 rounded-2xl bg-blue-50 border border-blue-200/80 flex items-start gap-2.5 text-xs text-blue-900">
+          <i data-lucide="sparkles" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+          <span data-i18n="modalGuide">
+            確認以下預約條件後，點擊下方「複製摘要並前往填寫表單」，系統將自動複製您的試算內容並開啟 <strong>fix.fixtaipei.com</strong>，直接貼上即可完成預約！
+          </span>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label for="book-district" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalDistrictLabel">所在行政區 *</label>
-            <select id="book-district" required
+            <select id="book-district" onchange="syncModalSummary()"
                     class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm bg-white focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
-              <option value="台北市大安區" data-i18n="distDaAn">台北市 - 大安區</option>
-              <option value="台北市信義區" data-i18n="distXinyi">台北市 - 信義區</option>
-              <option value="台北市中山區" data-i18n="distZhongshan">台北市 - 中山區</option>
-              <option value="台北市松山區" data-i18n="distSongshan">台北市 - 松山區</option>
-              <option value="台北市內湖區" data-i18n="distNeihu">台北市 - 內湖區</option>
-              <option value="台北市中正/萬華/大同" data-i18n="distCentral">台北市 - 中正/萬華/大同區</option>
-              <option value="台北市士林/北投/文山/南港" data-i18n="distOuterTaipei">台北市 - 士林/北投/文山/南港</option>
-              <option value="新北市板橋/中和/永和" data-i18n="distBanqiao">新北市 - 板橋/中和/永和</option>
-              <option value="新北市新店/汐止" data-i18n="distXindian">新北市 - 新店/汐止</option>
-              <option value="新北市三重/新莊/蘆洲" data-i18n="distSanchong">新北市 - 三重/新莊/蘆洲</option>
-              <option value="新北市其他區域" data-i18n="distOtherNewTaipei">新北市 - 其他區域</option>
+              <option value="台北市 - 大安區" data-i18n="distDaAn">台北市 - 大安區</option>
+              <option value="台北市 - 信義區" data-i18n="distXinyi">台北市 - 信義區</option>
+              <option value="台北市 - 中山區" data-i18n="distZhongshan">台北市 - 中山區</option>
+              <option value="台北市 - 松山區" data-i18n="distSongshan">台北市 - 松山區</option>
+              <option value="台北市 - 內湖區" data-i18n="distNeihu">台北市 - 內湖區</option>
+              <option value="台北市 - 中正/萬華/大同區" data-i18n="distCentral">台北市 - 中正/萬華/大同區</option>
+              <option value="台北市 - 士林/北投/文山/南港" data-i18n="distOuterTaipei">台北市 - 士林/北投/文山/南港</option>
+              <option value="新北市 - 板橋/中和/永和" data-i18n="distBanqiao">新北市 - 板橋/中和/永和</option>
+              <option value="新北市 - 新店/汐止" data-i18n="distXindian">新北市 - 新店/汐止</option>
+              <option value="新北市 - 三重/新莊/蘆洲" data-i18n="distSanchong">新北市 - 三重/新莊/蘆洲</option>
+              <option value="新北市 - 偏遠/山區 (淡水/林口/三峽等)" data-i18n="distOtherNewTaipei">新北市 - 偏遠/山區 (淡水/林口/三峽等)</option>
             </select>
           </div>
 
           <div>
-            <label for="book-service" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalServiceLabel">預約服務 / 試算方案</label>
-            <input id="book-service" type="text"
+            <label for="book-member" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalMemberLabel">會員等級</label>
+            <select id="book-member" onchange="syncModalSummary()"
+                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm bg-white focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+              <option value="regular" data-i18n="modalMemRegular">一般顧客 / 新會員</option>
+              <option value="vip" data-i18n="modalMemVip">VIP 尊榮會員 (車馬費8折)</option>
+              <option value="corporate" data-i18n="modalMemCorp">企業簽約客戶</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="book-service" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalServiceLabel">預約服務 / 預估費用</label>
+            <input id="book-service" type="text" oninput="syncModalSummary()"
                    class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-semibold text-blue-700 focus:border-blue-600 focus:bg-white focus:outline-none" />
+          </div>
+
+          <div>
+            <label for="book-time" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalTimeLabel">希望預約時段</label>
+            <input id="book-time" type="text" oninput="syncModalSummary()" placeholder="例如：今日下午 14:00 後 / 週末全天"
+                   class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
           </div>
         </div>
 
         <div>
-          <label for="book-issue" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalIssueLabel">故障狀況簡述與希望預約時段</label>
-          <textarea id="book-issue" rows="3" placeholder="例如：開機無畫面風扇有轉、希望今天下午 3 點後到府..."
-                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
+          <label for="book-issue" class="block text-xs font-bold text-slate-700 mb-1.5" data-i18n="modalIssueLabel">故障狀況補充（選填，將一併帶入摘要）</label>
+          <textarea id="book-issue" rows="2" oninput="syncModalSummary()" placeholder="例如：開機無畫面風扇有轉、需要升級 1TB SSD..."
+                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20"></textarea>
         </div>
 
-        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+        <!-- Live Formatted Clipboard Preview -->
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-600"></i>
+              <span data-i18n="modalPreviewLabel">將自動複製的預約摘要（可直接貼至 Notion 表單）</span>
+            </span>
+            <button type="button" onclick="copyBookingSummaryOnly()" class="text-xs font-bold text-blue-600 hover:text-blue-800 underline" data-i18n="modalCopyOnlyBtn">
+              僅複製文字
+            </button>
+          </div>
+          <textarea id="booking-clipboard-preview" readonly rows="4"
+                    class="w-full rounded-2xl border border-slate-200 bg-slate-900 text-cyan-200 font-mono text-xs p-3.5 leading-relaxed focus:outline-none"></textarea>
+        </div>
+
+        <!-- Copy & Redirect Toast Banner -->
+        <div id="copy-toast-banner" class="hidden p-3.5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs font-bold flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+          <span id="copy-toast-text" data-i18n="modalCopiedToast">已複製預約摘要！即將為您開啟線上預約表單 (fix.fixtaipei.com)...</span>
+        </div>
+
+        <!-- Primary & Secondary Notion Form Actions -->
+        <div class="pt-1 flex flex-col gap-2.5">
           <button type="submit"
-                  class="flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold text-sm shadow-lg transition-all" data-i18n="modalSubmitBtn">
-            送出預約申請
+                  class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5">
+            <i data-lucide="copy-check" class="w-5 h-5"></i>
+            <span data-i18n="modalSubmitBtn">複製預約摘要並前往填寫表單</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
           </button>
-          <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-             class="py-3.5 px-5 rounded-2xl bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-sm text-center inline-flex items-center justify-center gap-1.5 transition-colors" data-i18n="modalLineBtn">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>直接 LINE 預約</span>
-          </a>
+
+          <div class="grid sm:grid-cols-2 gap-2.5">
+            <a href="https://fix.fixtaipei.com" target="_blank" rel="noopener noreferrer"
+               class="py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm text-center inline-flex items-center justify-center gap-1.5 transition-colors">
+              <span data-i18n="modalDirectBtn">直接開啟 Notion 預約表單</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+
+            <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
+               class="py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xs sm:text-sm text-center inline-flex items-center justify-center gap-1.5 transition-colors">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span data-i18n="modalLineBtn">LINE 傳送故障照片</span>
+            </a>
+          </div>
         </div>
       </form>
-
-      <!-- Confirmation State (Hidden initially) -->
-      <div id="booking-success" class="hidden p-8 text-center space-y-4">
-        <div class="w-16 h-16 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-          <i data-lucide="check-circle-2" class="w-10 h-10"></i>
-        </div>
-        <h4 class="text-xl font-extrabold text-slate-900" data-i18n="modalSuccessTitle">預約申請已成功送出！</h4>
-        <p class="text-sm text-slate-600 leading-relaxed" data-i18n="modalSuccessDesc">
-          感謝您的預約！值班工程師已收到您的需求，將於 15 分鐘內與您聯繫確認到府時間。若為十萬火急案件，也歡迎直接撥打專線或加入 LINE。
-        </p>
-        <div id="booking-summary-box" class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs text-slate-700 space-y-1.5"></div>
-        <div class="pt-3 flex flex-col sm:flex-row gap-3">
-          <button type="button" onclick="resetAndCloseBooking()"
-                  class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-colors" data-i18n="modalCloseBtn">
-            返回頁面
-          </button>
-          <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer"
-             class="flex-1 py-3 rounded-xl bg-[#06C755] text-white font-bold text-sm text-center" data-i18n="modalLineNotifyBtn">
-            前往 LINE (@621bvlyb) 傳送照片
-          </a>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -1362,18 +1330,22 @@
         footerTagline: "台北市・新北市專業到府電腦維修與企業 IT 顧問",
 
         modalTitle: "線上預約工程師到府",
-        modalSub: "提交後我們將於 15 分鐘內透過電話或 LINE 與您確認",
-        modalNameLabel: "聯絡人姓名 / 稱呼 *",
-        modalContactLabel: "聯絡電話 或 LINE ID *",
+        modalSub: "一鍵複製試算明細，前往 Notion 官方預約表單送出",
+        modalGuide: "確認以下預約條件後，點擊下方「複製預約摘要並前往填寫表單」，系統將自動複製您的試算內容並開啟 fix.fixtaipei.com，直接貼上即可完成預約！",
         modalDistrictLabel: "所在行政區 *",
-        modalServiceLabel: "預約服務 / 試算方案",
-        modalIssueLabel: "故障狀況簡述與希望預約時段",
-        modalSubmitBtn: "送出預約申請",
-        modalLineBtn: "直接 LINE 預約",
-        modalSuccessTitle: "預約申請已成功送出！",
-        modalSuccessDesc: "感謝您的預約！值班工程師已收到您的需求，將於 15 分鐘內與您聯繫確認到府時間。若為十萬火急案件，也歡迎直接撥打專線或加入 LINE。",
-        modalCloseBtn: "返回頁面",
-        modalLineNotifyBtn: "前往 LINE (@621bvlyb) 傳送照片"
+        modalMemberLabel: "會員等級",
+        modalMemRegular: "一般顧客 / 新會員",
+        modalMemVip: "VIP 尊榮會員 (車馬費8折)",
+        modalMemCorp: "企業簽約客戶",
+        modalServiceLabel: "預約服務 / 預估費用",
+        modalTimeLabel: "希望預約時段",
+        modalIssueLabel: "故障狀況補充（選填，將一併帶入摘要）",
+        modalPreviewLabel: "將自動複製的預約摘要（可直接貼至 Notion 表單）",
+        modalCopyOnlyBtn: "僅複製文字",
+        modalCopiedToast: "已複製預約摘要！即將為您開啟線上預約表單 (fix.fixtaipei.com)...",
+        modalSubmitBtn: "複製預約摘要並前往填寫表單",
+        modalDirectBtn: "直接開啟 Notion 預約表單",
+        modalLineBtn: "LINE 傳送故障照片"
       },
       en: {
         brandSub: "Taipei On-Site PC Repair",
@@ -1550,18 +1522,22 @@
         footerTagline: "Taipei & New Taipei On-Site PC Repair & Enterprise IT Consulting",
 
         modalTitle: "Book an On-Site Engineer",
-        modalSub: "We will confirm your appointment via phone or LINE within 15 minutes",
-        modalNameLabel: "Contact Name *",
-        modalContactLabel: "Phone Number or LINE ID *",
-        modalDistrictLabel: "District *",
+        modalSub: "Copy your estimate summary & submit via our official Notion Form",
+        modalGuide: "Review your booking details below, then click \"Copy Summary & Open Notion Form\". Your formatted estimate will be copied automatically so you can paste it directly into fix.fixtaipei.com!",
+        modalDistrictLabel: "Service District *",
+        modalMemberLabel: "Membership Tier",
+        modalMemRegular: "Regular / New Customer",
+        modalMemVip: "VIP Platinum (20% Off Travel)",
+        modalMemCorp: "Corporate VIP Partner",
         modalServiceLabel: "Selected Service / Estimate",
-        modalIssueLabel: "Issue Description & Preferred Time",
-        modalSubmitBtn: "Submit Booking Request",
-        modalLineBtn: "Book via LINE",
-        modalSuccessTitle: "Booking Request Received!",
-        modalSuccessDesc: "Thank you! Our on-duty engineer has received your request and will contact you within 15 minutes to confirm the arrival window. For urgent cases, feel free to call or message us on LINE.",
-        modalCloseBtn: "Back to Page",
-        modalLineNotifyBtn: "Open LINE (@621bvlyb) to Send Photos"
+        modalTimeLabel: "Preferred Date / Time",
+        modalIssueLabel: "Issue Notes (Optional, included in summary)",
+        modalPreviewLabel: "Formatted Summary to Copy (Paste into Notion Form)",
+        modalCopyOnlyBtn: "Copy Text Only",
+        modalCopiedToast: "Booking summary copied! Opening Notion Form (fix.fixtaipei.com)...",
+        modalSubmitBtn: "Copy Summary & Open Notion Form",
+        modalDirectBtn: "Open Form Directly",
+        modalLineBtn: "Send Photos via LINE"
       }
     };
 
@@ -1656,15 +1632,15 @@
       });
 
       // Translate Placeholders in Modal
-      const nameInput = document.getElementById('book-name');
+      const timeInput = document.getElementById('book-time');
       const issueInput = document.getElementById('book-issue');
-      if (nameInput && issueInput) {
+      if (timeInput && issueInput) {
         if (lang === 'zh') {
-          nameInput.placeholder = "例如：陳先生 / Mr. Chen";
-          issueInput.placeholder = "例如：開機無畫面風扇有轉、希望今天下午 3 點後到府...";
+          timeInput.placeholder = "例如：今日下午 14:00 後 / 週末全天";
+          issueInput.placeholder = "例如：開機無畫面風扇有轉、需要升級 1TB SSD...";
         } else {
-          nameInput.placeholder = "e.g., Alex Chen / Mr. Wang";
-          issueInput.placeholder = "e.g., PC turns on with black screen, prefer today after 3 PM...";
+          timeInput.placeholder = "e.g., Today after 2:00 PM / Weekend";
+          issueInput.placeholder = "e.g., Black screen on boot, need 1TB SSD upgrade...";
         }
       }
 
@@ -1715,22 +1691,97 @@
       latestEstimateSummary = `${shortLabel.replace(/^.*（|）$/g, '').replace(/^Labor \(|\)$/g, '')} [${tierText}] — NT$ ${total.toLocaleString()}`;
     }
 
+    const NOTION_FORM_URL = "https://fix.fixtaipei.com";
+
+    // Build formatted summary text for clipboard & Notion form pasting
+    function syncModalSummary() {
+      const district = document.getElementById('book-district').value;
+      const memberEl = document.getElementById('book-member');
+      const memberText = memberEl.options[memberEl.selectedIndex].text;
+      const service = document.getElementById('book-service').value.trim();
+      const time = document.getElementById('book-time').value.trim();
+      const issue = document.getElementById('book-issue').value.trim();
+
+      const previewEl = document.getElementById('booking-clipboard-preview');
+      if (currentLang === 'zh') {
+        previewEl.value = [
+          `【FixTaipei 台北電腦宅修｜線上預約摘要】`,
+          `• 服務項目與試算：${service || '現場檢測評估'}`,
+          `• 所在行政區：${district}`,
+          `• 會員等級：${memberText}`,
+    // Mobile Menu Toggle (with safe null guard)
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    function closeMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+      }
+    }
+
+    // Cross-browser reliable clipboard copy helper (works inside iFrames)
+    function copyTextToClipboard(text) {
+      const previewEl = document.getElementById('booking-clipboard-preview');
+      previewEl.value = text;
+      previewEl.select();
+      previewEl.setSelectionRange(0, 99999);
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch (err) {
+        copied = false;
+      }
+      if (!copied && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      }
+    }
+
+    function showCopyToast(customMsg) {
+      const banner = document.getElementById('copy-toast-banner');
+      const textEl = document.getElementById('copy-toast-text');
+      textEl.textContent = customMsg || translations[currentLang].modalCopiedToast;
+      banner.classList.remove('hidden');
+    }
+
+    function copyBookingSummaryOnly() {
+      syncModalSummary();
+      const summary = document.getElementById('booking-clipboard-preview').value;
+      copyTextToClipboard(summary);
+      showCopyToast(
+        currentLang === 'zh'
+          ? "已複製預約摘要！您現在可前往 fix.fixtaipei.com 貼上。"
+          : "Summary copied! You can now paste it into fix.fixtaipei.com."
+      );
+    }
+
     // Booking Modal Controls
     function openBookingModal(preset) {
       const modal = document.getElementById('booking-modal');
-      const form = document.getElementById('booking-form');
-      const success = document.getElementById('booking-success');
       const serviceInput = document.getElementById('book-service');
+      const memberSelect = document.getElementById('book-member');
+      const banner = document.getElementById('copy-toast-banner');
 
-      form.classList.remove('hidden');
-      success.classList.add('hidden');
+      banner.classList.add('hidden');
+
+      // Sync membership tier from calculator if chosen
+      const calcMember = document.querySelector('input[name="calc-member"]:checked');
+      if (calcMember) {
+        memberSelect.value = calcMember.value;
+      }
 
       if (preset === 'vip') {
+        memberSelect.value = 'vip';
         serviceInput.value = currentLang === 'zh' ? "VIP 尊榮會員專案預約" : "VIP Platinum Priority Service";
       } else if (!preset) {
         serviceInput.value = latestEstimateSummary || (currentLang === 'zh' ? "基本檢測 / 故障排除 — NT$ 800" : "Basic Diagnostics — NT$ 800");
       }
 
+      syncModalSummary();
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
@@ -1757,6 +1808,9 @@
         }
       };
       document.getElementById('book-service').value = map[currentLang][type] || "";
+      if (type.startsWith('ent')) {
+        document.getElementById('book-member').value = 'corporate';
+      }
       openBookingModal('custom');
     }
 
@@ -1779,6 +1833,13 @@
 
     function bookFromCalculator() {
       updateCalculator();
+      const locSelect = document.getElementById('calc-location');
+      const locKey = locSelect.options[locSelect.selectedIndex].getAttribute('data-key');
+      const districtSelect = document.getElementById('book-district');
+      if (locKey === 'taipei') districtSelect.selectedIndex = 0;
+      if (locKey === 'newtaipei') districtSelect.selectedIndex = 7;
+      if (locKey === 'remote') districtSelect.selectedIndex = 10;
+
       document.getElementById('book-service').value = latestEstimateSummary;
       openBookingModal('custom');
     }
@@ -1789,53 +1850,17 @@
       modal.classList.remove('flex');
     }
 
-    function resetAndCloseBooking() {
-      document.getElementById('booking-form').reset();
-      closeBookingModal();
-    }
-
-    function handleBookingSubmit(event) {
+    function handleNotionRedirect(event) {
       event.preventDefault();
-      const name = document.getElementById('book-name').value.trim();
-      const contact = document.getElementById('book-contact').value.trim();
-      const district = document.getElementById('book-district').value;
-      const service = document.getElementById('book-service').value.trim();
-      const issue = document.getElementById('book-issue').value.trim();
+      syncModalSummary();
+      const summary = document.getElementById('booking-clipboard-preview').value;
+      copyTextToClipboard(summary);
+      showCopyToast(translations[currentLang].modalCopiedToast);
 
-      const summaryBox = document.getElementById('booking-summary-box');
-      if (currentLang === 'zh') {
-        summaryBox.innerHTML = `
-          <div><strong>聯絡人：</strong>${escapeHtml(name)}</div>
-          <div><strong>電話 / LINE：</strong>${escapeHtml(contact)}</div>
-          <div><strong>服務地區：</strong>${escapeHtml(district)}</div>
-          <div><strong>預約項目：</strong>${escapeHtml(service)}</div>
-          ${issue ? `<div><strong>備註說明：</strong>${escapeHtml(issue)}</div>` : ''}
-        `;
-      } else {
-        summaryBox.innerHTML = `
-          <div><strong>Contact:</strong> ${escapeHtml(name)}</div>
-          <div><strong>Phone / LINE:</strong> ${escapeHtml(contact)}</div>
-          <div><strong>District:</strong> ${escapeHtml(district)}</div>
-          <div><strong>Service:</strong> ${escapeHtml(service)}</div>
-          ${issue ? `<div><strong>Notes:</strong> ${escapeHtml(issue)}</div>` : ''}
-        `;
-      }
-
-      document.getElementById('booking-form').classList.add('hidden');
-      document.getElementById('booking-success').classList.remove('hidden');
-    }
-
-    // Utility to prevent XSS in summary display
-    function escapeHtml(str) {
-      return str.replace(/[&<>"']/g, function (m) {
-        return ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-        })[m];
-      });
+      // Open official Notion booking form in a new tab
+      setTimeout(() => {
+        window.open(NOTION_FORM_URL, '_blank', 'noopener,noreferrer');
+      }, 350);
     }
 
     // FAQ Accordion Toggle
