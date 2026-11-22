@@ -480,38 +480,42 @@
         </div>
     </section>
 
-    <!-- Booking & Consultation Channels Section -->
+    <!-- Multi-Channel Support & Social Media Section -->
     <section id="support" class="py-16 bg-slate-100">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 data-i18n="sup.title" class="text-3xl font-bold text-slate-900 mb-4">預約與即時諮詢管道</h2>
-                <p data-i18n="sup.subtitle" class="text-slate-600">我們統一提供線上表單登記與網站即時文字客服，確保每一筆案件皆有完整紀錄與專人追蹤。</p>
+                <h2 data-i18n="sup.title" class="text-3xl font-bold text-slate-900 mb-4">多元客服與社群管道</h2>
+                <p data-i18n="sup.subtitle" class="text-slate-600">選擇您最習慣的通訊軟體與我們聯繫，隨時為您解答電腦疑難雜症。</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Notion Booking Form -->
-                <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group flex flex-col items-center">
-                    <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-file-signature"></i>
-                    </div>
-                    <h4 data-i18n="sup.c1Title" class="font-bold text-xl text-slate-800 mb-2">Notion 線上預約表單</h4>
-                    <p data-i18n="sup.c1Desc" class="text-slate-500 text-sm mb-6 leading-relaxed">24 小時全天候開放填單，留下您的電腦狀況、聯絡方式與希望到府時段，工程師將盡快與您確認派工。</p>
-                    <span data-i18n="sup.c1Btn" class="mt-auto inline-flex items-center gap-2 bg-brand-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm group-hover:bg-brand-700 transition">
-                        前往填寫表單 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </span>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- LINE -->
+                <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-[#00B900] text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-line"></i></div>
+                    <h4 data-i18n="sup.lineTitle" class="font-bold text-lg text-slate-800 mb-1">LINE 官方客服</h4>
+                    <p data-i18n="sup.lineDesc" class="text-slate-500 text-xs">ID: @621bvlyb</p>
                 </a>
 
-                <!-- Online Live Chat -->
-                <button onclick="$crisp.push(['do', 'chat:open']);" class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group flex flex-col items-center">
-                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                    <h4 data-i18n="sup.c2Title" class="font-bold text-xl text-slate-800 mb-2">線上即時諮詢 (Live Chat)</h4>
-                    <p data-i18n="sup.c2Desc" class="text-slate-500 text-sm mb-6 leading-relaxed">無需加好友或安裝任何通訊軟體，點擊即可直接與線上技術顧問對話，快速評估故障原因與報價。</p>
-                    <span data-i18n="sup.c2Btn" class="mt-auto inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm group-hover:bg-emerald-700 transition">
-                        開啟即時對話視窗 <i class="fa-solid fa-comment-dots"></i>
-                    </span>
-                </button>
+                <!-- Facebook 客服 -->
+                <a href="https://www.facebook.com/fixtaipei" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-blue-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-facebook"></i></div>
+                    <h4 data-i18n="sup.fbTitle" class="font-bold text-lg text-slate-800 mb-1">Facebook 客服</h4>
+                    <p data-i18n="sup.fbDesc" class="text-slate-500 text-xs">私訊粉專即時回覆</p>
+                </a>
+
+                <!-- Instagram 客服 -->
+                <a href="https://www.instagram.com/fixtaipei/reels/" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-pink-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></div>
+                    <h4 data-i18n="sup.igTitle" class="font-bold text-lg text-slate-800 mb-1">Instagram 客服</h4>
+                    <p data-i18n="sup.igDesc" class="text-slate-500 text-xs">觀看 Reels 與小盒子洽詢</p>
+                </a>
+
+                <!-- WhatsApp 客服 -->
+                <a href="https://wa.me/message/4YRXWEEETXHSN1" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
+                    <div class="text-emerald-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h4 data-i18n="sup.waTitle" class="font-bold text-lg text-slate-800 mb-1">WhatsApp 客服</h4>
+                    <p data-i18n="sup.waDesc" class="text-slate-500 text-xs">快速文字對話</p>
+                </a>
             </div>
         </div>
     </section>
@@ -581,17 +585,14 @@
                 </ul>
             </div>
             <div>
-                <h4 data-i18n="footer.bookingTitle" class="text-white font-bold mb-4">預約與諮詢</h4>
-                <ul class="space-y-3 text-sm">
+                <h4 data-i18n="footer.supportTitle" class="text-white font-bold mb-4">多元客服中心</h4>
+                <ul class="space-y-2 text-sm">
                     <li><i class="fa-solid fa-location-dot w-5 text-brand-500"></i> <span data-i18n="footer.area">台北市／新北市全區到府服務</span></li>
-                    <li>
-                        <i class="fa-solid fa-file-signature w-5 text-brand-400"></i>
-                        <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="footer.notionLink" class="hover:underline text-white">Notion 線上預約表單</a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-comments w-5 text-emerald-400"></i>
-                        <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="footer.chatLink" class="hover:underline text-white">開啟線上即時諮詢 (Live Chat)</button>
-                    </li>
+                    <li><i class="fa-brands fa-line w-5 text-[#00B900]"></i> LINE: <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="hover:underline text-white">@621bvlyb</a></li>
+                    <li><i class="fa-brands fa-facebook w-5 text-blue-500"></i> Facebook: <a href="https://www.facebook.com/fixtaipei" target="_blank" data-i18n="footer.fbLink" class="hover:underline text-white">前往粉絲專頁</a></li>
+                    <li><i class="fa-brands fa-instagram w-5 text-pink-500"></i> Instagram: <a href="https://www.instagram.com/fixtaipei/reels/" target="_blank" data-i18n="footer.igLink" class="hover:underline text-white">觀看 Reels 影片</a></li>
+                    <li><i class="fa-brands fa-whatsapp w-5 text-emerald-500"></i> WhatsApp: <a href="https://wa.me/message/4YRXWEEETXHSN1" target="_blank" data-i18n="footer.waLink" class="hover:underline text-white">快速訊息對話</a></li>
+                    <li><i class="fa-brands fa-microsoft w-5 text-blue-400"></i> Teams: <a href="https://teams.live.com/l/invite/FEAzxt2uELQpAlScg?v=g1" target="_blank" data-i18n="footer.teamsLink" class="hover:underline text-white">企業 IT 專用邀請</a></li>
                 </ul>
             </div>
         </div>
@@ -750,14 +751,16 @@
                 "calc.btnBook": "填寫 Notion 表單預約",
                 "calc.btnChat": "線上即時諮詢確認",
 
-                "sup.title": "預約與即時諮詢管道",
-                "sup.subtitle": "我們統一提供線上表單登記與網站即時文字客服，確保每一筆案件皆有完整紀錄與專人追蹤。",
-                "sup.c1Title": "Notion 線上預約表單",
-                "sup.c1Desc": "24 小時全天候開放填單，留下您的電腦狀況、聯絡方式與希望到府時段，工程師將盡快與您確認派工。",
-                "sup.c1Btn": "前往填寫表單",
-                "sup.c2Title": "線上即時諮詢 (Live Chat)",
-                "sup.c2Desc": "無需加好友或安裝任何通訊軟體，點擊即可直接與線上技術顧問對話，快速評估故障原因與報價。",
-                "sup.c2Btn": "開啟即時對話視窗",
+                "sup.title": "多元客服與社群管道",
+                "sup.subtitle": "選擇您最習慣的通訊軟體與我們聯繫，隨時為您解答電腦疑難雜症。",
+                "sup.lineTitle": "LINE 官方客服",
+                "sup.lineDesc": "ID: @621bvlyb",
+                "sup.fbTitle": "Facebook 客服",
+                "sup.fbDesc": "私訊粉專即時回覆",
+                "sup.igTitle": "Instagram 客服",
+                "sup.igDesc": "觀看 Reels 與小盒子洽詢",
+                "sup.waTitle": "WhatsApp 客服",
+                "sup.waDesc": "快速文字對話",
 
                 "faq.title": "常見問題 FAQ",
                 "faq.subtitle": "整理顧客常見疑問，為您解答。",
@@ -770,10 +773,12 @@
 
                 "footer.desc": "台北地區最值得信賴的電腦宅修團隊，提供到府維修、會員售後保障與中小企業 IT 外包顧問服務。",
                 "footer.quickLinks": "快速連結",
-                "footer.bookingTitle": "預約與諮詢",
+                "footer.supportTitle": "多元客服中心",
                 "footer.area": "台北市／新北市全區到府服務",
-                "footer.notionLink": "Notion 線上預約表單",
-                "footer.chatLink": "開啟線上即時諮詢 (Live Chat)"
+                "footer.fbLink": "前往粉絲專頁",
+                "footer.igLink": "觀看 Reels 影片",
+                "footer.waLink": "快速訊息對話",
+                "footer.teamsLink": "企業 IT 專用邀請"
             },
             en: {
                 pageTitle: "FixTaipei | On-Site PC & Mac Repair, Membership & Corporate IT Support in Taipei",
@@ -907,14 +912,16 @@
                 "calc.btnBook": "Book via Notion Form",
                 "calc.btnChat": "Confirm via Live Chat",
 
-                "sup.title": "Booking & Live Consultation Channels",
-                "sup.subtitle": "We streamline all requests through our Notion booking form and website Live Chat so every case is tracked and answered promptly.",
-                "sup.c1Title": "Notion Online Booking Form",
-                "sup.c1Desc": "Available 24/7. Submit your device issue, contact details, and preferred time slot, and an engineer will confirm your appointment shortly.",
-                "sup.c1Btn": "Open Booking Form",
-                "sup.c2Title": "Online Live Chat",
-                "sup.c2Desc": "No extra apps or friend requests needed. Click to chat directly with an online tech advisor for instant troubleshooting and quotes.",
-                "sup.c2Btn": "Start Live Chat Now",
+                "sup.title": "Multi-Channel Support & Social Media",
+                "sup.subtitle": "Connect with us through your preferred messaging platform anytime for quick troubleshooting and inquiries.",
+                "sup.lineTitle": "LINE Official Support",
+                "sup.lineDesc": "ID: @621bvlyb",
+                "sup.fbTitle": "Facebook Support",
+                "sup.fbDesc": "Message our page for instant replies",
+                "sup.igTitle": "Instagram Support",
+                "sup.igDesc": "Watch Reels & DM us for inquiries",
+                "sup.waTitle": "WhatsApp Support",
+                "sup.waDesc": "Fast text messaging",
 
                 "faq.title": "Frequently Asked Questions",
                 "faq.subtitle": "Quick answers to common questions from our clients.",
@@ -927,10 +934,12 @@
 
                 "footer.desc": "Taipei's trusted on-site computer repair team, offering door-to-door tech support, member warranties, and SMB IT outsourcing.",
                 "footer.quickLinks": "Quick Links",
-                "footer.bookingTitle": "Booking & Support",
+                "footer.supportTitle": "Multi-Channel Support Center",
                 "footer.area": "Serving all of Taipei & New Taipei City",
-                "footer.notionLink": "Notion Online Booking Form",
-                "footer.chatLink": "Start Online Live Chat"
+                "footer.fbLink": "Visit Facebook Page",
+                "footer.igLink": "Watch Reels Videos",
+                "footer.waLink": "Quick Text Chat",
+                "footer.teamsLink": "Corporate IT Teams Invite"
             }
         };
 
