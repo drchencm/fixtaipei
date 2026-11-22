@@ -59,10 +59,18 @@
                     <span id="langLabel">EN</span>
                 </button>
 
+                <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#06C755] hover:bg-[#05b64d] text-white px-3 sm:px-4 py-2 rounded-lg font-medium shadow-sm transition" aria-label="LINE 諮詢">
+                    <i class="fa-brands fa-line text-lg"></i>
+                    <span data-i18n="nav.lineConsult">LINE 諮詢</span>
+                </a>
                 <button onclick="$crisp.push(['do', 'chat:open']);" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
                     <i class="fa-solid fa-comments text-lg"></i>
                     <span data-i18n="nav.liveChat">線上即時諮詢</span>
                 </button>
+                <a href="tel:0905632321" class="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-lg font-medium shadow-sm transition" aria-label="電話專線諮詢 0905-632-321">
+                    <i class="fa-solid fa-phone text-lg"></i>
+                    <span data-i18n="nav.phoneConsult">電話專線</span>
+                </a>
                 <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="nav.bookNow" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
                     立即預約
                 </a>
@@ -86,7 +94,7 @@
                         告別大包小包搬主機的狼狽！台北最迅速、透明的 PC/Mac 到府維修與企業 IT 顧問服務。現場檢測，透明報價，會員享有專屬保固與車馬費折扣優惠。
                     </p>
                     
-                    <!-- 按鈕群組：僅保留 Notion 表單預約與線上即時諮詢 -->
+                    <!-- 按鈕群組：表單預約與線上即時諮詢 -->
                     <div class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
                         <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="inline-flex justify-center items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-brand-500/20 transition">
                             <i class="fa-solid fa-calendar-check"></i> <span data-i18n="hero.btnBook">預約工程師到府</span>
@@ -94,6 +102,9 @@
                         <button onclick="$crisp.push(['do', 'chat:open']);" class="inline-flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-emerald-500/20 transition">
                             <i class="fa-solid fa-comments"></i> <span data-i18n="hero.btnChat">線上即時諮詢</span>
                         </button>
+                        <a href="tel:0905632321" class="inline-flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-blue-500/20 transition">
+                            <i class="fa-solid fa-phone"></i> <span data-i18n="hero.btnPhone">電話專線諮詢 0905-632-321</span>
+                        </a>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium">
@@ -468,7 +479,7 @@
                         </div>
                         <div class="space-y-2.5">
                             <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="calc.btnBook" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg text-center transition">
-                                填寫 Notion 表單預約
+                                填寫表單預約
                             </a>
                             <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="calc.btnChat" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg text-center transition">
                                 線上即時諮詢確認
@@ -630,6 +641,8 @@
                 "nav.calculator": "費用估算",
                 "nav.faq": "常見問題",
                 "nav.liveChat": "線上即時諮詢",
+                "nav.phoneConsult": "電話專線",
+                "nav.lineConsult": "LINE 諮詢",
                 "nav.bookNow": "立即預約",
 
                 "hero.badge": "台北市／新北市快速到府",
@@ -637,6 +650,7 @@
                 "hero.subtitle": "告別大包小包搬主機的狼狽！台北最迅速、透明的 PC/Mac 到府維修與企業 IT 顧問服務。現場檢測，透明報價，會員享有專屬保固與車馬費折扣優惠。",
                 "hero.btnBook": "預約工程師到府",
                 "hero.btnChat": "線上即時諮詢",
+                "hero.btnPhone": "電話專線諮詢 0905-632-321",
                 "hero.tag1": "先報價後維修",
                 "hero.tag2": "絕不亂加價",
                 "hero.tag3": "會員獨享保固",
@@ -748,7 +762,7 @@
                 "calc.memOpt2": "VIP 尊榮會員 (車馬費 8 折)",
                 "calc.resultLabel": "預估基本費用",
                 "calc.resultNote": "* 實際費用依現場硬體損壞狀況與更換零件材料費為準。工程師檢測後會先進行完整報價。",
-                "calc.btnBook": "填寫 Notion 表單預約",
+                "calc.btnBook": "填寫表單預約",
                 "calc.btnChat": "線上即時諮詢確認",
 
                 "sup.title": "多元客服與社群管道",
@@ -791,6 +805,8 @@
                 "nav.calculator": "Estimator",
                 "nav.faq": "FAQ",
                 "nav.liveChat": "Live Chat",
+                "nav.phoneConsult": "Call Us",
+                "nav.lineConsult": "LINE Consultation",
                 "nav.bookNow": "Book Now",
 
                 "hero.badge": "Fast On-Site Service in Taipei & New Taipei",
@@ -798,6 +814,7 @@
                 "hero.subtitle": "Skip the hassle of unplugging and hauling heavy desktops. Taipei's fastest, most transparent on-site PC/Mac repair and corporate IT consulting. Clear upfront quotes and exclusive member warranties.",
                 "hero.btnBook": "Book On-Site Engineer",
                 "hero.btnChat": "Online Live Chat",
+                "hero.btnPhone": "Call 0905-632-321",
                 "hero.tag1": "Quote Before Repair",
                 "hero.tag2": "No Hidden Fees",
                 "hero.tag3": "Member Warranty",
@@ -888,7 +905,7 @@
                 "corp.p3f3": "Rapid workstation deployment for new hires",
                 "corp.p3f4": "Loaner backup PC provided during off-site repairs",
 
-                "corp.btnForm": "Notion Form",
+                "corp.btnForm": "Booking Form",
                 "corp.btnChat": "Live Chat",
                 "corp.footnote": "<strong>Note:</strong> Contract fees cover technical labor and routine inspections. Replacement parts or new hardware are billed separately with a 10%–15% corporate member discount.",
                 "corp.footnoteChat": "Consult via Live Chat",
@@ -909,7 +926,7 @@
                 "calc.memOpt2": "VIP Platinum Member (20% Off Travel Fee)",
                 "calc.resultLabel": "Estimated Base Total",
                 "calc.resultNote": "* Final cost depends on on-site hardware condition and replacement parts. Our engineer will provide a full quote before starting work.",
-                "calc.btnBook": "Book via Notion Form",
+                "calc.btnBook": "Fill Out Booking Form",
                 "calc.btnChat": "Confirm via Live Chat",
 
                 "sup.title": "Multi-Channel Support & Social Media",
