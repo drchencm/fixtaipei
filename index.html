@@ -31,16 +31,62 @@
     </script>
     <!-- FontAwesome Font Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全站自適應基礎設定 */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { min-width: 320px; overflow-x: hidden; }
+        img, video, iframe, svg { max-width: 100%; }
+        a, button { -webkit-tap-highlight-color: transparent; }
+        section[id] { scroll-margin-top: 5.5rem; }
+        p, li, h1, h2, h3, h4, a, button, span { overflow-wrap: anywhere; }
+
+        /* 手機版導覽列：品牌與操作按鈕分列，避免擠壓及橫向溢出 */
+        @media (max-width: 767px) {
+            header > div {
+                height: auto !important; min-height: 4rem;
+                padding-top: .55rem; padding-bottom: .55rem;
+                flex-wrap: wrap; row-gap: .45rem;
+            }
+            header > div > a:first-child {
+                font-size: 1.15rem; line-height: 1.5rem; min-width: 0;
+            }
+            header > div > a:first-child [data-i18n="brand.badge"] { display: none; }
+            header > div > div:last-child {
+                width: 100%; justify-content: flex-end; gap: .45rem;
+            }
+            #langToggleBtn, header > div > div:last-child > a {
+                min-height: 2.65rem; padding: .55rem .75rem;
+                font-size: .82rem; white-space: nowrap;
+            }
+            header > div > div:last-child > a:last-child { flex: 0 0 auto; }
+            .py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+            .p-8 { padding: 1.25rem; }
+            .p-6 { padding: 1rem; }
+            .gap-12 { gap: 2rem; }
+            .gap-8 { gap: 1.5rem; }
+            .text-4xl { font-size: 2rem; line-height: 1.15; }
+            .text-3xl { font-size: 1.65rem; line-height: 1.25; }
+            select, input, textarea { max-width: 100%; min-width: 0; }
+        }
+        @media (max-width: 380px) {
+            header > div > div:last-child { gap: .35rem; }
+            #langToggleBtn, header > div > div:last-child > a {
+                padding-left: .55rem; padding-right: .55rem; font-size: .76rem;
+            }
+            .grid.grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
     <!-- Header / Navbar -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 text-2xl font-black text-brand-900 tracking-tight">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 text-xl sm:text-2xl font-black text-brand-900 tracking-tight min-w-0">
                 <i class="fa-solid fa-wrench text-brand-500"></i>
                 Fix<span class="text-brand-500">Taipei</span>
-                <span data-i18n="brand.badge" class="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium ml-1">台北電腦宅修</span>
+                <span data-i18n="brand.badge" class="hidden sm:inline text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium ml-1">台北電腦宅修</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-6 font-medium text-slate-600 text-sm lg:text-base">
@@ -52,7 +98,7 @@
                 <a href="#faq" data-i18n="nav.faq" class="hover:text-brand-500 transition">常見問題</a>
             </nav>
 
-            <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                 <!-- Language Switcher -->
                 <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-2 rounded-lg text-sm font-semibold transition border border-slate-200" title="Switch Language">
                     <i class="fa-solid fa-globe text-brand-600"></i>
@@ -87,7 +133,7 @@
                     </p>
                     
                     <!-- 按鈕群組：表單預約與線上即時諮詢 -->
-                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8">
                         <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="inline-flex justify-center items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-brand-500/20 transition">
                             <i class="fa-solid fa-calendar-check"></i> <span data-i18n="hero.btnBook">預約工程師到府</span>
                         </a>
