@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixTaipei 台北電腦宅修 | 專業到府電腦維修、會員權益與企業 IT 顧問服務</title>
-    <meta name="description" content="台北地區專業電腦到府維修服務！提供會員專屬權益、VIP尊榮禮遇、中小企業年度IT外包維護方案、Windows/Mac故障排除與網路架設。">
+    <title id="page-title">FixTaipei 台北電腦宅修 | 專業到府電腦維修、會員權益與企業 IT 顧問服務</title>
+    <meta id="page-desc" name="description" content="台北地區專業電腦到府維修服務！提供會員專屬權益、VIP尊榮禮遇、中小企業年度IT外包維護方案、Windows/Mac故障排除與網路架設。">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -40,24 +40,30 @@
             <a href="#" class="flex items-center gap-2 text-2xl font-black text-brand-900 tracking-tight">
                 <i class="fa-solid fa-wrench text-brand-500"></i>
                 Fix<span class="text-brand-500">Taipei</span>
-                <span class="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium ml-1">台北電腦宅修</span>
+                <span data-i18n="brand.badge" class="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium ml-1">台北電腦宅修</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-6 font-medium text-slate-600 text-sm lg:text-base">
-                <a href="#advantages" class="hover:text-brand-500 transition">服務優勢</a>
-                <a href="#services" class="hover:text-brand-500 transition">維修項目</a>
-                <a href="#membership" class="hover:text-brand-500 transition">會員權益</a>
-                <a href="#corporate" class="hover:text-brand-500 transition">企業簽約方案</a>
-                <a href="#calculator" class="hover:text-brand-500 transition">費用估算</a>
-                <a href="#faq" class="hover:text-brand-500 transition">常見問題</a>
+                <a href="#advantages" data-i18n="nav.advantages" class="hover:text-brand-500 transition">服務優勢</a>
+                <a href="#services" data-i18n="nav.services" class="hover:text-brand-500 transition">維修項目</a>
+                <a href="#membership" data-i18n="nav.membership" class="hover:text-brand-500 transition">會員權益</a>
+                <a href="#corporate" data-i18n="nav.corporate" class="hover:text-brand-500 transition">企業簽約方案</a>
+                <a href="#calculator" data-i18n="nav.calculator" class="hover:text-brand-500 transition">費用估算</a>
+                <a href="#faq" data-i18n="nav.faq" class="hover:text-brand-500 transition">常見問題</a>
             </nav>
 
-            <div class="flex items-center gap-3">
-                <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-[#00B900] hover:bg-[#009900] text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
-                    <i class="fa-brands fa-line text-lg"></i>
-                    LINE 諮詢
-                </a>
-                <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Language Switcher -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-2 rounded-lg text-sm font-semibold transition border border-slate-200" title="Switch Language">
+                    <i class="fa-solid fa-globe text-brand-600"></i>
+                    <span id="langLabel">EN</span>
+                </button>
+
+                <button onclick="$crisp.push(['do', 'chat:open']);" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
+                    <i class="fa-solid fa-comments text-lg"></i>
+                    <span data-i18n="nav.liveChat">線上即時諮詢</span>
+                </button>
+                <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="nav.bookNow" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition">
                     立即預約
                 </a>
             </div>
@@ -70,33 +76,30 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold mb-6">
-                        <i class="fa-solid fa-truck-fast"></i> 台北市／新北市快速到府
+                        <i class="fa-solid fa-truck-fast"></i> <span data-i18n="hero.badge">台北市／新北市快速到府</span>
                     </div>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                    <h1 data-i18n-html="hero.title" class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
                         電腦故障不必搬！<br>
                         <span class="text-brand-600">專業工程師直接到府</span>
                     </h1>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    <p data-i18n="hero.subtitle" class="text-lg text-slate-600 mb-8 leading-relaxed">
                         告別大包小包搬主機的狼狽！台北最迅速、透明的 PC/Mac 到府維修與企業 IT 顧問服務。現場檢測，透明報價，會員享有專屬保固與車馬費折扣優惠。
                     </p>
                     
-                    <!-- 按鈕群組 -->
+                    <!-- 按鈕群組：僅保留 Notion 表單預約與線上即時諮詢 -->
                     <div class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
                         <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="inline-flex justify-center items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-brand-500/20 transition">
-                            <i class="fa-solid fa-calendar-check"></i> 預約工程師到府
-                        </a>
-                        <a href="tel:0905632321" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3.5 rounded-xl text-lg font-semibold shadow-sm transition">
-                            <i class="fa-solid fa-phone text-brand-500"></i> 電話專線諮詢
+                            <i class="fa-solid fa-calendar-check"></i> <span data-i18n="hero.btnBook">預約工程師到府</span>
                         </a>
                         <button onclick="$crisp.push(['do', 'chat:open']);" class="inline-flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-xl text-lg font-semibold shadow-lg shadow-emerald-500/20 transition">
-                            <i class="fa-solid fa-comments"></i> 線上即時諮詢
+                            <i class="fa-solid fa-comments"></i> <span data-i18n="hero.btnChat">線上即時諮詢</span>
                         </button>
                     </div>
 
-                    <div class="flex items-center gap-6 text-sm text-slate-500 font-medium">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 先報價後維修</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 絕不亂加價</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> 會員獨享保固</span>
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-medium">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> <span data-i18n="hero.tag1">先報價後維修</span></span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> <span data-i18n="hero.tag2">絕不亂加價</span></span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent-500"></i> <span data-i18n="hero.tag3">會員獨享保固</span></span>
                     </div>
                 </div>
 
@@ -104,29 +107,29 @@
                 <div class="relative">
                     <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-slate-100">
                         <div class="flex items-center justify-between border-b pb-4 mb-6">
-                            <span class="font-bold text-slate-800 text-lg">💡 常見電腦急救案例</span>
-                            <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">現場排除率 95%+</span>
+                            <span data-i18n="heroCard.title" class="font-bold text-slate-800 text-lg">💡 常見電腦急救案例</span>
+                            <span data-i18n="heroCard.badge" class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">現場排除率 95%+</span>
                         </div>
                         <ul class="space-y-4">
                             <li class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
                                 <div class="bg-red-100 text-red-600 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-desktop"></i></div>
                                 <div>
-                                    <div class="font-bold text-slate-800">開機黑屏／藍屏死機</div>
-                                    <div class="text-sm text-slate-500">記憶體金手指氧化、電源供應器故障排查</div>
+                                    <div data-i18n="heroCard.item1Title" class="font-bold text-slate-800">開機黑屏／藍屏死機</div>
+                                    <div data-i18n="heroCard.item1Desc" class="text-sm text-slate-500">記憶體金手指氧化、電源供應器故障排查</div>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
                                 <div class="bg-amber-100 text-amber-600 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-gauge-high"></i></div>
                                 <div>
-                                    <div class="font-bold text-slate-800">電腦速度極慢／老舊升級</div>
-                                    <div class="text-sm text-slate-500">傳統硬碟換裝 SSD 固態硬碟，效能立刻提升 5 倍</div>
+                                    <div data-i18n="heroCard.item2Title" class="font-bold text-slate-800">電腦速度極慢／老舊升級</div>
+                                    <div data-i18n="heroCard.item2Desc" class="text-sm text-slate-500">傳統硬碟換裝 SSD 固態硬碟，效能立刻提升 5 倍</div>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
                                 <div class="bg-blue-100 text-blue-600 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-wifi"></i></div>
                                 <div>
-                                    <div class="font-bold text-slate-800">居家／辦公室 Wi-Fi 訊號死角</div>
-                                    <div class="text-sm text-slate-500">Mesh 無縫漫遊網路規劃與網路線抽換</div>
+                                    <div data-i18n="heroCard.item3Title" class="font-bold text-slate-800">居家／辦公室 Wi-Fi 訊號死角</div>
+                                    <div data-i18n="heroCard.item3Desc" class="text-sm text-slate-500">Mesh 無縫漫遊網路規劃與網路線抽換</div>
                                 </div>
                             </li>
                         </ul>
@@ -140,8 +143,8 @@
     <section id="advantages" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">為什麼選擇 FixTaipei？</h2>
-                <p class="text-slate-600">我們用最專業技術與透明服務，解決您所有的數位煩惱。</p>
+                <h2 data-i18n="adv.title" class="text-3xl font-bold text-slate-900 mb-4">為什麼選擇 FixTaipei？</h2>
+                <p data-i18n="adv.subtitle" class="text-slate-600">我們用最專業技術與透明服務，解決您所有的數位煩惱。</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -149,9 +152,9 @@
                     <div class="w-14 h-14 bg-brand-500 text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-500/20">
                         <i class="fa-solid fa-house-laptop"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">免出門，到府服務</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        一通電話或線上預約，工程師配合您的時間上門處理。免去拆裝線路、搬運重量主機的困擾。
+                    <h3 data-i18n="adv.card1Title" class="text-xl font-bold text-slate-900 mb-3">免出門，到府服務</h3>
+                    <p data-i18n="adv.card1Desc" class="text-slate-600 leading-relaxed">
+                        填寫線上表單或即時諮詢預約，工程師配合您的時間上門處理。免去拆裝線路、搬運重量主機的困擾。
                     </p>
                 </div>
 
@@ -159,8 +162,8 @@
                     <div class="w-14 h-14 bg-brand-500 text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-500/20">
                         <i class="fa-solid fa-file-invoice-dollar"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">先報價，後維修</h3>
-                    <p class="text-slate-600 leading-relaxed">
+                    <h3 data-i18n="adv.card2Title" class="text-xl font-bold text-slate-900 mb-3">先報價，後維修</h3>
+                    <p data-i18n="adv.card2Desc" class="text-slate-600 leading-relaxed">
                         現場檢測確認故障原因後，說明修復方式與明確費用。經您同意後才開始施工，絕不隨意加價。
                     </p>
                 </div>
@@ -169,8 +172,8 @@
                     <div class="w-14 h-14 bg-brand-500 text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-500/20">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">PC / Mac 全對應</h3>
-                    <p class="text-slate-600 leading-relaxed">
+                    <h3 data-i18n="adv.card3Title" class="text-xl font-bold text-slate-900 mb-3">PC / Mac 全對應</h3>
+                    <p data-i18n="adv.card3Desc" class="text-slate-600 leading-relaxed">
                         不管是 Windows 品牌桌機、DIY 組裝機，還是 Apple Mac、NAS 網路儲存設備，皆能提供專業解決方案。
                     </p>
                 </div>
@@ -182,45 +185,45 @@
     <section id="services" class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">服務項目</h2>
-                <p class="text-slate-600">從個人電腦維護到企業 IT 支援，全方位滿足您的需求。</p>
+                <h2 data-i18n="srv.title" class="text-3xl font-bold text-slate-900 mb-4">服務項目</h2>
+                <p data-i18n="srv.subtitle" class="text-slate-600">從個人電腦維護到企業 IT 支援，全方位滿足您的需求。</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
                     <div class="text-brand-500 text-3xl mb-4"><i class="fa-solid fa-microchip"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-2">硬體檢測與更換</h4>
-                    <p class="text-slate-500 text-sm">主機板、顯示卡、電源供應器檢測，SSD/記憶體升級施工。</p>
+                    <h4 data-i18n="srv.c1Title" class="font-bold text-lg text-slate-800 mb-2">硬體檢測與更換</h4>
+                    <p data-i18n="srv.c1Desc" class="text-slate-500 text-sm">主機板、顯示卡、電源供應器檢測，SSD/記憶體升級施工。</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
                     <div class="text-brand-500 text-3xl mb-4"><i class="fa-brands fa-windows"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-2">系統重灌與優化</h4>
-                    <p class="text-slate-500 text-sm">Windows / macOS 正版系統重灌、病毒清理、開機卡頓加速。</p>
+                    <h4 data-i18n="srv.c2Title" class="font-bold text-lg text-slate-800 mb-2">系統重灌與優化</h4>
+                    <p data-i18n="srv.c2Desc" class="text-slate-500 text-sm">Windows / macOS 正版系統重灌、病毒清理、開機卡頓加速。</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
                     <div class="text-brand-500 text-3xl mb-4"><i class="fa-solid fa-network-wired"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-2">網路與 Mesh 架設</h4>
-                    <p class="text-slate-500 text-sm">居家/店面 Wi-Fi 訊號優化、Mesh 全屋漫遊、網路拉線與路由器設定。</p>
+                    <h4 data-i18n="srv.c3Title" class="font-bold text-lg text-slate-800 mb-2">網路與 Mesh 架設</h4>
+                    <p data-i18n="srv.c3Desc" class="text-slate-500 text-sm">居家/店面 Wi-Fi 訊號優化、Mesh 全屋漫遊、網路拉線與路由器設定。</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
                     <div class="text-brand-500 text-3xl mb-4"><i class="fa-solid fa-building"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-2">企業 IT 與 NAS 備份</h4>
-                    <p class="text-slate-500 text-sm">中小企業定期維護外包、NAS 私有雲建立、自動化備份與資安防護。</p>
+                    <h4 data-i18n="srv.c4Title" class="font-bold text-lg text-slate-800 mb-2">企業 IT 與 NAS 備份</h4>
+                    <p data-i18n="srv.c4Desc" class="text-slate-500 text-sm">中小企業定期維護外包、NAS 私有雲建立、自動化備份與資安防護。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION: Membership Privileges -->
+    <!-- Membership Privileges -->
     <section id="membership" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-brand-600 font-bold text-sm tracking-wider uppercase">Privilege Program</span>
-                <h2 class="text-3xl font-bold text-slate-900 mt-1 mb-4">FixTaipei 會員尊榮權益</h2>
-                <p class="text-slate-600">加入會員即可享受更完善的售後保障、線上維修履歷查詢與優先派工服務。</p>
+                <h2 data-i18n="mem.title" class="text-3xl font-bold text-slate-900 mt-1 mb-4">FixTaipei 會員尊榮權益</h2>
+                <p data-i18n="mem.subtitle" class="text-slate-600">加入會員即可享受更完善的售後保障、線上維修履歷查詢與優先派工服務。</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -228,87 +231,87 @@
                 <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between hover:shadow-lg transition">
                     <div>
                         <div class="text-slate-500 font-bold text-xs tracking-wider uppercase mb-2">Basic Member</div>
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">一般會員</h3>
-                        <p class="text-slate-500 text-xs mb-6">加入官方 LINE 帳號即可免費升級</p>
+                        <h3 data-i18n="mem.m1Title" class="text-2xl font-black text-slate-900 mb-2">一般會員</h3>
+                        <p data-i18n="mem.m1Sub" class="text-slate-500 text-xs mb-6">首次預約或線上諮詢即可免費登錄升級</p>
                         <ul class="space-y-3.5 text-sm text-slate-600 mb-8">
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>免費線上諮詢：</strong>文字即時線上記頭診斷與諮詢</span>
+                                <span data-i18n-html="mem.m1f1"><strong>免費線上諮詢：</strong>文字即時線上初步診斷與諮詢</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>雲端維修履歷：</strong>專屬檔案紀錄每次維護細節</span>
+                                <span data-i18n-html="mem.m1f2"><strong>雲端維修履歷：</strong>專屬檔案紀錄每次維護細節</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-500 mt-0.5"></i>
-                                <span><strong>基礎維修保固：</strong>完工享 30 天硬體維修保固服務</span>
+                                <span data-i18n-html="mem.m1f3"><strong>基礎維修保固：</strong>完工享 30 天硬體維修保固服務</span>
                             </li>
                         </ul>
                     </div>
-                    <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="block text-center bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold py-3 rounded-xl transition">
-                        加入官方 LINE 會員
-                    </a>
+                    <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="mem.m1Btn" class="w-full text-center bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold py-3 rounded-xl transition">
+                        線上即時諮詢加入會員
+                    </button>
                 </div>
 
                 <!-- VIP 尊榮會員 -->
                 <div class="bg-brand-50/40 p-8 rounded-2xl border-2 border-brand-500 flex flex-col justify-between relative shadow-xl">
-                    <div class="absolute -top-3.5 right-6 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                    <div data-i18n="mem.m2Badge" class="absolute -top-3.5 right-6 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                         熱門首選
                     </div>
                     <div>
                         <div class="text-brand-600 font-bold text-xs tracking-wider uppercase mb-2">VIP Platinum</div>
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">VIP 尊榮會員</h3>
-                        <p class="text-slate-500 text-xs mb-6">單次消費滿 NT$ 3,000 或年累計達標升級</p>
+                        <h3 data-i18n="mem.m2Title" class="text-2xl font-black text-slate-900 mb-2">VIP 尊榮會員</h3>
+                        <p data-i18n="mem.m2Sub" class="text-slate-500 text-xs mb-6">單次消費滿 NT$ 3,000 或年累計達標升級</p>
                         <ul class="space-y-3.5 text-sm text-slate-700 mb-8">
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5"></i>
-                                <span><strong>車馬費 8 折優惠：</strong>每次到府服務享折扣優惠</span>
+                                <span data-i18n-html="mem.m2f1"><strong>車馬費 8 折優惠：</strong>每次到府服務享折扣優惠</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5"></i>
-                                <span><strong>快速到府派工：</strong>最快 2 小時內優先安排工程師</span>
+                                <span data-i18n-html="mem.m2f2"><strong>快速到府派工：</strong>最快 2 小時內優先安排工程師</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5"></i>
-                                <span><strong>保固延長 60 天：</strong>售後服務體驗雙倍安心保障</span>
+                                <span data-i18n-html="mem.m2f3"><strong>保固延長 60 天：</strong>售後服務體驗雙倍安心保障</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-brand-600 mt-0.5"></i>
-                                <span><strong>每年 1 次免費健檢：</strong>遠端電腦系統清理與效能優化</span>
+                                <span data-i18n-html="mem.m2f4"><strong>每年 1 次免費健檢：</strong>遠端電腦系統清理與效能優化</span>
                             </li>
                         </ul>
                     </div>
-                    <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="block text-center bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl shadow-md transition">
-                        洽詢 VIP 升級資格
-                    </a>
+                    <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="mem.m2Btn" class="w-full text-center bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl shadow-md transition">
+                        線上諮詢 VIP 升級資格
+                    </button>
                 </div>
 
                 <!-- 企業特約會員 -->
                 <div class="bg-slate-900 text-white p-8 rounded-2xl border border-slate-800 flex flex-col justify-between hover:shadow-xl transition">
                     <div>
                         <div class="text-brand-400 font-bold text-xs tracking-wider uppercase mb-2">Corporate VIP</div>
-                        <h3 class="text-2xl font-black mb-2 text-white">企業簽約客戶</h3>
-                        <p class="text-slate-400 text-xs mb-6">適合無專職 IT 的中小企業、工作室與門市</p>
+                        <h3 data-i18n="mem.m3Title" class="text-2xl font-black mb-2 text-white">企業簽約客戶</h3>
+                        <p data-i18n="mem.m3Sub" class="text-slate-400 text-xs mb-6">適合無專職 IT 的中小企業、工作室與門市</p>
                         <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5"></i>
-                                <span><strong>專屬 IT 顧問對接：</strong>線上與 Teams 快速服務支援</span>
+                                <span data-i18n-html="mem.m3f1"><strong>專屬 IT 顧問對接：</strong>線上即時與遠端快速服務支援</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5"></i>
-                                <span><strong>定期到府巡檢：</strong>設備保養、NAS備份與網路維護</span>
+                                <span data-i18n-html="mem.m3f2"><strong>定期到府巡檢：</strong>設備保養、NAS備份與網路維護</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5"></i>
-                                <span><strong>採購材料優惠價：</strong>硬體更換與耗材 85 折至 9 折</span>
+                                <span data-i18n-html="mem.m3f3"><strong>採購材料優惠價：</strong>硬體更換與耗材 85 折至 9 折</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5"></i>
-                                <span><strong>月結／季結發票：</strong>公司報帳方便，發票開立快捷</span>
+                                <span data-i18n-html="mem.m3f4"><strong>月結／季結發票：</strong>公司報帳方便，發票開立快捷</span>
                             </li>
                         </ul>
                     </div>
-                    <a href="#corporate" class="block text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-xl transition">
+                    <a href="#corporate" data-i18n="mem.m3Btn" class="block text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-xl transition">
                         查看企業維護方案
                     </a>
                 </div>
@@ -316,13 +319,13 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Corporate Annual Contract Plans -->
+    <!-- Corporate Annual Contract Plans -->
     <section id="corporate" class="py-16 bg-slate-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="bg-brand-500/20 text-brand-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Enterprise IT Solution</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">企業 IT 外包與年度維護合約</h2>
-                <p class="text-slate-400 leading-relaxed">
+                <h2 data-i18n="corp.title" class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">企業 IT 外包與年度維護合約</h2>
+                <p data-i18n="corp.subtitle" class="text-slate-400 leading-relaxed">
                     不用高薪聘請專職 IT 人員！FixTaipei 為台北中小企業提供彈性、高性價比的 IT 外包顧問服務，維持公司網路、電腦與伺服器穩定運作。
                 </p>
             </div>
@@ -332,73 +335,88 @@
                 <!-- 方案 1: 微型工作室 / 預付包 -->
                 <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">微型企業／預付工時卡</h3>
-                        <p class="text-slate-400 text-xs mb-6">適用 1-5 台電腦 / 無固定維修需求之團隊</p>
-                        <div class="text-3xl font-extrabold text-brand-400 mb-1">NT$ 12,000 <span class="text-sm font-normal text-slate-400">/ 10小時包</span></div>
-                        <p class="text-xs text-slate-400 mb-6">時數有效期 1 年，按次抵扣</p>
+                        <h3 data-i18n="corp.p1Title" class="text-xl font-bold text-white mb-2">微型企業／預付工時卡</h3>
+                        <p data-i18n="corp.p1Sub" class="text-slate-400 text-xs mb-6">適用 1-5 台電腦 / 無固定維修需求之團隊</p>
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">NT$ 12,000 <span data-i18n="corp.p1Unit" class="text-sm font-normal text-slate-400">/ 10小時包</span></div>
+                        <p data-i18n="corp.p1Note" class="text-xs text-slate-400 mb-6">時數有效期 1 年，按次抵扣</p>
                         <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-700 pt-6 mb-8">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 無固定月費負擔，資金彈性</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 遠端線上服務以 0.5 小時為單位扣抵</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 到府檢測維修免額外車馬費</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 工作日 4 小時內快速回應</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p1f1">無固定月費負擔，資金彈性</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p1f2">遠端線上服務以 0.5 小時為單位扣抵</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p1f3">到府檢測維修免額外車馬費</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p1f4">工作日 4 小時內快速回應</span></li>
                         </ul>
                     </div>
-                    <a href="https://teams.live.com/l/invite/FEAzxt2uELQpAlScg?v=g1" target="_blank" class="block text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 rounded-xl transition">
-                        諮詢預付方案
-                    </a>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="corp.btnForm" class="text-center bg-slate-700 hover:bg-slate-600 text-white text-sm font-semibold py-3 rounded-xl transition">
+                            填寫預約表單
+                        </a>
+                        <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="corp.btnChat" class="text-center bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold py-3 rounded-xl transition">
+                            線上即時諮詢
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 方案 2: 標準企業年度合約 -->
                 <div class="bg-slate-800/90 rounded-2xl p-8 border-2 border-brand-500 flex flex-col justify-between relative shadow-2xl">
-                    <div class="absolute -top-3.5 right-6 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    <div data-i18n="corp.p2Badge" class="absolute -top-3.5 right-6 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                         最推薦方案
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">標準企業包月合約</h3>
-                        <p class="text-slate-400 text-xs mb-6">適用 6-12 台電腦之一般中小企業辦公室</p>
-                        <div class="text-3xl font-extrabold text-brand-400 mb-1">NT$ 6,000 <span class="text-sm font-normal text-slate-400">/ 每月</span></div>
-                        <p class="text-xs text-slate-400 mb-6">簽訂年度合約，按季或按年結算（年繳享 9 折）</p>
+                        <h3 data-i18n="corp.p2Title" class="text-xl font-bold text-white mb-2">標準企業包月合約</h3>
+                        <p data-i18n="corp.p2Sub" class="text-slate-400 text-xs mb-6">適用 6-12 台電腦之一般中小企業辦公室</p>
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">NT$ 6,000 <span data-i18n="corp.p2Unit" class="text-sm font-normal text-slate-400">/ 每月</span></div>
+                        <p data-i18n="corp.p2Note" class="text-xs text-slate-400 mb-6">簽訂年度合約，按季或按年結算（年繳享 9 折）</p>
                         <ul class="space-y-3 text-sm text-slate-200 border-t border-slate-700 pt-6 mb-8">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 每月 1 次定期到府預防性巡檢保養</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 上班時間無限次遠端即時技術支援</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 辦公室 Wi-Fi / Mesh 網路穩定度維護</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> NAS 資料自動備份與資安狀態監控</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 障礙排除緊急到場（2-4小時內抵達）</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p2f1">每月 1 次定期到府預防性巡檢保養</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p2f2">上班時間無限次遠端即時技術支援</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p2f3">辦公室 Wi-Fi / Mesh 網路穩定度維護</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p2f4">NAS 資料自動備份與資安狀態監控</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p2f5">障礙排除緊急到場（2-4小時內抵達）</span></li>
                         </ul>
                     </div>
-                    <a href="https://teams.live.com/l/invite/FEAzxt2uELQpAlScg?v=g1" target="_blank" class="block text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-xl shadow-md transition">
-                        預約專人到府評估
-                    </a>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="corp.btnForm" class="text-center bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold py-3 rounded-xl shadow-md transition">
+                            填寫預約表單
+                        </a>
+                        <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="corp.btnChat" class="text-center bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold py-3 rounded-xl shadow-md transition">
+                            線上即時諮詢
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 方案 3: 進階企業 / 多門市方案 -->
                 <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">進階企業 / 多據點維護</h3>
-                        <p class="text-slate-400 text-xs mb-6">適用 13-25 台電腦 / 連鎖門市 / 設計公司</p>
-                        <div class="text-3xl font-extrabold text-brand-400 mb-1">NT$ 12,000 <span class="text-sm font-normal text-slate-400">/ 每月</span></div>
-                        <p class="text-xs text-slate-400 mb-6">客製化 IT 服務協議（SLA）保障</p>
+                        <h3 data-i18n="corp.p3Title" class="text-xl font-bold text-white mb-2">進階企業 / 多據點維護</h3>
+                        <p data-i18n="corp.p3Sub" class="text-slate-400 text-xs mb-6">適用 13-25 台電腦 / 連鎖門市 / 設計公司</p>
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">NT$ 12,000 <span data-i18n="corp.p3Unit" class="text-sm font-normal text-slate-400">/ 每月</span></div>
+                        <p data-i18n="corp.p3Note" class="text-xs text-slate-400 mb-6">客製化 IT 服務協議（SLA）保障</p>
                         <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-700 pt-6 mb-8">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 每月 2 次定期到府設備巡檢與清潔</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 印表機、NAS 與防火牆整體管理</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 新進員工電腦環境快速部署設定</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 設備故障送修期間提供備用替代機</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p3f1">每月 2 次定期到府設備巡檢與清潔</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p3f2">印表機、NAS 與防火牆整體管理</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p3f3">新進員工電腦環境快速部署設定</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> <span data-i18n="corp.p3f4">設備故障送修期間提供備用替代機</span></li>
                         </ul>
                     </div>
-                    <a href="https://teams.live.com/l/invite/FEAzxt2uELQpAlScg?v=g1" target="_blank" class="block text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 rounded-xl transition">
-                        聯繫 IT 顧問團隊
-                    </a>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="corp.btnForm" class="text-center bg-slate-700 hover:bg-slate-600 text-white text-sm font-semibold py-3 rounded-xl transition">
+                            填寫預約表單
+                        </a>
+                        <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="corp.btnChat" class="text-center bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold py-3 rounded-xl transition">
+                            線上即時諮詢
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="text-sm text-slate-300">
                     <i class="fa-solid fa-circle-info text-brand-400 mr-2"></i>
-                    <strong>備註說明：</strong>以上合約費用為「技術服務與巡檢維護費」。若需更換硬體零件或添購新設備，零件材料費另計，簽約客戶獨享 85 折至 9 折優惠價。
+                    <span data-i18n-html="corp.footnote"><strong>備註說明：</strong>以上合約費用為「技術服務與巡檢維護費」。若需更換硬體零件或添購新設備，零件材料費另計，簽約客戶獨享 85 折至 9 折優惠價。</span>
                 </div>
-                <a href="tel:0905632321" class="whitespace-nowrap text-brand-400 hover:text-brand-300 font-bold text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-phone"></i> 企業專線: 0905-632-321
-                </a>
+                <button onclick="$crisp.push(['do', 'chat:open']);" class="whitespace-nowrap text-emerald-400 hover:text-emerald-300 font-bold text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-comments"></i> <span data-i18n="corp.footnoteChat">線上即時專人諮詢</span>
+                </button>
             </div>
         </div>
     </section>
@@ -408,91 +426,92 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-brand-900 to-slate-900 text-white rounded-2xl p-8 shadow-xl">
                 <div class="text-center mb-8">
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-2">🧮 個人／會員到府服務試算器</h2>
-                    <p class="text-slate-300 text-sm">選擇服務項目與會員身份，預先試算透明費用。</p>
+                    <h2 data-i18n="calc.title" class="text-2xl sm:text-3xl font-bold mb-2">🧮 個人／會員到府服務試算器</h2>
+                    <p data-i18n="calc.subtitle" class="text-slate-300 text-sm">選擇服務項目與會員身份，預先試算透明費用。</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">選擇服務類別</label>
+                            <label data-i18n="calc.labelService" class="block text-sm font-medium text-slate-300 mb-2">選擇服務類別</label>
                             <select id="serviceType" onchange="calculateFee()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-3 focus:outline-none focus:border-brand-500">
-                                <option value="500">電腦基本檢測 / 故障排除 (NT$ 500)</option>
-                                <option value="1200">系統重灌 + 驅動完整安裝 (NT$ 1,200)</option>
-                                <option value="1000">硬體更換 / SSD 複製轉移 (NT$ 1,000)</option>
-                                <option value="1500">Wi-Fi 網路架設 / Mesh 設定 (NT$ 1,500)</option>
+                                <option value="500" data-i18n="calc.srvOpt1">電腦基本檢測 / 故障排除 (NT$ 500)</option>
+                                <option value="1200" data-i18n="calc.srvOpt2">系統重灌 + 驅動完整安裝 (NT$ 1,200)</option>
+                                <option value="1000" data-i18n="calc.srvOpt3">硬體更換 / SSD 複製轉移 (NT$ 1,000)</option>
+                                <option value="1500" data-i18n="calc.srvOpt4">Wi-Fi 網路架設 / Mesh 設定 (NT$ 1,500)</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">到府區域 (基礎車馬費)</label>
+                            <label data-i18n="calc.labelLocation" class="block text-sm font-medium text-slate-300 mb-2">到府區域 (基礎車馬費)</label>
                             <select id="location" onchange="calculateFee()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-3 focus:outline-none focus:border-brand-500">
-                                <option value="300">台北市核心區 (車馬費 NT$ 300)</option>
-                                <option value="500">新北市核心區 (車馬費 NT$ 500)</option>
-                                <option value="800">偏遠/山區 (車馬費 NT$ 800)</option>
+                                <option value="300" data-i18n="calc.locOpt1">台北市核心區 (車馬費 NT$ 300)</option>
+                                <option value="500" data-i18n="calc.locOpt2">新北市核心區 (車馬費 NT$ 500)</option>
+                                <option value="800" data-i18n="calc.locOpt3">偏遠/山區 (車馬費 NT$ 800)</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">會員身分身份折扣</label>
+                            <label data-i18n="calc.labelMember" class="block text-sm font-medium text-slate-300 mb-2">會員身分折扣</label>
                             <select id="memberDiscount" onchange="calculateFee()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-3 focus:outline-none focus:border-brand-500">
-                                <option value="1">非會員 / 一般顧客 (無折扣)</option>
-                                <option value="0.8">VIP 尊榮會員 (車馬費 8 折)</option>
+                                <option value="1" data-i18n="calc.memOpt1">非會員 / 一般顧客 (無折扣)</option>
+                                <option value="0.8" data-i18n="calc.memOpt2">VIP 尊榮會員 (車馬費 8 折)</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-                        <div class="text-slate-400 text-sm mb-1">預估基本費用</div>
+                        <div data-i18n="calc.resultLabel" class="text-slate-400 text-sm mb-1">預估基本費用</div>
                         <div class="text-4xl font-extrabold text-brand-400 mb-2" id="totalFee">NT$ 800</div>
-                        <div class="text-xs text-slate-400 leading-relaxed mb-4">
+                        <div data-i18n="calc.resultNote" class="text-xs text-slate-400 leading-relaxed mb-4">
                             * 實際費用依現場硬體損壞狀況與更換零件材料費為準。工程師檢測後會先進行完整報價。
                         </div>
-                        <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg text-center transition">
-                            以此試算預約工程師
-                        </a>
+                        <div class="space-y-2.5">
+                            <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="calc.btnBook" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg text-center transition">
+                                填寫 Notion 表單預約
+                            </a>
+                            <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="calc.btnChat" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg text-center transition">
+                                線上即時諮詢確認
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Multi-Channel Support Section -->
+    <!-- Booking & Consultation Channels Section -->
     <section id="support" class="py-16 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">多元客服與社群管道</h2>
-                <p class="text-slate-600">選擇您最習慣的通訊軟體與我們聯繫，隨時為您解答電腦疑難雜症。</p>
+                <h2 data-i18n="sup.title" class="text-3xl font-bold text-slate-900 mb-4">預約與即時諮詢管道</h2>
+                <p data-i18n="sup.subtitle" class="text-slate-600">我們統一提供線上表單登記與網站即時文字客服，確保每一筆案件皆有完整紀錄與專人追蹤。</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- LINE -->
-                <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
-                    <div class="text-[#00B900] text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-line"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-1">LINE 官方客服</h4>
-                    <p class="text-slate-500 text-xs">ID: @621bvlyb</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Notion Booking Form -->
+                <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group flex flex-col items-center">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h4 data-i18n="sup.c1Title" class="font-bold text-xl text-slate-800 mb-2">Notion 線上預約表單</h4>
+                    <p data-i18n="sup.c1Desc" class="text-slate-500 text-sm mb-6 leading-relaxed">24 小時全天候開放填單，留下您的電腦狀況、聯絡方式與希望到府時段，工程師將盡快與您確認派工。</p>
+                    <span data-i18n="sup.c1Btn" class="mt-auto inline-flex items-center gap-2 bg-brand-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm group-hover:bg-brand-700 transition">
+                        前往填寫表單 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </span>
                 </a>
 
-                <!-- Facebook 客服 -->
-                <a href="https://www.facebook.com/fixtaipei" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
-                    <div class="text-blue-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-facebook"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-1">Facebook 客服</h4>
-                    <p class="text-slate-500 text-xs">私訊粉專即時回覆</p>
-                </a>
-
-                <!-- Instagram 客服 -->
-                <a href="https://www.instagram.com/fixtaipei/reels/" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
-                    <div class="text-pink-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-1">Instagram 客服</h4>
-                    <p class="text-slate-500 text-xs">觀看 Reels 與小盒子洽詢</p>
-                </a>
-
-                <!-- WhatsApp 客服 -->
-                <a href="https://wa.me/message/4YRXWEEETXHSN1" target="_blank" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group">
-                    <div class="text-emerald-600 text-4xl mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></div>
-                    <h4 class="font-bold text-lg text-slate-800 mb-1">WhatsApp 客服</h4>
-                    <p class="text-slate-500 text-xs">快速文字對話</p>
-                </a>
+                <!-- Online Live Chat -->
+                <button onclick="$crisp.push(['do', 'chat:open']);" class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-slate-200 transition text-center group flex flex-col items-center">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h4 data-i18n="sup.c2Title" class="font-bold text-xl text-slate-800 mb-2">線上即時諮詢 (Live Chat)</h4>
+                    <p data-i18n="sup.c2Desc" class="text-slate-500 text-sm mb-6 leading-relaxed">無需加好友或安裝任何通訊軟體，點擊即可直接與線上技術顧問對話，快速評估故障原因與報價。</p>
+                    <span data-i18n="sup.c2Btn" class="mt-auto inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm group-hover:bg-emerald-700 transition">
+                        開啟即時對話視窗 <i class="fa-solid fa-comment-dots"></i>
+                    </span>
+                </button>
             </div>
         </div>
     </section>
@@ -501,37 +520,37 @@
     <section id="faq" class="py-16 bg-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">常見問題 FAQ</h2>
-                <p class="text-slate-600">整理顧客常見疑問，為您解答。</p>
+                <h2 data-i18n="faq.title" class="text-3xl font-bold text-slate-900 mb-4">常見問題 FAQ</h2>
+                <p data-i18n="faq.subtitle" class="text-slate-600">整理顧客常見疑問，為您解答。</p>
             </div>
 
             <div class="space-y-4">
                 <div class="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
                     <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-100">
-                        <span>Q1: 到府檢測後，如果決定不修需要付費嗎？</span>
+                        <span data-i18n="faq.q1">Q1: 到府檢測後，如果決定不修需要付費嗎？</span>
                         <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="faq-answer-1" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
-                        工程師到府檢測後會提供詳細報價。若檢測後因零件停產或個人因素評估後決定放棄維修，僅需支付基本到府檢測與車马費用，絕不收取額外施工費。
+                    <div id="faq-answer-1" data-i18n="faq.a1" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
+                        工程師到府檢測後會提供詳細報價。若檢測後因零件停產或個人因素評估後決定放棄維修，僅需支付基本到府檢測與車馬費用，絕不收取額外施工費。
                     </div>
                 </div>
 
                 <div class="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
                     <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-100">
-                        <span>Q2: 如何升級成為 VIP 尊榮會員？權益包含哪些？</span>
+                        <span data-i18n="faq.q2">Q2: 如何升級成為 VIP 尊榮會員？權益包含哪些？</span>
                         <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="faq-answer-2" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
+                    <div id="faq-answer-2" data-i18n="faq.a2" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
                         只要單次消費滿 NT$ 3,000 或年度累計維修次數達標，系統將自動升級為 VIP 會員。尊榮權益包括到府車馬費 8 折優惠、最快 2 小時內優先派工排程、保固期延長至 60 天，以及每年 1 次免費遠端系統清理健檢。
                     </div>
                 </div>
 
                 <div class="bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
                     <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center p-4 font-bold text-left text-slate-800 hover:bg-slate-100">
-                        <span>Q3: 企業簽約年度合約如何發票開立與結算？</span>
+                        <span data-i18n="faq.q3">Q3: 企業簽約年度合約如何發票開立與結算？</span>
                         <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
-                    <div id="faq-answer-3" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
+                    <div id="faq-answer-3" data-i18n="faq.a3" class="hidden p-4 border-t border-slate-200 text-slate-600 text-sm leading-relaxed">
                         企業維護合約提供季結或年繳方式，並定期提供開立可報稅之三聯式統一發票。年繳客戶可享有合約總金額 9 折優惠。
                     </div>
                 </div>
@@ -546,30 +565,33 @@
                 <div class="flex items-center gap-2 text-2xl font-black text-white mb-4">
                     <i class="fa-solid fa-wrench text-brand-500"></i> FixTaipei
                 </div>
-                <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                <p data-i18n="footer.desc" class="text-sm text-slate-400 leading-relaxed mb-4">
                     台北地區最值得信賴的電腦宅修團隊，提供到府維修、會員售後保障與中小企業 IT 外包顧問服務。
                 </p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">快速連結</h4>
+                <h4 data-i18n="footer.quickLinks" class="text-white font-bold mb-4">快速連結</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#advantages" class="hover:text-white transition">服務優勢</a></li>
-                    <li><a href="#services" class="hover:text-white transition">服務項目</a></li>
-                    <li><a href="#membership" class="hover:text-white transition">會員權益</a></li>
-                    <li><a href="#corporate" class="hover:text-white transition">企業維護合約</a></li>
-                    <li><a href="#calculator" class="hover:text-white transition">費用估算</a></li>
-                    <li><a href="#faq" class="hover:text-white transition">常見問題</a></li>
+                    <li><a href="#advantages" data-i18n="nav.advantages" class="hover:text-white transition">服務優勢</a></li>
+                    <li><a href="#services" data-i18n="nav.services" class="hover:text-white transition">服務項目</a></li>
+                    <li><a href="#membership" data-i18n="nav.membership" class="hover:text-white transition">會員權益</a></li>
+                    <li><a href="#corporate" data-i18n="nav.corporate" class="hover:text-white transition">企業維護合約</a></li>
+                    <li><a href="#calculator" data-i18n="nav.calculator" class="hover:text-white transition">費用估算</a></li>
+                    <li><a href="#faq" data-i18n="nav.faq" class="hover:text-white transition">常見問題</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">多元客服中心</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><i class="fa-solid fa-location-dot w-5 text-brand-500"></i> 台北市／新北市全區到府服務</li>
-                    <li><i class="fa-brands fa-line w-5 text-[#00B900]"></i> LINE: <a href="https://line.me/R/ti/p/@621bvlyb" target="_blank" class="hover:underline text-white">@621bvlyb</a></li>
-                    <li><i class="fa-brands fa-facebook w-5 text-blue-500"></i> Facebook: <a href="https://www.facebook.com/fixtaipei" target="_blank" class="hover:underline text-white">前往粉絲專頁</a></li>
-                    <li><i class="fa-brands fa-instagram w-5 text-pink-500"></i> Instagram: <a href="https://www.instagram.com/fixtaipei/reels/" target="_blank" class="hover:underline text-white">觀看 Reels 影片</a></li>
-                    <li><i class="fa-brands fa-whatsapp w-5 text-emerald-500"></i> WhatsApp: <a href="https://wa.me/message/4YRXWEEETXHSN1" target="_blank" class="hover:underline text-white">快速訊息對話</a></li>
-                    <li><i class="fa-brands fa-microsoft w-5 text-blue-400"></i> Teams: <a href="https://teams.live.com/l/invite/FEAzxt2uELQpAlScg?v=g1" target="_blank" class="hover:underline text-white">企業 IT 專用邀請</a></li>
+                <h4 data-i18n="footer.bookingTitle" class="text-white font-bold mb-4">預約與諮詢</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><i class="fa-solid fa-location-dot w-5 text-brand-500"></i> <span data-i18n="footer.area">台北市／新北市全區到府服務</span></li>
+                    <li>
+                        <i class="fa-solid fa-file-signature w-5 text-brand-400"></i>
+                        <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="footer.notionLink" class="hover:underline text-white">Notion 線上預約表單</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-comments w-5 text-emerald-400"></i>
+                        <button onclick="$crisp.push(['do', 'chat:open']);" data-i18n="footer.chatLink" class="hover:underline text-white">開啟線上即時諮詢 (Live Chat)</button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -591,8 +613,356 @@
         })();
     </script>
 
-    <!-- JavaScript Logic -->
+    <!-- JavaScript Logic & Bilingual i18n Dictionary -->
     <script>
+        let currentLang = 'zh';
+
+        const translations = {
+            zh: {
+                pageTitle: "FixTaipei 台北電腦宅修 | 專業到府電腦維修、會員權益與企業 IT 顧問服務",
+                pageDesc: "台北地區專業電腦到府維修服務！提供會員專屬權益、VIP尊榮禮遇、中小企業年度IT外包維護方案、Windows/Mac故障排除與網路架設。",
+                "brand.badge": "台北電腦宅修",
+                "nav.advantages": "服務優勢",
+                "nav.services": "維修項目",
+                "nav.membership": "會員權益",
+                "nav.corporate": "企業簽約方案",
+                "nav.calculator": "費用估算",
+                "nav.faq": "常見問題",
+                "nav.liveChat": "線上即時諮詢",
+                "nav.bookNow": "立即預約",
+
+                "hero.badge": "台北市／新北市快速到府",
+                "hero.title": "電腦故障不必搬！<br><span class=\"text-brand-600\">專業工程師直接到府</span>",
+                "hero.subtitle": "告別大包小包搬主機的狼狽！台北最迅速、透明的 PC/Mac 到府維修與企業 IT 顧問服務。現場檢測，透明報價，會員享有專屬保固與車馬費折扣優惠。",
+                "hero.btnBook": "預約工程師到府",
+                "hero.btnChat": "線上即時諮詢",
+                "hero.tag1": "先報價後維修",
+                "hero.tag2": "絕不亂加價",
+                "hero.tag3": "會員獨享保固",
+
+                "heroCard.title": "💡 常見電腦急救案例",
+                "heroCard.badge": "現場排除率 95%+",
+                "heroCard.item1Title": "開機黑屏／藍屏死機",
+                "heroCard.item1Desc": "記憶體金手指氧化、電源供應器故障排查",
+                "heroCard.item2Title": "電腦速度極慢／老舊升級",
+                "heroCard.item2Desc": "傳統硬碟換裝 SSD 固態硬碟，效能立刻提升 5 倍",
+                "heroCard.item3Title": "居家／辦公室 Wi-Fi 訊號死角",
+                "heroCard.item3Desc": "Mesh 無縫漫遊網路規劃與網路線抽換",
+
+                "adv.title": "為什麼選擇 FixTaipei？",
+                "adv.subtitle": "我們用最專業技術與透明服務，解決您所有的數位煩惱。",
+                "adv.card1Title": "免出門，到府服務",
+                "adv.card1Desc": "填寫線上表單或即時諮詢預約，工程師配合您的時間上門處理。免去拆裝線路、搬運重量主機的困擾。",
+                "adv.card2Title": "先報價，後維修",
+                "adv.card2Desc": "現場檢測確認故障原因後，說明修復方式與明確費用。經您同意後才開始施工，絕不隨意加價。",
+                "adv.card3Title": "PC / Mac 全對應",
+                "adv.card3Desc": "不管是 Windows 品牌桌機、DIY 組裝機，還是 Apple Mac、NAS 網路儲存設備，皆能提供專業解決方案。",
+
+                "srv.title": "服務項目",
+                "srv.subtitle": "從個人電腦維護到企業 IT 支援，全方位滿足您的需求。",
+                "srv.c1Title": "硬體檢測與更換",
+                "srv.c1Desc": "主機板、顯示卡、電源供應器檢測，SSD/記憶體升級施工。",
+                "srv.c2Title": "系統重灌與優化",
+                "srv.c2Desc": "Windows / macOS 正版系統重灌、病毒清理、開機卡頓加速。",
+                "srv.c3Title": "網路與 Mesh 架設",
+                "srv.c3Desc": "居家/店面 Wi-Fi 訊號優化、Mesh 全屋漫遊、網路拉線與路由器設定。",
+                "srv.c4Title": "企業 IT 與 NAS 備份",
+                "srv.c4Desc": "中小企業定期維護外包、NAS 私有雲建立、自動化備份與資安防護。",
+
+                "mem.title": "FixTaipei 會員尊榮權益",
+                "mem.subtitle": "加入會員即可享受更完善的售後保障、線上維修履歷查詢與優先派工服務。",
+                "mem.m1Title": "一般會員",
+                "mem.m1Sub": "首次預約或線上諮詢即可免費登錄升級",
+                "mem.m1f1": "<strong>免費線上諮詢：</strong>文字即時線上初步診斷與諮詢",
+                "mem.m1f2": "<strong>雲端維修履歷：</strong>專屬檔案紀錄每次維護細節",
+                "mem.m1f3": "<strong>基礎維修保固：</strong>完工享 30 天硬體維修保固服務",
+                "mem.m1Btn": "線上即時諮詢加入會員",
+
+                "mem.m2Badge": "熱門首選",
+                "mem.m2Title": "VIP 尊榮會員",
+                "mem.m2Sub": "單次消費滿 NT$ 3,000 或年累計達標升級",
+                "mem.m2f1": "<strong>車馬費 8 折優惠：</strong>每次到府服務享折扣優惠",
+                "mem.m2f2": "<strong>快速到府派工：</strong>最快 2 小時內優先安排工程師",
+                "mem.m2f3": "<strong>保固延長 60 天：</strong>售後服務體驗雙倍安心保障",
+                "mem.m2f4": "<strong>每年 1 次免費健檢：</strong>遠端電腦系統清理與效能優化",
+                "mem.m2Btn": "線上諮詢 VIP 升級資格",
+
+                "mem.m3Title": "企業簽約客戶",
+                "mem.m3Sub": "適合無專職 IT 的中小企業、工作室與門市",
+                "mem.m3f1": "<strong>專屬 IT 顧問對接：</strong>線上即時與遠端快速服務支援",
+                "mem.m3f2": "<strong>定期到府巡檢：</strong>設備保養、NAS備份與網路維護",
+                "mem.m3f3": "<strong>採購材料優惠價：</strong>硬體更換與耗材 85 折至 9 折",
+                "mem.m3f4": "<strong>月結／季結發票：</strong>公司報帳方便，發票開立快捷",
+                "mem.m3Btn": "查看企業維護方案",
+
+                "corp.title": "企業 IT 外包與年度維護合約",
+                "corp.subtitle": "不用高薪聘請專職 IT 人員！FixTaipei 為台北中小企業提供彈性、高性價比的 IT 外包顧問服務，維持公司網路、電腦與伺服器穩定運作。",
+                "corp.p1Title": "微型企業／預付工時卡",
+                "corp.p1Sub": "適用 1-5 台電腦 / 無固定維修需求之團隊",
+                "corp.p1Unit": "/ 10小時包",
+                "corp.p1Note": "時數有效期 1 年，按次抵扣",
+                "corp.p1f1": "無固定月費負擔，資金彈性",
+                "corp.p1f2": "遠端線上服務以 0.5 小時為單位扣抵",
+                "corp.p1f3": "到府檢測維修免額外車馬費",
+                "corp.p1f4": "工作日 4 小時內快速回應",
+
+                "corp.p2Badge": "最推薦方案",
+                "corp.p2Title": "標準企業包月合約",
+                "corp.p2Sub": "適用 6-12 台電腦之一般中小企業辦公室",
+                "corp.p2Unit": "/ 每月",
+                "corp.p2Note": "簽訂年度合約，按季或按年結算（年繳享 9 折）",
+                "corp.p2f1": "每月 1 次定期到府預防性巡檢保養",
+                "corp.p2f2": "上班時間無限次遠端即時技術支援",
+                "corp.p2f3": "辦公室 Wi-Fi / Mesh 網路穩定度維護",
+                "corp.p2f4": "NAS 資料自動備份與資安狀態監控",
+                "corp.p2f5": "障礙排除緊急到場（2-4小時內抵達）",
+
+                "corp.p3Title": "進階企業 / 多據點維護",
+                "corp.p3Sub": "適用 13-25 台電腦 / 連鎖門市 / 設計公司",
+                "corp.p3Unit": "/ 每月",
+                "corp.p3Note": "客製化 IT 服務協議（SLA）保障",
+                "corp.p3f1": "每月 2 次定期到府設備巡檢與清潔",
+                "corp.p3f2": "印表機、NAS 與防火牆整體管理",
+                "corp.p3f3": "新進員工電腦環境快速部署設定",
+                "corp.p3f4": "設備故障送修期間提供備用替代機",
+
+                "corp.btnForm": "填寫預約表單",
+                "corp.btnChat": "線上即時諮詢",
+                "corp.footnote": "<strong>備註說明：</strong>以上合約費用為「技術服務與巡檢維護費」。若需更換硬體零件或添購新設備，零件材料費另計，簽約客戶獨享 85 折至 9 折優惠價。",
+                "corp.footnoteChat": "線上即時專人諮詢",
+
+                "calc.title": "🧮 個人／會員到府服務試算器",
+                "calc.subtitle": "選擇服務項目與會員身份，預先試算透明費用。",
+                "calc.labelService": "選擇服務類別",
+                "calc.srvOpt1": "電腦基本檢測 / 故障排除 (NT$ 500)",
+                "calc.srvOpt2": "系統重灌 + 驅動完整安裝 (NT$ 1,200)",
+                "calc.srvOpt3": "硬體更換 / SSD 複製轉移 (NT$ 1,000)",
+                "calc.srvOpt4": "Wi-Fi 網路架設 / Mesh 設定 (NT$ 1,500)",
+                "calc.labelLocation": "到府區域 (基礎車馬費)",
+                "calc.locOpt1": "台北市核心區 (車馬費 NT$ 300)",
+                "calc.locOpt2": "新北市核心區 (車馬費 NT$ 500)",
+                "calc.locOpt3": "偏遠/山區 (車馬費 NT$ 800)",
+                "calc.labelMember": "會員身分折扣",
+                "calc.memOpt1": "非會員 / 一般顧客 (無折扣)",
+                "calc.memOpt2": "VIP 尊榮會員 (車馬費 8 折)",
+                "calc.resultLabel": "預估基本費用",
+                "calc.resultNote": "* 實際費用依現場硬體損壞狀況與更換零件材料費為準。工程師檢測後會先進行完整報價。",
+                "calc.btnBook": "填寫 Notion 表單預約",
+                "calc.btnChat": "線上即時諮詢確認",
+
+                "sup.title": "預約與即時諮詢管道",
+                "sup.subtitle": "我們統一提供線上表單登記與網站即時文字客服，確保每一筆案件皆有完整紀錄與專人追蹤。",
+                "sup.c1Title": "Notion 線上預約表單",
+                "sup.c1Desc": "24 小時全天候開放填單，留下您的電腦狀況、聯絡方式與希望到府時段，工程師將盡快與您確認派工。",
+                "sup.c1Btn": "前往填寫表單",
+                "sup.c2Title": "線上即時諮詢 (Live Chat)",
+                "sup.c2Desc": "無需加好友或安裝任何通訊軟體，點擊即可直接與線上技術顧問對話，快速評估故障原因與報價。",
+                "sup.c2Btn": "開啟即時對話視窗",
+
+                "faq.title": "常見問題 FAQ",
+                "faq.subtitle": "整理顧客常見疑問，為您解答。",
+                "faq.q1": "Q1: 到府檢測後，如果決定不修需要付費嗎？",
+                "faq.a1": "工程師到府檢測後會提供詳細報價。若檢測後因零件停產或個人因素評估後決定放棄維修，僅需支付基本到府檢測與車馬費用，絕不收取額外施工費。",
+                "faq.q2": "Q2: 如何升級成為 VIP 尊榮會員？權益包含哪些？",
+                "faq.a2": "只要單次消費滿 NT$ 3,000 或年度累計維修次數達標，系統將自動升級為 VIP 會員。尊榮權益包括到府車馬費 8 折優惠、最快 2 小時內優先派工排程、保固期延長至 60 天，以及每年 1 次免費遠端系統清理健檢。",
+                "faq.q3": "Q3: 企業簽約年度合約如何發票開立與結算？",
+                "faq.a3": "企業維護合約提供季結或年繳方式，並定期提供開立可報稅之三聯式統一發票。年繳客戶可享有合約總金額 9 折優惠。",
+
+                "footer.desc": "台北地區最值得信賴的電腦宅修團隊，提供到府維修、會員售後保障與中小企業 IT 外包顧問服務。",
+                "footer.quickLinks": "快速連結",
+                "footer.bookingTitle": "預約與諮詢",
+                "footer.area": "台北市／新北市全區到府服務",
+                "footer.notionLink": "Notion 線上預約表單",
+                "footer.chatLink": "開啟線上即時諮詢 (Live Chat)"
+            },
+            en: {
+                pageTitle: "FixTaipei | On-Site PC & Mac Repair, Membership & Corporate IT Support in Taipei",
+                pageDesc: "Professional on-site computer repair in Taipei & New Taipei! PC/Mac troubleshooting, SSD upgrades, Wi-Fi Mesh setup, VIP membership perks, and SMB IT outsourcing.",
+                "brand.badge": "On-Site Tech Support",
+                "nav.advantages": "Why Us",
+                "nav.services": "Services",
+                "nav.membership": "Membership",
+                "nav.corporate": "Corporate IT",
+                "nav.calculator": "Estimator",
+                "nav.faq": "FAQ",
+                "nav.liveChat": "Live Chat",
+                "nav.bookNow": "Book Now",
+
+                "hero.badge": "Fast On-Site Service in Taipei & New Taipei",
+                "hero.title": "Don't Carry Your PC!<br><span class=\"text-brand-600\">Engineers Come to You</span>",
+                "hero.subtitle": "Skip the hassle of unplugging and hauling heavy desktops. Taipei's fastest, most transparent on-site PC/Mac repair and corporate IT consulting. Clear upfront quotes and exclusive member warranties.",
+                "hero.btnBook": "Book On-Site Engineer",
+                "hero.btnChat": "Online Live Chat",
+                "hero.tag1": "Quote Before Repair",
+                "hero.tag2": "No Hidden Fees",
+                "hero.tag3": "Member Warranty",
+
+                "heroCard.title": "💡 Common Emergency Fixes",
+                "heroCard.badge": "95%+ On-Site Resolution",
+                "heroCard.item1Title": "Black Screen / Blue Screen (BSOD)",
+                "heroCard.item1Desc": "RAM contact oxidation cleaning & power supply diagnostics",
+                "heroCard.item2Title": "Sluggish PC / Hardware Upgrade",
+                "heroCard.item2Desc": "Upgrade legacy HDD to high-speed SSD for 5x faster performance",
+                "heroCard.item3Title": "Home / Office Wi-Fi Dead Zones",
+                "heroCard.item3Desc": "Seamless Mesh Wi-Fi planning & network cable replacement",
+
+                "adv.title": "Why Choose FixTaipei?",
+                "adv.subtitle": "Professional expertise and transparent pricing to solve all your tech headaches.",
+                "adv.card1Title": "Door-to-Door Service",
+                "adv.card1Desc": "Book via our online form or live chat. Our engineers visit on your schedule—no need to disconnect cables or haul heavy towers.",
+                "adv.card2Title": "Quote First, Repair Second",
+                "adv.card2Desc": "After on-site diagnosis, we explain the issue and exact cost clearly. Work only begins after your approval with zero surprise charges.",
+                "adv.card3Title": "PC & Mac Specialists",
+                "adv.card3Desc": "From custom gaming rigs and Windows desktops to Apple Macs and NAS storage systems, we handle it all.",
+
+                "srv.title": "Our Services",
+                "srv.subtitle": "Comprehensive tech support from personal computers to business IT infrastructure.",
+                "srv.c1Title": "Hardware Diagnostics & Upgrades",
+                "srv.c1Desc": "Motherboard, GPU, PSU testing, plus SSD and RAM installation.",
+                "srv.c2Title": "OS Reinstall & Optimization",
+                "srv.c2Desc": "Genuine Windows / macOS clean installs, malware removal, and speed tuning.",
+                "srv.c3Title": "Network & Mesh Wi-Fi Setup",
+                "srv.c3Desc": "Whole-home/office Wi-Fi optimization, Mesh roaming, cabling & router config.",
+                "srv.c4Title": "Corporate IT & NAS Backup",
+                "srv.c4Desc": "SMB scheduled maintenance, NAS private cloud setup, automated backups & security.",
+
+                "mem.title": "FixTaipei Membership Perks",
+                "mem.subtitle": "Join our membership for extended warranties, cloud service logs, and priority dispatch.",
+                "mem.m1Title": "Basic Member",
+                "mem.m1Sub": "Free registration upon your first booking or live chat",
+                "mem.m1f1": "<strong>Free Online Consultation:</strong> Instant text diagnostics & tech advice",
+                "mem.m1f2": "<strong>Cloud Service History:</strong> Digital logs tracking every maintenance visit",
+                "mem.m1f3": "<strong>Standard Warranty:</strong> 30-day hardware repair warranty included",
+                "mem.m1Btn": "Join via Live Chat",
+
+                "mem.m2Badge": "Most Popular",
+                "mem.m2Title": "VIP Platinum",
+                "mem.m2Sub": "Auto-upgrade with NT$ 3,000+ single visit or annual spend",
+                "mem.m2f1": "<strong>20% Off Travel Fee:</strong> Discounted dispatch fee on every on-site visit",
+                "mem.m2f2": "<strong>Priority Dispatch:</strong> Priority engineer assignment within 2 hours",
+                "mem.m2f3": "<strong>60-Day Extended Warranty:</strong> Double peace of mind after repairs",
+                "mem.m2f4": "<strong>1 Free Annual Checkup:</strong> Remote system cleanup & performance tuning",
+                "mem.m2Btn": "Ask About VIP Status",
+
+                "mem.m3Title": "Corporate VIP",
+                "mem.m3Sub": "Ideal for SMBs, studios & retail stores without in-house IT",
+                "mem.m3f1": "<strong>Dedicated IT Consultant:</strong> Fast online live chat & remote support",
+                "mem.m3f2": "<strong>Scheduled On-Site Visits:</strong> Routine maintenance, NAS backup & network care",
+                "mem.m3f3": "<strong>Hardware Discounts:</strong> 10%–15% off replacement parts & peripherals",
+                "mem.m3f4": "<strong>Monthly/Quarterly Billing:</strong> Official Taiwan GUI tax invoices provided",
+                "mem.m3Btn": "View Corporate Plans",
+
+                "corp.title": "Corporate IT Outsourcing & Annual Contracts",
+                "corp.subtitle": "No need to hire full-time IT staff! FixTaipei provides flexible, cost-effective IT support for Taipei SMBs to keep networks, PCs, and servers running smoothly.",
+                "corp.p1Title": "Micro Business / Prepaid Card",
+                "corp.p1Sub": "For 1–5 PCs / teams with occasional support needs",
+                "corp.p1Unit": "/ 10-Hr Pack",
+                "corp.p1Note": "Valid for 1 year, deducted per session",
+                "corp.p1f1": "No fixed monthly fee—maximum budget flexibility",
+                "corp.p1f2": "Remote support billed in 0.5-hour increments",
+                "corp.p1f3": "No extra travel fee for on-site diagnostics",
+                "corp.p1f4": "Fast response within 4 business hours",
+
+                "corp.p2Badge": "Recommended",
+                "corp.p2Title": "Standard Monthly Contract",
+                "corp.p2Sub": "For SMB offices with 6–12 computers",
+                "corp.p2Unit": "/ Month",
+                "corp.p2Note": "Annual contract, billed quarterly or annually (10% off annual)",
+                "corp.p2f1": "1 scheduled on-site preventive checkup per month",
+                "corp.p2f2": "Unlimited remote tech support during business hours",
+                "corp.p2f3": "Office Wi-Fi / Mesh network stability management",
+                "corp.p2f4": "NAS automated backup & security monitoring",
+                "corp.p2f5": "Emergency on-site dispatch (2–4 hr arrival)",
+
+                "corp.p3Title": "Advanced / Multi-Site Plan",
+                "corp.p3Sub": "For 13–25 PCs / retail chains / design studios",
+                "corp.p3Unit": "/ Month",
+                "corp.p3Note": "Customized IT Service Level Agreement (SLA)",
+                "corp.p3f1": "2 scheduled on-site inspections & cleanings per month",
+                "corp.p3f2": "Full management of printers, NAS & firewalls",
+                "corp.p3f3": "Rapid workstation deployment for new hires",
+                "corp.p3f4": "Loaner backup PC provided during off-site repairs",
+
+                "corp.btnForm": "Notion Form",
+                "corp.btnChat": "Live Chat",
+                "corp.footnote": "<strong>Note:</strong> Contract fees cover technical labor and routine inspections. Replacement parts or new hardware are billed separately with a 10%–15% corporate member discount.",
+                "corp.footnoteChat": "Consult via Live Chat",
+
+                "calc.title": "🧮 On-Site Service Fee Estimator",
+                "calc.subtitle": "Select your service type and membership tier for a transparent estimate.",
+                "calc.labelService": "Service Category",
+                "calc.srvOpt1": "Basic Diagnostics / Troubleshooting (NT$ 500)",
+                "calc.srvOpt2": "OS Reinstall + Full Drivers (NT$ 1,200)",
+                "calc.srvOpt3": "Hardware Swap / SSD Cloning (NT$ 1,000)",
+                "calc.srvOpt4": "Wi-Fi Setup / Mesh Configuration (NT$ 1,500)",
+                "calc.labelLocation": "Service Area (Base Travel Fee)",
+                "calc.locOpt1": "Taipei City Core Districts (Travel NT$ 300)",
+                "calc.locOpt2": "New Taipei City Core Districts (Travel NT$ 500)",
+                "calc.locOpt3": "Remote / Mountain Areas (Travel NT$ 800)",
+                "calc.labelMember": "Membership Discount",
+                "calc.memOpt1": "Non-Member / Regular Customer (No Discount)",
+                "calc.memOpt2": "VIP Platinum Member (20% Off Travel Fee)",
+                "calc.resultLabel": "Estimated Base Total",
+                "calc.resultNote": "* Final cost depends on on-site hardware condition and replacement parts. Our engineer will provide a full quote before starting work.",
+                "calc.btnBook": "Book via Notion Form",
+                "calc.btnChat": "Confirm via Live Chat",
+
+                "sup.title": "Booking & Live Consultation Channels",
+                "sup.subtitle": "We streamline all requests through our Notion booking form and website Live Chat so every case is tracked and answered promptly.",
+                "sup.c1Title": "Notion Online Booking Form",
+                "sup.c1Desc": "Available 24/7. Submit your device issue, contact details, and preferred time slot, and an engineer will confirm your appointment shortly.",
+                "sup.c1Btn": "Open Booking Form",
+                "sup.c2Title": "Online Live Chat",
+                "sup.c2Desc": "No extra apps or friend requests needed. Click to chat directly with an online tech advisor for instant troubleshooting and quotes.",
+                "sup.c2Btn": "Start Live Chat Now",
+
+                "faq.title": "Frequently Asked Questions",
+                "faq.subtitle": "Quick answers to common questions from our clients.",
+                "faq.q1": "Q1: If I decide not to proceed with a repair after on-site diagnosis, do I still pay?",
+                "faq.a1": "Our engineer provides a clear quote after on-site inspection. If you choose not to repair due to discontinued parts or personal reasons, you only pay the basic diagnostic and travel fee—never any labor charges.",
+                "faq.q2": "Q2: How do I upgrade to VIP Platinum Membership, and what are the perks?",
+                "faq.a2": "Spending NT$ 3,000+ in a single visit or reaching our annual visit threshold automatically upgrades you to VIP Platinum. Benefits include 20% off travel fees, priority dispatch within 2 hours, a 60-day extended warranty, and 1 free remote system tune-up per year.",
+                "faq.q3": "Q3: How are invoices and payments handled for corporate annual contracts?",
+                "faq.a3": "Corporate contracts can be billed quarterly or annually, with official Taiwan three-part GUI tax invoices issued for accounting. Annual upfront payments receive a 10% discount.",
+
+                "footer.desc": "Taipei's trusted on-site computer repair team, offering door-to-door tech support, member warranties, and SMB IT outsourcing.",
+                "footer.quickLinks": "Quick Links",
+                "footer.bookingTitle": "Booking & Support",
+                "footer.area": "Serving all of Taipei & New Taipei City",
+                "footer.notionLink": "Notion Online Booking Form",
+                "footer.chatLink": "Start Online Live Chat"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            const dict = translations[lang];
+            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+            document.getElementById('page-title').innerText = dict.pageTitle;
+            document.getElementById('page-desc').setAttribute('content', dict.pageDesc);
+            document.getElementById('langLabel').innerText = lang === 'zh' ? 'EN' : '中文';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            calculateFee();
+        }
+
         // 費用計算腳本（含會員折扣功能）
         function calculateFee() {
             const service = parseInt(document.getElementById('serviceType').value);
@@ -616,6 +986,5 @@
             }
         }
     </script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"657495bf2d57434a8239dca38c65cc6e","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script>window.__CF$cv$params={r:'a5e3f9b8798a8d32',t:'MTc5NTMwODk5OA==',u:'01a1e468177d7466bee76265aced23d2',ut:'q1ld7jvv0ntt2cZg0v9YCAJNZpSqfJ29obg82dYXnio-1795308998-1.2.1.1-fBhRU9cD_BBItnnl6YKezt2A4M6hTryA657FzOWfoTgtxYIPG3FvZsjD8wVLUGiymP5ch6hoHEoqxseNXSf8miES7dnsHenkqUTFmxI1blI',i:60};(function(){if(!document.body)return;var l=window.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5e3f9b8798a8d32',s=document.createElement('script');s.src=o?new URL(u,o).href:u;document.head.appendChild(s);})();</script></body>
+</body>
 </html>
