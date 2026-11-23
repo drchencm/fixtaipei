@@ -246,9 +246,9 @@
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
-                    <div class="text-brand-500 text-3xl mb-4"><i class="fa-brands fa-windows"></i></div>
-                    <h4 data-i18n="srv.c2Title" class="font-bold text-lg text-slate-800 mb-2">系統重灌與優化</h4>
-                    <p data-i18n="srv.c2Desc" class="text-slate-500 text-sm">Windows / macOS 正版系統重灌、病毒清理、開機卡頓加速。</p>
+                    <div class="text-brand-500 text-3xl mb-4"><i class="fa-brands fa-apple"></i></div>
+                    <h4 data-i18n="srv.c2Title" class="font-bold text-lg text-slate-800 mb-2">系統重灌與軟體設定</h4>
+                    <p data-i18n="srv.c2Desc" class="text-slate-500 text-sm">Windows / macOS 正版系統重灌、新機開箱軟體安裝設定與效能優化。</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition">
@@ -476,19 +476,36 @@
             <div class="bg-gradient-to-br from-brand-900 to-slate-900 text-white rounded-2xl p-8 shadow-xl">
                 <div class="text-center mb-8">
                     <h2 data-i18n="calc.title" class="text-2xl sm:text-3xl font-bold mb-2">🧮 個人／會員到府服務試算器</h2>
-                    <p data-i18n="calc.subtitle" class="text-slate-300 text-sm">選擇服務項目與會員身份，預先試算透明費用。</p>
+                    <p data-i18n="calc.subtitle" class="text-slate-300 text-sm">選擇維修或 Mac / Windows 軟體安裝設定項目與會員身份，預先試算透明費用。</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
                     <div class="space-y-4">
                         <div>
                             <label data-i18n="calc.labelService" class="block text-sm font-medium text-slate-300 mb-2">選擇服務類別</label>
                             <select id="serviceType" onchange="calculateFee()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-3 focus:outline-none focus:border-brand-500">
                                 <option value="500" data-i18n="calc.srvOpt1">電腦基本檢測 / 故障排除 (NT$ 500)</option>
-                                <option value="1200" data-i18n="calc.srvOpt2">系統重灌 + 驅動完整安裝 (NT$ 1,200)</option>
+                                <option value="500" data-i18n="calc.srvOptMacSingle">單一軟體代裝與環境設定 (Mac / Win) (NT$ 500)</option>
+                                <option value="1200" data-i18n="calc.srvOptMacBundle">新機開箱／多套常用軟體安裝與設定 (Mac / Win) (NT$ 1,200)</option>
+                                <option value="1200" data-i18n="calc.srvOpt2">系統重灌 + 驅動完整安裝 (Mac / Win) (NT$ 1,200)</option>
                                 <option value="1000" data-i18n="calc.srvOpt3">硬體更換 / SSD 複製轉移 (NT$ 1,000)</option>
                                 <option value="1500" data-i18n="calc.srvOpt4">Wi-Fi 網路架設 / Mesh 設定 (NT$ 1,500)</option>
                             </select>
+                        </div>
+
+                        <!-- 加購項目（選填） -->
+                        <div>
+                            <label data-i18n="calc.labelAddons" class="block text-sm font-medium text-slate-300 mb-2">加購項目（選填）</label>
+                            <div class="space-y-2 bg-slate-800/60 border border-slate-700/80 rounded-lg p-3">
+                                <label class="flex items-start gap-2.5 cursor-pointer text-sm text-slate-200 hover:text-white select-none">
+                                    <input type="checkbox" id="addonSoftware" value="500" onchange="calculateFee()" class="mt-1 rounded border-slate-600 bg-slate-700 text-brand-500 focus:ring-brand-500">
+                                    <span data-i18n="calc.addonOpt1">加購軟體代裝／信箱與印表機設定 (+NT$ 500)</span>
+                                </label>
+                                <label class="flex items-start gap-2.5 cursor-pointer text-sm text-slate-200 hover:text-white select-none">
+                                    <input type="checkbox" id="addonMigration" value="800" onchange="calculateFee()" class="mt-1 rounded border-slate-600 bg-slate-700 text-brand-500 focus:ring-brand-500">
+                                    <span data-i18n="calc.addonOpt2">資料備份與舊機轉移 / Time Machine 設定 (+NT$ 800)</span>
+                                </label>
+                            </div>
                         </div>
 
                         <div>
@@ -509,11 +526,16 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-                        <div data-i18n="calc.resultLabel" class="text-slate-400 text-sm mb-1">預估基本費用</div>
-                        <div class="text-4xl font-extrabold text-brand-400 mb-2" id="totalFee">NT$ 800</div>
-                        <div data-i18n="calc.resultNote" class="text-xs text-slate-400 leading-relaxed mb-4">
-                            * 實際費用依現場硬體損壞狀況與更換零件材料費為準。工程師檢測後會先進行完整報價。
+                    <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center flex flex-col justify-between h-full">
+                        <div>
+                            <div data-i18n="calc.resultLabel" class="text-slate-400 text-sm mb-1">預估基本費用</div>
+                            <div class="text-4xl font-extrabold text-brand-400 mb-2" id="totalFee">NT$ 800</div>
+                            <div id="feeBreakdown" class="text-xs text-brand-200/90 bg-slate-900/60 border border-slate-700/70 rounded-lg py-2 px-3 mb-4">
+                                服務工資 NT$ 500 + 車馬費 NT$ 300
+                            </div>
+                            <div data-i18n="calc.resultNote" class="text-xs text-slate-400 leading-relaxed mb-5 text-left">
+                                * 軟體安裝與設定僅收技術工資，不含正版軟體授權費（請自備帳號／序號，不提供盜版破解）。實際費用依現場硬體狀況與零件材料費為準，工程師檢測後會先進行完整報價。
+                            </div>
                         </div>
                         <div class="space-y-2.5">
                             <a href="https://fixtaipei.notion.site/3c6f42a990448056a037e70e86715bf1" target="_blank" data-i18n="calc.btnBook" class="block w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 rounded-lg text-center transition">
@@ -715,8 +737,8 @@
                 "srv.subtitle": "從個人電腦維護到企業 IT 支援，全方位滿足您的需求。",
                 "srv.c1Title": "硬體檢測與更換",
                 "srv.c1Desc": "主機板、顯示卡、電源供應器檢測，SSD/記憶體升級施工。",
-                "srv.c2Title": "系統重灌與優化",
-                "srv.c2Desc": "Windows / macOS 正版系統重灌、病毒清理、開機卡頓加速。",
+                "srv.c2Title": "系統重灌與軟體設定",
+                "srv.c2Desc": "Windows / macOS 正版系統重灌、新機開箱軟體安裝設定與效能優化。",
                 "srv.c3Title": "網路與 Mesh 架設",
                 "srv.c3Desc": "居家/店面 Wi-Fi 訊號優化、Mesh 全屋漫遊、網路拉線與路由器設定。",
                 "srv.c4Title": "企業 IT 與 NAS 備份",
@@ -785,12 +807,17 @@
                 "corp.footnoteChat": "線上即時專人諮詢",
 
                 "calc.title": "🧮 個人／會員到府服務試算器",
-                "calc.subtitle": "選擇服務項目與會員身份，預先試算透明費用。",
+                "calc.subtitle": "選擇維修或 Mac / Windows 軟體安裝設定項目與會員身份，預先試算透明費用。",
                 "calc.labelService": "選擇服務類別",
                 "calc.srvOpt1": "電腦基本檢測 / 故障排除 (NT$ 500)",
-                "calc.srvOpt2": "系統重灌 + 驅動完整安裝 (NT$ 1,200)",
+                "calc.srvOptMacSingle": "單一軟體代裝與環境設定 (Mac / Win) (NT$ 500)",
+                "calc.srvOptMacBundle": "新機開箱／多套常用軟體安裝與設定 (Mac / Win) (NT$ 1,200)",
+                "calc.srvOpt2": "系統重灌 + 驅動完整安裝 (Mac / Win) (NT$ 1,200)",
                 "calc.srvOpt3": "硬體更換 / SSD 複製轉移 (NT$ 1,000)",
                 "calc.srvOpt4": "Wi-Fi 網路架設 / Mesh 設定 (NT$ 1,500)",
+                "calc.labelAddons": "加購項目（選填）",
+                "calc.addonOpt1": "加購軟體代裝／信箱與印表機設定 (+NT$ 500)",
+                "calc.addonOpt2": "資料備份與舊機轉移 / Time Machine 設定 (+NT$ 800)",
                 "calc.labelLocation": "到府區域 (基礎車馬費)",
                 "calc.locOpt1": "台北市核心區 (車馬費 NT$ 300)",
                 "calc.locOpt2": "新北市核心區 (車馬費 NT$ 500)",
@@ -799,7 +826,7 @@
                 "calc.memOpt1": "非會員 / 一般顧客 (無折扣)",
                 "calc.memOpt2": "VIP 尊榮會員 (車馬費 8 折)",
                 "calc.resultLabel": "預估基本費用",
-                "calc.resultNote": "* 實際費用依現場硬體損壞狀況與更換零件材料費為準。工程師檢測後會先進行完整報價。",
+                "calc.resultNote": "* 軟體安裝與設定僅收技術工資，不含正版軟體授權費（請自備帳號／序號，不提供盜版破解）。實際費用依現場硬體狀況與零件材料費為準，工程師檢測後會先進行完整報價。",
                 "calc.btnBook": "填寫表單預約",
                 "calc.btnChat": "線上即時諮詢確認",
 
@@ -879,8 +906,8 @@
                 "srv.subtitle": "Comprehensive tech support from personal computers to business IT infrastructure.",
                 "srv.c1Title": "Hardware Diagnostics & Upgrades",
                 "srv.c1Desc": "Motherboard, GPU, PSU testing, plus SSD and RAM installation.",
-                "srv.c2Title": "OS Reinstall & Optimization",
-                "srv.c2Desc": "Genuine Windows / macOS clean installs, malware removal, and speed tuning.",
+                "srv.c2Title": "OS Reinstall & Software Setup",
+                "srv.c2Desc": "Genuine Windows / macOS clean installs, new device software setup, and speed tuning.",
                 "srv.c3Title": "Network & Mesh Wi-Fi Setup",
                 "srv.c3Desc": "Whole-home/office Wi-Fi optimization, Mesh roaming, cabling & router config.",
                 "srv.c4Title": "Corporate IT & NAS Backup",
@@ -949,12 +976,17 @@
                 "corp.footnoteChat": "Consult via Live Chat",
 
                 "calc.title": "🧮 On-Site Service Fee Estimator",
-                "calc.subtitle": "Select your service type and membership tier for a transparent estimate.",
+                "calc.subtitle": "Select repair or Mac / Windows software installation options and membership tier for a transparent estimate.",
                 "calc.labelService": "Service Category",
                 "calc.srvOpt1": "Basic Diagnostics / Troubleshooting (NT$ 500)",
-                "calc.srvOpt2": "OS Reinstall + Full Drivers (NT$ 1,200)",
+                "calc.srvOptMacSingle": "Single Software Install & Setup (Mac / Win) (NT$ 500)",
+                "calc.srvOptMacBundle": "New Device / Multi-Software Setup (Mac / Win) (NT$ 1,200)",
+                "calc.srvOpt2": "OS Reinstall + Full Drivers (Mac / Win) (NT$ 1,200)",
                 "calc.srvOpt3": "Hardware Swap / SSD Cloning (NT$ 1,000)",
                 "calc.srvOpt4": "Wi-Fi Setup / Mesh Configuration (NT$ 1,500)",
+                "calc.labelAddons": "Optional Add-ons",
+                "calc.addonOpt1": "Extra Software Install / Email & Printer Setup (+NT$ 500)",
+                "calc.addonOpt2": "Data Backup & Migration / Time Machine Setup (+NT$ 800)",
                 "calc.labelLocation": "Service Area (Base Travel Fee)",
                 "calc.locOpt1": "Taipei City Core Districts (Travel NT$ 300)",
                 "calc.locOpt2": "New Taipei City Core Districts (Travel NT$ 500)",
@@ -963,7 +995,7 @@
                 "calc.memOpt1": "Non-Member / Regular Customer (No Discount)",
                 "calc.memOpt2": "VIP Platinum Member (20% Off Travel Fee)",
                 "calc.resultLabel": "Estimated Base Total",
-                "calc.resultNote": "* Final cost depends on on-site hardware condition and replacement parts. Our engineer will provide a full quote before starting work.",
+                "calc.resultNote": "* Software installation & configuration fees cover technical labor only and exclude genuine software license fees (clients must provide valid accounts/licenses; no pirated software). Final cost depends on on-site hardware condition and replacement parts.",
                 "calc.btnBook": "Fill Out Booking Form",
                 "calc.btnChat": "Confirm via Live Chat",
 
@@ -1027,14 +1059,30 @@
             calculateFee();
         }
 
-        // 費用計算腳本（含會員折扣功能）
+        // 費用計算腳本（含軟體安裝設定加購與會員折扣功能）
         function calculateFee() {
             const service = parseInt(document.getElementById('serviceType').value);
+            const addonSoftwareEl = document.getElementById('addonSoftware');
+            const addonMigrationEl = document.getElementById('addonMigration');
+            const addons = (addonSoftwareEl && addonSoftwareEl.checked ? parseInt(addonSoftwareEl.value) : 0) +
+                           (addonMigrationEl && addonMigrationEl.checked ? parseInt(addonMigrationEl.value) : 0);
             const location = parseInt(document.getElementById('location').value);
             const discount = parseFloat(document.getElementById('memberDiscount').value);
 
-            const total = service + (location * discount);
-            document.getElementById('totalFee').innerText = 'NT$ ' + Math.round(total).toLocaleString();
+            const travelFee = Math.round(location * discount);
+            const total = service + addons + travelFee;
+            document.getElementById('totalFee').innerText = 'NT$ ' + total.toLocaleString();
+
+            const breakdownEl = document.getElementById('feeBreakdown');
+            if (breakdownEl) {
+                if (currentLang === 'zh') {
+                    const addonText = addons > 0 ? ` + 加購 NT$ ${addons.toLocaleString()}` : '';
+                    breakdownEl.innerText = `服務工資 NT$ ${service.toLocaleString()}${addonText} + 車馬費 NT$ ${travelFee.toLocaleString()}`;
+                } else {
+                    const addonText = addons > 0 ? ` + Add-ons NT$ ${addons.toLocaleString()}` : '';
+                    breakdownEl.innerText = `Labor NT$ ${service.toLocaleString()}${addonText} + Travel NT$ ${travelFee.toLocaleString()}`;
+                }
+            }
         }
 
         // FAQ 折疊展開腳本
